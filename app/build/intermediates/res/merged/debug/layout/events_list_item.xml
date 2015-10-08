@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background ="#30676767"
+    android:layout_marginBottom="5dp"
+     >
+
+       <TextView
+        android:id="@+id/eid"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+ 
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/top">
+        
+        <TextView
+            android:id="@+id/etitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="Title"
+            android:textColor="#FFFFFF"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="2dp"
+            android:textSize="20dp"
+            android:layout_toLeftOf="@+id/addtocalendar"
+             />
+        
+        <ImageView 
+            android:id="@+id/addtocalendar"
+            android:layout_alignParentRight="true"
+            android:layout_margin="5dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_date_event_3"
+            />
+        
+    </RelativeLayout>
+    
+    <View
+    	  android:layout_height="1dip"
+    	  android:layout_width="fill_parent"
+		  android:background="#d3d3d3" />
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/middle"
+        
+        >
+        
+        <TextView
+            android:id="@+id/edesc" 
+            android:layout_width="fill_parent"
+            android:singleLine="true"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:layout_margin="8dp"    
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:scrollHorizontally="true"
+   			 
+    android:paddingRight="15dip" 
+    android:focusable="true" 
+    android:focusableInTouchMode="true" 
+    android:freezesText="true"
+    android:layout_alignParentTop="true"
+            />
+        
+        </RelativeLayout>
+        
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom3"
+        
+        >
+        
+        <ImageView
+            android:id="@+id/datepic" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_date_event"   
+            android:layout_margin="5dp"
+            />
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edate"
+            android:textColor="#000000"
+            android:layout_toRightOf="@+id/datepic"
+            android:layout_alignBaseline="@+id/datepic"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="4th March 2014"
+            
+            />
+        
+    </RelativeLayout>
+    
+        <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom"
+        
+        >
+        
+        <ImageView
+            android:id="@+id/clock" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_clock_4"    
+            android:layout_margin="5dp"
+            
+            />
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/etiming"
+            android:textColor="#000000"
+            android:layout_toRightOf="@+id/clock"
+            android:layout_alignBaseline="@+id/clock"
+            android:text="12:30pm - 2:30pm"
+            android:layout_marginTop="4dp"
+            android:gravity="center_horizontal"
+            />
+        
+    </RelativeLayout>
+    
+    
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom2"
+        
+        >
+        
+        <ImageView
+            android:id="@+id/elocation" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_location_2"   
+            android:layout_margin="5dp"
+            />
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/evenue"
+            android:textColor="#000000"
+            android:layout_toRightOf="@+id/elocation"
+            android:layout_alignBaseline="@+id/elocation"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text=""
+            
+            />
+        
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottom2"
+        
+        >
+        
+        <ImageView
+            android:id="@+id/majlis" 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/ic_majlis_5"   
+            android:layout_margin="5dp"
+            />
+        
+        <TextView 
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/emajlis"
+            android:textColor="#000000"
+            android:layout_toRightOf="@+id/majlis"
+            android:layout_alignBaseline="@+id/majlis"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:text=""
+            
+            />
+        
+    </RelativeLayout>
+    
+</LinearLayout>
+<!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/events_list_item.xml -->

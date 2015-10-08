@@ -1,0 +1,7 @@
+<set xmlns:android="http://schemas.android.com/apk/res/android" >
+    <translate
+        android:duration="1000"
+        android:fromYDelta="-100%p"
+        android:toYDelta="1" />
+</set>
+<!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/anim/slideintop.xml -->

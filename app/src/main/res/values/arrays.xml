@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string-array name="listArray">
+        <item >Ansaar</item>
+        <item >Khudaam</item>
+        <item >Lajna</item>
+    </string-array>
+    
+     <string-array name="listValues">
+        <item>Ansaar</item>
+        <item>Khudaam</item>
+        <item>Lajna</item>
+    </string-array>
+    
+</resources>

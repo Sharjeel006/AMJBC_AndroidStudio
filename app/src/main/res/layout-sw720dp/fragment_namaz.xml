@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center_vertical"
+    android:background="@drawable/ic_namaz_bg_6"
+    >
+    
+    <LinearLayout 
+        android:orientation="vertical"
+        android:layout_margin="8dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        
+    <TextView
+        android:id="@+id/weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="40dp"  
+        android:textColor="#000000"
+        android:paddingBottom="3dp"    
+        android:fontFamily="sans-serif-condensed"    
+        />
+              <RelativeLayout
+                  android:id="@+id/condition"
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:background ="#50676767"
+                  android:orientation="vertical"
+                  android:paddingLeft="5dp"
+                  android:paddingRight="5dp" >
+
+    <TextView
+        android:id="@+id/label1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:textColor="#FFFFFF"    
+        android:fontFamily="sans-serif-condensed"
+        android:text="UPCOMING PRAYER"    
+        />
+    
+    <TextView
+        android:id="@+id/upcoming2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/label1"
+        android:textSize="25dp"  
+        android:textColor="#FFFFFF"
+        />
+    
+    <TextView
+        android:id="@+id/timeleft"
+        android:layout_alignParentRight="true"
+        android:layout_alignBaseline="@+id/upcoming2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25dp"
+        android:textColor="#FFFFFF"
+        />
+    
+    </RelativeLayout>
+    
+    </LinearLayout>                
+              
+              <RelativeLayout
+                  android:layout_width="fill_parent"
+                  android:layout_height="wrap_content"
+                  android:background="@android:color/transparent"
+                  android:orientation="horizontal"
+                  android:id="@+id/textlayout"
+                   >
+      
+    <TextView
+        android:id="@+id/selectedmasjid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="35sp"
+        android:layout_margin="8dp"
+        android:text="Baitur Rahman"
+        android:textColor="#000000"
+        android:layout_alignParentLeft="true"
+        />
+    
+              <Button 
+        android:id="@+id/today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="TODAY"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:textColor="#000000"
+        android:background="@drawable/selector"
+        />
+                  
+    </RelativeLayout>
+
+                             <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+    android:gravity="center_vertical"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical">
+
+           <ListView
+                    android:id="@+id/listview1"
+					android:padding="10dp"
+					android:divider="@android:color/transparent"
+					android:background ="#30676767"
+					android:dividerHeight="140dp"
+					android:listSelector="@android:color/transparent"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginLeft="8dp"
+					android:layout_marginRight="8dp"
+					android:layout_marginTop="3dp"
+                    android:layout_gravity="center_vertical"
+                    android:entries="@array/prayers" >
+                </ListView>
+             
+              </LinearLayout>
+              
+           <RelativeLayout  
+                     android:id="@+id/condition2"
+                     android:layout_marginTop="0dp"
+                     android:background="@android:color/transparent"
+                     android:layout_height="fill_parent" 
+                     android:layout_width="fill_parent"
+                     android:orientation="vertical" >   
+               
+
+              
+                   <TextView
+    android:text=""
+    android:id="@+id/MarqueeText" 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:singleLine="true"
+    android:ellipsize="marquee" 
+    android:textSize="18dp"
+    android:marqueeRepeatLimit="marquee_forever"
+    android:scrollHorizontally="true"
+    android:layout_marginTop="6dp"
+    android:paddingLeft="15dip" 
+    android:paddingRight="15dip" 
+    android:focusable="true"
+    android:focusableInTouchMode="true" 
+    android:freezesText="true"
+    android:layout_alignParentTop="false"
+    android:layout_above="@+id/infoicon" />
+                   
+                   <ImageView 
+                       android:id="@+id/infoicon"
+                       android:layout_width="20dp"
+                       android:layout_height="20dp"
+                       android:layout_margin="7dp"
+                       android:layout_alignParentRight="true"
+                       android:layout_alignParentBottom="true"
+                       android:src="@drawable/ic_aboutus"
+                       />
+                     
+    </RelativeLayout>
+
+
+
+</LinearLayout>

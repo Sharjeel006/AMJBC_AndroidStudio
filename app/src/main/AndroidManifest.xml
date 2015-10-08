@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.local.amjbc"
+    android:versionCode="18"
+    android:versionName="1.8" >
+    
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <permission android:name="com.local.amjbc.permission.C2D_MESSAGE" android:protectionLevel="signature" />
+	<uses-permission android:name="com.local.amjbc.permission.C2D_MESSAGE" />
+    
+    <application
+        android:name="com.local.amjbc.Application"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_islam_4"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        
+        <activity
+            android:name="com.local.amjbc.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/CustomActionBarTheme"
+            android:screenOrientation="portrait" >
+        </activity>
+        
+        <activity 
+            android:name="com.local.amjbc.chandacal.DetailActivity" >
+        </activity>
+        
+        <activity
+            android:name="com.local.amjbc.Splash"
+            android:label="@string/title_activity_splash" 
+            android:theme="@android:style/Theme.NoTitleBar" 
+            android:screenOrientation="portrait"
+            >
+                        <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+	<service android:name=".GCMIntentService" />
+	
+	<service android:name="com.parse.PushService" />
+		<receiver android:name="com.parse.ParseBroadcastReceiver">
+  			<intent-filter>
+    			<action android:name="android.intent.action.BOOT_COMPLETED" />
+    			<action android:name="android.intent.action.USER_PRESENT" />
+  			</intent-filter>
+		</receiver>
+ 
+     	<receiver android:name=".ParseReciever" android:exported="false" >
+         	<intent-filter >
+             	<action android:name="com.local.amjbc.Recieve_Push"/>        
+     			<action android:name="com.parse.push.intent.RECEIVE" />
+    			<action android:name="com.parse.push.intent.DELETE" />
+    			<action android:name="com.parse.push.intent.OPEN" />
+         	</intent-filter>
+     	</receiver>
+
+ 		<receiver android:name="com.parse.GcmBroadcastReceiver"
+     			  android:permission="com.google.android.c2dm.permission.SEND">
+   			<intent-filter>
+     			<action android:name="com.google.android.c2dm.intent.RECEIVE" />
+     			<action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+     			<category android:name="com.local.amjbc" />
+   			</intent-filter>
+ 		</receiver>
+
+    </application>
+</manifest>

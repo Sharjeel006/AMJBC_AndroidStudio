@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="Moosi Check"><CheckBoxPreference
+        
+        android:title="Moosi (a)"
+         android:summary="Check this if you are moosi" android:key="moosiPre"/></PreferenceCategory>
+    
+    <PreferenceCategory android:title="Monthly Check"><CheckBoxPreference
+        android:summary="Check to calculate Chanda monthly"
+        android:title="Monthly" android:key="monthlyPre"/></PreferenceCategory>
+    
+    <PreferenceCategory android:title="Wassiyat No"><EditTextPreference android:title="Wassiyat No" android:positiveButtonText="OK"
+         android:dialogMessage="Enter your wassiyat no here" android:enabled="false" android:summary="Click to enter wassiyat no" 
+         android:dialogTitle="Wassiyat no" 
+         android:key="wassiyatNoPre"/></PreferenceCategory>
+    <PreferenceCategory android:title="Select Organisation"><ListPreference android:entryValues="@array/listValues" android:title="Select Organisation" android:entries="@array/listArray" android:summary="Select your auxialary organisation here" android:key="organisationPre" android:defaultValue="Ansaar"/></PreferenceCategory>
+   
+    <!--  <PreferenceCategory android:title="Select Remote Syncronization"><CheckBoxPreference android:title="Remote Syncronization" android:summary="Other Settings" android:key="remoteSync"/></PreferenceCategory> -->
+
+</PreferenceScreen>

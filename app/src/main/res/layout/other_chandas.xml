@@ -1,0 +1,94 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    >
+    
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        >
+    
+        <TableRow android:id="@+id/row1" android:layout_width="fill_parent"  android:layout_height="wrap_content" >
+            
+        <TextView android:id="@+id/tehrekejadeed" 
+            android:text="Tehrek-e-Jadeed" 
+            android:layout_width="fill_parent" 
+            android:layout_height="wrap_content"/>
+        
+        <EditText  android:id="@+id/tj"
+             android:layout_width="210dip"
+              android:layout_height="40dp"
+               android:text="0" 
+               android:inputType="number" />    
+            
+        </TableRow> 
+        
+        <TableRow android:id="@+id/row2" android:layout_width="fill_parent"  android:layout_height="wrap_content" >
+            
+        <TextView android:id="@+id/wakfejadeed" 
+            android:text="Waqf-e-Jadeed" 
+            android:layout_width="wrap_content" 
+            android:layout_height="wrap_content"/>
+        
+        <EditText android:id="@+id/wj" android:layout_width="100dp" android:layout_height="40dp" android:text="0" android:inputType="number"/>    
+            
+            
+        </TableRow>
+        
+        <TableRow android:id="@+id/row3" android:layout_width="fill_parent"  android:layout_height="wrap_content" >
+            
+        <TextView android:id="@+id/eidfund" android:text="Eid Fund" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/ef" android:layout_width="100dp" android:layout_height="40dp" android:text="0" android:inputType="number"/>    
+            
+        </TableRow>
+        
+        <TableRow android:id="@+id/row4" android:layout_width="fill_parent"  android:layout_height="wrap_content" >
+            
+        <TextView android:id="@+id/fitrana" android:text="Fitrana" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/fit" android:layout_width="100dp" android:layout_height="40dp" android:text="0" android:inputType="number"/>    
+            
+        </TableRow>
+        
+        <TableRow android:id="@+id/row5" android:layout_width="fill_parent"  android:layout_height="wrap_content" >
+            
+        <TextView android:id="@+id/sadqa" android:text="Sadqa" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <EditText android:id="@+id/sad" android:layout_width="100dp" android:layout_height="40dp" android:text="0" android:inputType="number"/>    
+            
+        </TableRow>
+        
+        
+    </TableLayout>
+    
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        >
+        
+        <TableRow android:id="@+id/row6" android:layout_width="fill_parent"  android:layout_height="wrap_content">
+            
+        <Button
+            android:id="@+id/add"
+            android:layout_width="312dip"
+            android:layout_height="wrap_content"
+            android:text="Add"
+             />
+        
+        
+        </TableRow>
+        <TableRow>
+        
+            <Button
+            android:id="@+id/cancel"
+            android:layout_width="312dip"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+             />
+            
+        </TableRow>
+        
+    </TableLayout>
+
+</LinearLayout>
