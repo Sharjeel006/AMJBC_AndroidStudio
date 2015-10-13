@@ -52,17 +52,10 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.local.amjbc.GCMIntentService" />
         <service android:name="com.parse.PushService" />
 
-        <receiver android:name="com.parse.ParseBroadcastReceiver" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-        </receiver>
         <receiver
-            android:name="com.local.amjbc.ParseReciever"
+            android:name="com.local.amjbc.parse.ParseReciever"
             android:exported="false" >
             <intent-filter>
                 <action android:name="com.local.amjbc.Recieve_Push" />

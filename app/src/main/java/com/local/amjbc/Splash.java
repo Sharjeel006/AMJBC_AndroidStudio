@@ -24,7 +24,7 @@ import android.widget.TextView;
 
 public class Splash extends Activity implements SensorEventListener {
 
-	private static final int SPLASH_DURATION = 4000;
+	private static final int SPLASH_DURATION = 3000;
     private Handler startMain;
     private boolean isBackButtonPressed;
     private TextView tv, tv2;
@@ -82,7 +82,7 @@ public class Splash extends Activity implements SensorEventListener {
         tv.setTypeface(tf2);
         tv2.setTypeface(tf2);
         
-        animFadein = AnimationUtils.loadAnimation(getApplicationContext(), R.animator.fade_in); 
+        animFadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadein);
         
         tv.startAnimation(animFadein);
         tv2.startAnimation(animFadein);

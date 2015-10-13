@@ -1,12 +1,5 @@
 package com.local.amjbc;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Fragment;
@@ -33,8 +26,12 @@ import android.widget.Toast;
 import com.local.amjbc.adapters.NavDrawerListAdapter;
 import com.local.amjbc.chandacal.ChandaCal;
 import com.local.amjbc.model.NavDrawerItem;
-import com.parse.Parse;
-import com.parse.ParseInstallation;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MainActivity extends Activity {
 
@@ -67,12 +64,9 @@ public class MainActivity extends Activity {
 		ActionBar bar = getActionBar();
 		bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#287AA9")));
 		invalidateOptionsMenu();
-		
-		//Intent i = getIntent().getFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		//showpush(i);
-		
-		
-		
+
+        //HandleIntent(getIntent());
+
 		mTitle = mDrawerTitle = getTitle();
 		sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		
@@ -89,7 +83,6 @@ public class MainActivity extends Activity {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1),false,"0"));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1),false,"0"));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1),false,"0"));
-       
         navMenuIcons.recycle();
  
         adapter = new NavDrawerListAdapter(getApplicationContext(), navDrawerItems);
@@ -126,6 +119,46 @@ public class MainActivity extends Activity {
         }
 		
 	}
+
+
+
+    public void HandleIntent(Intent intent) {
+
+//            Log.i("Main Activity:", "PUSH RECIEVED !!" + intent.getStringExtra("message") );
+//            Toast.makeText(this, intent.getStringExtra("message"), Toast.LENGTH_SHORT).show();
+
+        Bundle extras = intent.getExtras();
+
+        String jsonData = extras.getString("message");
+        Toast.makeText(this, jsonData, Toast.LENGTH_SHORT).show();
+//
+//        try {
+////				String action = intent.getAction();
+////				String channel = intent.getExtras().getString("com.parse.Channel");
+//            JSONObject json = new JSONObject(jsonData);
+//
+//            Iterator itr = json.keys();
+//            while (itr.hasNext()) {
+//                String key = (String)itr.next();
+//                Log.d("App", "key ::  " + json.getString(key));
+//                if(key.equals("alert")) {
+//                    String msg= json.getString(key);
+//                    Log.d("App", msg);
+//                }
+//
+//                if(key.equals("title")) {
+//                    String title= json.getString(key);
+//                    Log.d("App", title);
+//                }
+//            }
+//
+//        } catch (Exception e) {
+//            Log.d("App", "Parse Exception: " + e.getMessage());
+//        }
+
+
+
+    }
 
 	 private class SlideMenuClickListener implements ListView.OnItemClickListener {
 		 @Override
