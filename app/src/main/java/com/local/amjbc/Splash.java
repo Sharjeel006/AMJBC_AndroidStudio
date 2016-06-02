@@ -24,25 +24,16 @@ import android.widget.TextView;
 
 public class Splash extends Activity implements SensorEventListener {
 
-	private static final int SPLASH_DURATION = 3000;
+	private static final int SPLASH_DURATION = 1000;
     private Handler startMain;
     private boolean isBackButtonPressed;
-    private TextView tv, tv2;
+    private TextView tv, tv2, hangoutTvOne, hangoutTvTwo, hangoutTvThree;
+	private ObjectAnimator waveOneAnimator, waveTwoAnimator, waveThreeAnimator;
     Animation animFadein;
     MediaPlayer mp;
     Location lm;
     String emailid;
 
-	private TextView hangoutTvOne;
-	private TextView hangoutTvTwo;
-	private TextView hangoutTvThree;
-    
-	private ObjectAnimator waveOneAnimator;
-	private ObjectAnimator waveTwoAnimator;
-	private ObjectAnimator waveThreeAnimator;
-    
-    
-    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,8 +50,7 @@ public class Splash extends Activity implements SensorEventListener {
 
 		setContentView(R.layout.splash_2);
 		
-		tv = (TextView)findViewById(R.id.textView11);
-		tv2 = (TextView)findViewById(R.id.textView22);
+		tv = (TextView)findViewById(R.id.titleID);
 		
 		hangoutTvOne = (TextView) findViewById(R.id.hangoutTvOne);
 		hangoutTvTwo = (TextView) findViewById(R.id.hangoutTvTwo);
@@ -77,15 +67,15 @@ public class Splash extends Activity implements SensorEventListener {
 		waveAnimation();
 
 	
-        Typeface tf2 = Typeface.createFromAsset(getAssets(), "Ubahn.ttf");
+        Typeface tf2 = Typeface.createFromAsset(getAssets(), "Bender-Solid.otf");
         
         tv.setTypeface(tf2);
-        tv2.setTypeface(tf2);
+
         
         animFadein = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fadein);
         
         tv.startAnimation(animFadein);
-        tv2.startAnimation(animFadein);
+
         
 		startMain = new Handler();
 		 
@@ -97,7 +87,7 @@ public class Splash extends Activity implements SensorEventListener {
 	               if (!isBackButtonPressed) {
 	                  Intent intent = new Intent(Splash.this, MainActivity.class);
 	                  Splash.this.startActivity(intent);
-	                  overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
+	                  //overridePendingTransition(R.animator., R.animator.slide_out);
 	                  finish();
 	               }   
 	            }

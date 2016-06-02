@@ -17,4 +17,4 @@
    
     <!--  <PreferenceCategory android:title="Select Remote Syncronization"><CheckBoxPreference android:title="Remote Syncronization" android:summary="Other Settings" android:key="remoteSync"/></PreferenceCategory> -->
 
-</PreferenceScreen><!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/xml/activity_preference2.xml -->
+</PreferenceScreen>

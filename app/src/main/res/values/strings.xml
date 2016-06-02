@@ -3,7 +3,7 @@
 
     <string name="app_name">AMJ-BC</string>
     <string name="action_settings">Settings</string>
-    <string name="dot">.</string>
+    <string name="dot">_</string>
     <string formatted="false"  name="chanda_info_moosi" >Moosian can contribute from 10% to 33% of income however 10% is minimum.</string>
     
     <string name="chanda_info_Ansar">Ansar chanda rates are as below: \n

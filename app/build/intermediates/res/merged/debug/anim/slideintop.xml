@@ -4,4 +4,3 @@
         android:fromYDelta="-100%p"
         android:toYDelta="1" />
 </set>
-<!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/anim/slideintop.xml -->

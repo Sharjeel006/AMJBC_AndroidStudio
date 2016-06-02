@@ -78,7 +78,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottom3"
+        android:id="@+id/bottom2"
         
         >
         
@@ -141,7 +141,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottom2"
+        android:id="@+id/bottom3"
         
         >
         
@@ -172,7 +172,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottom2"
+        android:id="@+id/bottom4"
         
         >
         
@@ -201,4 +201,3 @@
     </RelativeLayout>
     
 </LinearLayout>
-<!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/events_list_item.xml -->

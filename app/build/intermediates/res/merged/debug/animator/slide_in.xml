@@ -6,4 +6,3 @@
    android:interpolator="@android:anim/decelerate_interpolator"
    android:duration="500"/>
 </set>
-<!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/animator/slide_in.xml -->

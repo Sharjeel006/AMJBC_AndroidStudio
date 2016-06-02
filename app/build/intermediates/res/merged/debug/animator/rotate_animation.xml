@@ -11,4 +11,4 @@
         android:repeatMode="restart"
         android:toDegrees="360" />
 
-</set><!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/animator/rotate_animation.xml -->
+</set>

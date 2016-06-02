@@ -16,4 +16,3 @@ android:interpolator="@android:anim/accelerate_interpolator">
         android:startOffset="200"
         android:duration="100" />
 </set>
-<!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/anim/wavescale.xml -->

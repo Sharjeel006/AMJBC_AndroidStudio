@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.support.v4.app.NotificationCompat;
@@ -21,6 +22,7 @@ public class ParseReciever extends ParsePushBroadcastReceiver {
 	
 	private final String TAG = "Parse Notification";
     private Intent parseIntent;
+    SharedPreferences pref;
 
     public ParseReciever() {
         super();
@@ -37,7 +39,6 @@ public class ParseReciever extends ParsePushBroadcastReceiver {
             Log.e(TAG, "Push received: " + json);
             parseIntent = intent;
             parsePushJson(context, json);
-
         } catch (JSONException e) {
             Log.e(TAG, "Push message json exception: " + e.getMessage());
         }
@@ -45,6 +46,7 @@ public class ParseReciever extends ParsePushBroadcastReceiver {
 
     private void parsePushJson(Context context, JSONObject json) {
         try {
+            pref = context.getApplicationContext().getSharedPreferences("MyPref", 0);
             boolean isBackground = json.getBoolean("is_background");
             JSONObject data = json.getJSONObject("data");
             String title = data.getString("title");
@@ -55,6 +57,9 @@ public class ParseReciever extends ParsePushBroadcastReceiver {
                 Log.e(TAG, "inside: " + title );
                 showNotificationMessage(context, title, message, resultIntent);
             }
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putString("title", title);
+            editor.commit();
 
         } catch (JSONException e) {
             Log.e(TAG, "Push message json exception: " + e.getMessage());

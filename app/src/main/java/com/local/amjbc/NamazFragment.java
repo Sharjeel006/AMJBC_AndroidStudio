@@ -1,24 +1,5 @@
 package com.local.amjbc;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
-
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
-import org.json.JSONObject;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.animation.ValueAnimator;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -49,63 +30,53 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CalendarView.OnDateChangeListener;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.local.amjbc.adapters.OnSwipeTouchListener;
 import com.local.amjbc.model.JSONParser;
-import com.local.amjbc.model.XMLParser;
 
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 
 public class NamazFragment extends Fragment {
 	
-	TextView temp, upcoming, marquee, selectedmasjid, today, label, timeleft;
-	ImageView  infoicon;
-	Button ok;
-	ListView prayertimings;
+	TextView temp, upcoming, marquee, selectedMasjid, today, label, timeLeft, quranclass, quranclass2;
+	ImageView infoIcon;
+	ListView prayerTimings;
 	NamazAdapter adapter;
 	CalendarView cv;
-	List<String> prayers, timings, surreysouth, masjidtimes;
-	List<String> Feb1, Feb8, Feb15, Feb22, Mar1, Mar9, Mar15, Mar22, Mar29, Apr5, Apr12, Apr19, Apr26, jumma;
-	LinearLayout daynight ;
-	RelativeLayout condition;
-	RelativeLayout condition2;
-	String city1 = "Delta";
-	String woied = "9824";
-	String temperature, conditions, selectedDate;
+	List<String> prayers, timings, masjidTimes, marqueeText, quranClassTimes;
 	String date333 = "";
 	Animation animation;
-	MenuItem datepicker;
+	MenuItem datePicker;
 	Calendar c = Calendar.getInstance();
 	private ProgressDialog pDialog;
-	String marqueetext;
-	boolean istodayclicked =  false;
-	
-	
-	int year1, month1, day1;
-	boolean iscalendarclicked =  false;
-	
-	private static String url_timings =  "http://www.amj-bc.com/get_all_timings.php";
-	private static String url_timings_2 =  "http://www.amj-bc.com/get_masjid_timings.php";
-	private static String url_timings_3 =  "http://www.amj-bc.com/fetch_timings.php";
-	private static String url_timings_4 =  "http://www.amj-bc.com/getMarqueeInfo.php";
+
+    int year1, month1, day1;
+
+	boolean isTodayClicked, isCalendarClicked =  false;
+    boolean firstTime = true;
+
+	private static String url_timings_2 =  "http://amj-bc.com/amjbc/get_masjid_timings.php";
+	private static String url_timings_3 =  "http://amj-bc.com/amjbc/fetch_timings.php";
+	private static String url_timings_4 =  "http://amj-bc.com/amjbc/getMarqueeInfo.php";
+    private static String url_timings_5 =  "http://amj-bc.com/amjbc/getQuranClasstimes.php";
 	
 	private static final String TAG_SUCCESS = "success";
-	private static final String TAG_TIMINGS = "timings";
-	private static final String TAG_NAMAZ = "t_namaz";
-	private static final String TAG_TIME = "t_time";
-	
-	JSONArray tabletimings = null;
-	JSONArray tabletimings2 = null;
-	JSONArray tabletimings3 = null;
-	JSONArray tabletimings4 = null;
-	
-	boolean firsttime = true;
-	
+
+	JSONArray tableTimings2, tableTimings3, tableTimings4, tableTimings5 = null;
     JSONParser jParser = new JSONParser();
 	
     @Override
@@ -129,135 +100,125 @@ public class NamazFragment extends Fragment {
         upcoming = (TextView)rootView.findViewById(R.id.upcoming2);
         today = (TextView)rootView.findViewById(R.id.today);
         label = (TextView)rootView.findViewById(R.id.label1);
+        quranclass = (TextView)rootView.findViewById(R.id.timeleft2);
+        quranclass2 = (TextView)rootView.findViewById(R.id.timeleft3);
         marquee = (TextView)rootView.findViewById(R.id.MarqueeText);
-        selectedmasjid = (TextView)rootView.findViewById(R.id.selectedmasjid);
-        infoicon = (ImageView)rootView.findViewById(R.id.infoicon);
-        prayertimings = (ListView)rootView.findViewById(R.id.listview1);
-        timeleft = (TextView)rootView.findViewById(R.id.timeleft);
-
-
+        selectedMasjid = (TextView)rootView.findViewById(R.id.selectedmasjid);
+        infoIcon = (ImageView)rootView.findViewById(R.id.infoicon);
+        prayerTimings = (ListView)rootView.findViewById(R.id.listview1);
+        timeLeft = (TextView)rootView.findViewById(R.id.timeleft);
         
-        
-        prayertimings.setOnTouchListener(new OnSwipeTouchListener() {
-		    public void onSwipeTop() {
-		        
-		    }
-		    public void onSwipeRight() {
-		    	
-				   int month = c.get(Calendar.MONTH);
-				   int dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
-				   int year = c.get(Calendar.YEAR);
+        prayerTimings.setOnTouchListener(new OnSwipeTouchListener() {
+            public void onSwipeTop() {
 
-			try{
-				   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-				   Calendar c = Calendar.getInstance();
-				   if(iscalendarclicked)
-				   {
-					   c.setTime(sdf.parse(date333));
-					   c.add(Calendar.DATE, -1);
-					   date333 = sdf.format(c.getTime());
-					   
-				   }
-				   else
-				   {
-					   if(firsttime)
-					   {
-					   date333 = Integer.toString(year) + "-0" +Integer.toString(month+1) + "-" +  Integer.toString(dayOfMonth);
-					   }   
-						   c.setTime(sdf.parse(date333));
-						   c.add(Calendar.DATE, -1);
-						   date333 = sdf.format(c.getTime());
-						   firsttime = false;
-						   
-				   }
-				   
-				   SimpleDateFormat sdf2 = new SimpleDateFormat("MMMM dd, yyyy");
-				   Date rrr = sdf.parse(date333);  
-				   String eee = sdf2.format(rrr);
-				   datepicker.setTitle(eee);
-				   
-				   }
-				   catch(Exception ex)
-				   {}
-				   if(isNetworkAvailable(getActivity()))
-				   {
-					   if(selectedmasjid.getText().equals("Baitur Rahman"))
-					   {
-						   getMasjidTimings2 gmt2 =  new getMasjidTimings2();
-						   gmt2.execute();   
-					   }
-					   else {}
-				   }
-		    	
-		    	animation = AnimationUtils.loadAnimation(getActivity(), R.anim.pushrightin);
-		        animation.setDuration(500);		        
-		        prayertimings.startAnimation(animation);
-		    }
-		    
-		    public void onSwipeLeft() {
-				   int month = c.get(Calendar.MONTH);
-				   int dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
-				   int year = c.get(Calendar.YEAR);
+            }
 
-			try{
-				   SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-				   Calendar c = Calendar.getInstance();
-				   if(iscalendarclicked)
-				   {
-					   c.setTime(sdf.parse(date333));
-					   c.add(Calendar.DATE, 1);
-					   date333 = sdf.format(c.getTime());
-					   
-				   }
-				   else
-				   {
-					   if(firsttime)
-					   {
-					   date333 = Integer.toString(year) + "-0" +Integer.toString(month+1) + "-" +  Integer.toString(dayOfMonth);
-					   }   
-						   c.setTime(sdf.parse(date333));
-						   c.add(Calendar.DATE, 1);
-						   date333 = sdf.format(c.getTime());
-						   firsttime = false;
-				   }
-				   
-				   SimpleDateFormat sdf2 = new SimpleDateFormat("MMMM dd, yyyy");
-				   Date rrr = sdf.parse(date333);  
-				   String eee = sdf2.format(rrr);
-				   datepicker.setTitle(eee);
-				   
-				   }
-				   catch(Exception ex)
-				   {}
-				   
-				   if(isNetworkAvailable(getActivity()))
-				   {
-					   if(selectedmasjid.getText().equals("Baitur Rahman"))
-					   {
-						   getMasjidTimings2 gmt2 =  new getMasjidTimings2();
-						   gmt2.execute();   
-					   }
-					   else {}
-				   }
-				
-		        animation = AnimationUtils.loadAnimation(getActivity(), R.anim.pushleftin);
-		        animation.setDuration(500);
-		        prayertimings.startAnimation(animation);
-		        
-		    }
-		    public void onSwipeBottom() {
-		       
-		    }
-		});
+            public void onSwipeRight() {
+
+                int month = c.get(Calendar.MONTH);
+                int dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
+                int year = c.get(Calendar.YEAR);
+
+                try {
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    Calendar c = Calendar.getInstance();
+                    if (isCalendarClicked) {
+                        c.setTime(sdf.parse(date333));
+                        c.add(Calendar.DATE, -1);
+                        date333 = sdf.format(c.getTime());
+
+                    } else {
+                        if (firstTime) {
+                            date333 = Integer.toString(year) + "-0" + Integer.toString(month + 1) + "-" + Integer.toString(dayOfMonth);
+                        }
+                        c.setTime(sdf.parse(date333));
+                        c.add(Calendar.DATE, -1);
+                        date333 = sdf.format(c.getTime());
+                        firstTime = false;
+
+                    }
+
+                    SimpleDateFormat sdf2 = new SimpleDateFormat("MMMM dd, yyyy");
+                    Date rrr = sdf.parse(date333);
+                    String eee = sdf2.format(rrr);
+                    datePicker.setTitle(eee);
+
+                } catch (Exception ex) {
+                }
+                if (isNetworkAvailable(getActivity())) {
+                    if (selectedMasjid.getText().equals("Baitur Rahman")) {
+                        getMasjidTimings2 gmt2 = new getMasjidTimings2();
+                        gmt2.execute();
+                    } else {
+                    }
+                }
+
+                animation = AnimationUtils.loadAnimation(getActivity(), R.anim.pushrightin);
+                animation.setDuration(500);
+                prayerTimings.startAnimation(animation);
+            }
+
+            public void onSwipeLeft() {
+                int month = c.get(Calendar.MONTH);
+                int dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
+                int year = c.get(Calendar.YEAR);
+
+                try {
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                    Calendar c = Calendar.getInstance();
+                    if (isCalendarClicked) {
+                        c.setTime(sdf.parse(date333));
+                        c.add(Calendar.DATE, 1);
+                        date333 = sdf.format(c.getTime());
+
+                    } else {
+                        if (firstTime) {
+                            date333 = Integer.toString(year) + "-0" + Integer.toString(month + 1) + "-" + Integer.toString(dayOfMonth);
+                        }
+                        c.setTime(sdf.parse(date333));
+                        c.add(Calendar.DATE, 1);
+                        date333 = sdf.format(c.getTime());
+                        firstTime = false;
+                    }
+
+                    SimpleDateFormat sdf2 = new SimpleDateFormat("MMMM dd, yyyy");
+                    Date rrr = sdf.parse(date333);
+                    String eee = sdf2.format(rrr);
+                    datePicker.setTitle(eee);
+
+                } catch (Exception ex) {
+                }
+
+                if (isNetworkAvailable(getActivity())) {
+                    if (selectedMasjid.getText().equals("Baitur Rahman")) {
+                        getMasjidTimings2 gmt2 = new getMasjidTimings2();
+                        gmt2.execute();
+                    } else {
+                    }
+                }
+
+                animation = AnimationUtils.loadAnimation(getActivity(), R.anim.pushleftin);
+                animation.setDuration(500);
+                prayerTimings.startAnimation(animation);
+
+            }
+
+            public void onSwipeBottom() {
+
+            }
+        });
         
         marquee.setSelected(true);
+        quranclass.setSelected(true);
+        quranclass2.setSelected(true);
         
         if(isNetworkAvailable(getActivity()))
         {
-        	JSONWeatherTask task = new JSONWeatherTask();
-    		task.execute();	
+
     		getMarqueeInfo gmi =  new getMarqueeInfo();
     		gmi.execute();
+            getQuranClassInfo gqci = new getQuranClassInfo();
+            gqci.execute();
         }
         else
         {
@@ -296,71 +257,89 @@ public class NamazFragment extends Fragment {
         label.setTypeface(tf2);
         temp.setTypeface(tf2);
         upcoming.setTypeface(tf3);
-        selectedmasjid.setTypeface(tf2);
+        selectedMasjid.setTypeface(tf3);
         today.setTypeface(tf3);
         
         adapter = new NamazAdapter(getActivity(),R.layout.listview_item, prayers, timings);
-        prayertimings.setAdapter(adapter);
+        prayerTimings.setAdapter(adapter);
 
-        infoicon.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-			
-				Fragment newFragment = new AboutUsFragment();
-				FragmentTransaction transaction = getFragmentManager().beginTransaction();
-				
-				getActivity().overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
-				transaction.replace(R.id.content_frame , newFragment);
-				transaction.addToBackStack(null);
-				transaction.commit();
-				
-			}
-		});
+        infoIcon.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Fragment newFragment = new AboutUsFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                getActivity().overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
+                transaction.replace(R.id.content_frame, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
         
         today.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				
-				iscalendarclicked = false;
-				firsttime = true;
+				isCalendarClicked = false;
+				firstTime = true;
 				
 				   int month = c.get(Calendar.MONTH);
 				   int dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
 				   int year = c.get(Calendar.YEAR);
 
+
+
+                if(month + 1 == 1 )
+                {
+                    datePicker.setTitle("JANUARY " + dayOfMonth + ", " + year);
+                }
+                else if(month +1 == 2)
+                {
+                    datePicker.setTitle("FEBRUARY " + dayOfMonth + ", " + year);
+                }
+                else if(month +1 == 3)
+                {
+                    datePicker.setTitle("MARCH " + dayOfMonth + ", " + year);
+                }
+                else if(month +1 == 4)
+                {
+                    datePicker.setTitle("APRIL " + dayOfMonth + ", " + year);
+                }
 				if(month + 1 == 5 )
 				{
-					datepicker.setTitle("May " + dayOfMonth + ", " + year);
+					datePicker.setTitle("May " + dayOfMonth + ", " + year);
 				}
 				else if(month +1 == 6)
 				{
-					datepicker.setTitle("June " + dayOfMonth + ", " + year);
+					datePicker.setTitle("June " + dayOfMonth + ", " + year);
 				}
 				else if(month +1 == 7)
 				{
-					datepicker.setTitle("July " + dayOfMonth + ", " + year);
+					datePicker.setTitle("July " + dayOfMonth + ", " + year);
 				}
 				else if(month +1 == 8)
 				{
-					datepicker.setTitle("AUGUST " + dayOfMonth + ", " + year);
+					datePicker.setTitle("AUGUST " + dayOfMonth + ", " + year);
 				}
 				else if(month +1 == 9)
 				{
-					datepicker.setTitle("SEPTEMBER " + dayOfMonth + ", " + year);
+					datePicker.setTitle("SEPTEMBER " + dayOfMonth + ", " + year);
 				}
 				else if(month +1 == 10)
 				{
-					datepicker.setTitle("October " + dayOfMonth + ", " + year);
+					datePicker.setTitle("October " + dayOfMonth + ", " + year);
 				}
 				else if(month +1 == 11)
 				{
-					datepicker.setTitle("November " + dayOfMonth + ", " + year);
+					datePicker.setTitle("November " + dayOfMonth + ", " + year);
 				}
 				else if(month +1 == 12)
 				{
-					datepicker.setTitle("DECEMBER " + dayOfMonth + ", " + year);
+					datePicker.setTitle("DECEMBER " + dayOfMonth + ", " + year);
 				}
 				
 				if(isNetworkAvailable(getActivity()))
@@ -371,7 +350,7 @@ public class NamazFragment extends Fragment {
 
 				animation = AnimationUtils.loadAnimation(getActivity(), R.anim.shake);
 		        animation.setDuration(500);		        
-		        prayertimings.startAnimation(animation);
+		        prayerTimings.startAnimation(animation);
 				
 			}
 		});
@@ -407,7 +386,7 @@ public class NamazFragment extends Fragment {
     	
     	super.onCreateOptionsMenu(menu, inflater);
     	
-    	datepicker = menu.findItem(R.id.datepicker);
+    	datePicker = menu.findItem(R.id.datepicker);
 		if(isNetworkAvailable(getActivity()))
 		{
 			   getMasjidTimings gmt = new getMasjidTimings();
@@ -417,178 +396,106 @@ public class NamazFragment extends Fragment {
     	SimpleDateFormat sdf = new SimpleDateFormat("MMMM-dd-yyyy");
         String datenew = sdf.format(c.getTime());
         
-        datepicker.setTitle(datenew);
-        datepicker.setOnMenuItemClickListener(new OnMenuItemClickListener() {
-			
-			@Override
-			public boolean onMenuItemClick(MenuItem item) {
-				
-				final Dialog dialog = new Dialog(getActivity());
-				dialog.setContentView(R.layout.custom_dialog);
-				dialog.setTitle("Pick a date");
-				dialog.setCancelable(false);
-	 
-				cv = (CalendarView) dialog.findViewById(R.id.calendarView1);
-				
-				cv.setOnDateChangeListener(new OnDateChangeListener() {
-					
-					@Override
-					public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
-					
-						iscalendarclicked = true;
-						
-						
-						
-						year1 = year;
-						month1 = month+1;
-						day1 = dayOfMonth;
-						
-						date333 = Integer.toString(year) + "-0" +Integer.toString(month+1) + "-" +  Integer.toString(dayOfMonth);
-						
-						
-						if(month + 1 == 1 )
-						{
-							datepicker.setTitle("Jan " + dayOfMonth + ", " + year);
-						}
-						else if(month + 1 == 2) 
-						{
-							datepicker.setTitle("Feb " + dayOfMonth + ", " + year);
-						}
-						else if(month + 1 == 3) 
-						{
-							datepicker.setTitle("Mar " + dayOfMonth + ", " + year);
-						}
-						else if(month + 1 == 4) 
-						{
-							datepicker.setTitle("April " + dayOfMonth + ", " + year);
-						}
-						else if(month + 1 == 5 )
-						{
-							datepicker.setTitle("May " + dayOfMonth + ", " + year);
-						}
-						else if(month + 1 == 6) 
-						{
-							datepicker.setTitle("June " + dayOfMonth + ", " + year);
-						}
-						else if(month + 1 == 7) 
-						{
-							datepicker.setTitle("July " + dayOfMonth + ", " + year);
-						}
-						else if(month + 1 == 8) 
-						{
-							datepicker.setTitle("Aug " + dayOfMonth + ", " + year);
-						}
-						else if(month + 1 == 9) 
-						{
-							datepicker.setTitle("Sep " + dayOfMonth + ", " + year);
-						}
-						else if(month + 1 == 10) 
-						{
-							datepicker.setTitle("Oct " + dayOfMonth + ", " + year);
-						}
-						else if(month + 1 == 11) 
-						{
-							datepicker.setTitle("Nov " + dayOfMonth + ", " + year);
-						}
-						else if(month + 1 == 12) 
-						{
-							datepicker.setTitle("Dec " + dayOfMonth + ", " + year);
-						}
-						
-			}
-		});
-				
-				Button dialogButton = (Button) dialog.findViewById(R.id.ok);
-				
-				dialogButton.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View v) {
-						
-						istodayclicked = true;
+        datePicker.setTitle(datenew);
+        datePicker.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
-						if(isNetworkAvailable(getActivity()))
-						{
-							getMasjidTimings2 gmt = new getMasjidTimings2();
-							gmt.execute();
-							
-						}
-						else 
-						{
-							Toast.makeText(getActivity(), "No internet connection, Cannot update", Toast.LENGTH_LONG).show();
-						}
-						
-						dialog.dismiss();
-						
-						 Animation animation = new AlphaAnimation(0.0f, 1.0f);
-					        animation.setDuration(400);
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
 
-					        animation = new TranslateAnimation(
-					            Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f,
-					            Animation.RELATIVE_TO_SELF, -1.0f, Animation.RELATIVE_TO_SELF, 0.0f
-					        );
-					        animation.setDuration(400);
-						
-						prayertimings.startAnimation(animation);
-					}
-				});
-	 
-				dialog.show();
-				return false;
-			}
+                final Dialog dialog = new Dialog(getActivity());
+                dialog.setContentView(R.layout.custom_dialog);
+                dialog.setTitle("Pick a date");
+                dialog.setCancelable(false);
+
+                cv = (CalendarView) dialog.findViewById(R.id.calendarView1);
+
+                cv.setOnDateChangeListener(new OnDateChangeListener() {
+
+                    @Override
+                    public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+
+                        isCalendarClicked = true;
+
+
+                        year1 = year;
+                        month1 = month + 1;
+                        day1 = dayOfMonth;
+
+                        date333 = Integer.toString(year) + "-0" + Integer.toString(month + 1) + "-" + Integer.toString(dayOfMonth);
+
+
+                        if (month + 1 == 1) {
+                            datePicker.setTitle("Jan " + dayOfMonth + ", " + year);
+                        } else if (month + 1 == 2) {
+                            datePicker.setTitle("Feb " + dayOfMonth + ", " + year);
+                        } else if (month + 1 == 3) {
+                            datePicker.setTitle("Mar " + dayOfMonth + ", " + year);
+                        } else if (month + 1 == 4) {
+                            datePicker.setTitle("April " + dayOfMonth + ", " + year);
+                        } else if (month + 1 == 5) {
+                            datePicker.setTitle("May " + dayOfMonth + ", " + year);
+                        } else if (month + 1 == 6) {
+                            datePicker.setTitle("June " + dayOfMonth + ", " + year);
+                        } else if (month + 1 == 7) {
+                            datePicker.setTitle("July " + dayOfMonth + ", " + year);
+                        } else if (month + 1 == 8) {
+                            datePicker.setTitle("Aug " + dayOfMonth + ", " + year);
+                        } else if (month + 1 == 9) {
+                            datePicker.setTitle("Sep " + dayOfMonth + ", " + year);
+                        } else if (month + 1 == 10) {
+                            datePicker.setTitle("Oct " + dayOfMonth + ", " + year);
+                        } else if (month + 1 == 11) {
+                            datePicker.setTitle("Nov " + dayOfMonth + ", " + year);
+                        } else if (month + 1 == 12) {
+                            datePicker.setTitle("Dec " + dayOfMonth + ", " + year);
+                        }
+
+                    }
+                });
+
+                Button dialogButton = (Button) dialog.findViewById(R.id.ok);
+
+                dialogButton.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        isTodayClicked = true;
+
+                        if (isNetworkAvailable(getActivity())) {
+                            getMasjidTimings2 gmt = new getMasjidTimings2();
+                            gmt.execute();
+
+                        } else {
+                            Toast.makeText(getActivity(), "No internet connection, Cannot update", Toast.LENGTH_LONG).show();
+                        }
+
+                        dialog.dismiss();
+
+                        Animation animation = new AlphaAnimation(0.0f, 1.0f);
+                        animation.setDuration(400);
+
+                        animation = new TranslateAnimation(
+                                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f,
+                                Animation.RELATIVE_TO_SELF, -1.0f, Animation.RELATIVE_TO_SELF, 0.0f
+                        );
+                        animation.setDuration(400);
+
+                        prayerTimings.startAnimation(animation);
+                    }
+                });
+
+                dialog.show();
+                return false;
+            }
         });
     }
-    
-   @Override
-   public boolean onOptionsItemSelected(MenuItem item) {
-	   
-
-	   today.setEnabled(true);
-
-	       city1 = "Delta";
-	       woied = "9824";
-
-	       if(isNetworkAvailable(getActivity()))
-	       {
-	       JSONWeatherTask task = new JSONWeatherTask();
-	       task.execute();
-	       }
-	       else {}
-	       
-	   selectedmasjid.setText("Baitur Rahman");
-	   selectedmasjid.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left));
-
-	   Animation animation = new AlphaAnimation(0.0f, 1.0f);
-	           animation.setDuration(400);
-	           animation = new TranslateAnimation(
-	               Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, 0.0f,
-	               Animation.RELATIVE_TO_SELF, -1.0f, Animation.RELATIVE_TO_SELF, 0.0f
-	           );
-
-	           animation.setDuration(400);
-
-	   prayertimings.startAnimation(animation);
-	   datepicker.setEnabled(true);
-
-	   try{
-		   if(isNetworkAvailable(getActivity()))
-		   {
-			   getMasjidTimings gmt = new getMasjidTimings();
-			   gmt.execute();
-		   }
-	   	 }
-	   catch(Exception ex) {}
-	   
-	   
-	return super.onOptionsItemSelected(item);
-   	}
    
-   
-   private static String TimeStampConverter(final String inputFormat, String inputTimeStamp, final String outputFormat)
+    private static String TimeStampConverter(final String inputFormat, String inputTimeStamp, final String outputFormat)
            throws ParseException {
        return new SimpleDateFormat(outputFormat).format(new SimpleDateFormat(inputFormat).parse(inputTimeStamp));
    }
 
-    public void checktime()
+	public void checktime()
     {
     	try
     	{
@@ -641,13 +548,13 @@ public class NamazFragment extends Fragment {
 		
 		if(diffHours == 0)
 		{
-			timeleft.setText(Long.toString(diffMinutes) + " MINS LEFT" );
+			timeLeft.setText(Long.toString(diffMinutes) + " MINS LEFT");
 		}
 		else {
-			timeleft.setText(Long.toString(diffHours)+"" + " HRS " + Long.toString(diffMinutes) + " MINS LEFT" );	
+			timeLeft.setText(Long.toString(diffHours) + "" + " HRS " + Long.toString(diffMinutes) + " MINS LEFT");
 		}
 		
-		timeleft.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left));
+		timeLeft.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left));
 		
 		
 		switch (magic) {
@@ -655,7 +562,11 @@ public class NamazFragment extends Fragment {
 			upcoming.setText("FAJAR");
 			break;
 		case 1:
-			upcoming.setText("ZUHR");
+            if(c.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) {
+                upcoming.setText("JUMMAH");
+                return;
+            }
+            else{ upcoming.setText("ZUHR"); }
 			break;
 		case 2:
 			upcoming.setText("ASAR");
@@ -687,98 +598,7 @@ public class NamazFragment extends Fragment {
 
     }
     
-private class JSONWeatherTask extends AsyncTask<String, Void, Void> {
 
-	
-		@Override
-		protected Void doInBackground(String... params) {
-			
-			String xml;
-			
-			XMLParser parser = new XMLParser();
-			try {
-				xml = parser.getXmlFromUrl("http://weather.yahooapis.com/forecastrss?w="+ woied + "&u=c");
-				Document doc = parser.getDomElement(xml);
-				NodeList node = doc.getElementsByTagName("yweather:condition");
-				Element terrif = (Element) node.item(0);
-				temperature = terrif.getAttribute("temp").toString();
-				conditions = terrif.getAttribute("text").toString();
-			} catch (Exception e) {
-				
-			}		
-			return null;
-		
-	}
-		
-	@Override
-	protected void onPostExecute(Void result) {
-	
-		super.onPostExecute(result);
-		temp.setText( city1 +": "  +temperature+ "°C");
-		temp.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left));
-
-	}
-  }
-
-class getNamazCenterTimings extends AsyncTask<String, String, String> {
-
-	@Override
-	protected void onPreExecute() {
-
-		super.onPreExecute();
-		if(pDialog.isShowing())
-		{
-			pDialog.dismiss();
-	        pDialog.show();
-		}
-		else
-		{
-	        pDialog.show();   
-		}	
-	}
-	
-	@Override
-	protected String doInBackground(String... arg0) {
-		
-		 List<NameValuePair> params = new ArrayList<NameValuePair>();
-         JSONObject json = jParser.makeHttpRequest(url_timings, "GET", params);
-
-       try {
-    	   	int success = json.getInt(TAG_SUCCESS);
-
-             if (success == 1) {
-
-                 tabletimings = json.getJSONArray(TAG_TIMINGS);
-                 surreysouth = new ArrayList<String>();
-                 
-                 for (int i = 0; i < tabletimings.length(); i++) {
-                	 
-                	 JSONObject c = tabletimings.getJSONObject(i);
-                     String timing = c.getString(TAG_TIME);
-                     
-              	   	 surreysouth.add(timing);
-                 }
-                 
-             } else {
-             	
-             }
-         } catch (Exception e) {
-             e.printStackTrace();
-         }
-
-		return null;
-	}
-	
-	@Override
-	protected void onPostExecute(String result) {
-		pDialog.dismiss();
-	Collections.copy(timings, surreysouth);
-	adapter.notifyDataSetChanged();
-	
-	checktime();
-		
-	}
-  }
 
 private class getMasjidTimings extends AsyncTask<String, String, String> {
 
@@ -796,15 +616,14 @@ private class getMasjidTimings extends AsyncTask<String, String, String> {
 		}	
 		
 	}
-	
-	
-	
+
 	@Override
 	protected String doInBackground(String... params) {
 
 		List<NameValuePair> params2 = new ArrayList<NameValuePair>();
 		
-         JSONObject json = jParser.makeHttpRequest(url_timings_2, "GET", params2);
+         JSONObject json = jParser.nmakeHttpRequest(url_timings_2, "GET", params2);
+
 
          try {
 
@@ -812,13 +631,13 @@ private class getMasjidTimings extends AsyncTask<String, String, String> {
 
              if (success == 1) {
 
-                 tabletimings2 = json.getJSONArray("May");
+                 tableTimings2 = json.getJSONArray("May");
                  
-                 masjidtimes = new ArrayList<String>();
+                 masjidTimes = new ArrayList<String>();
                  
-                 for (int i = 0; i < tabletimings2.length(); i++) {
+                 for (int i = 0; i < tableTimings2.length(); i++) {
                 	 
-                	 JSONObject c = tabletimings2.getJSONObject(i);
+                	 JSONObject c = tableTimings2.getJSONObject(i);
                      
                      String fajar = c.getString("Fajar");
                      String zuhr = c.getString("Zuhr");
@@ -826,11 +645,11 @@ private class getMasjidTimings extends AsyncTask<String, String, String> {
                      String maghrib = c.getString("Maghrib");
                      String isha = c.getString("Isha");
                      
-              	   masjidtimes.add(fajar);
-              	   masjidtimes.add(zuhr);
-              	   masjidtimes.add(asar);
-              	   masjidtimes.add(maghrib);
-              	   masjidtimes.add(isha);
+              	   masjidTimes.add(fajar);
+              	   masjidTimes.add(zuhr);
+              	   masjidTimes.add(asar);
+              	   masjidTimes.add(maghrib);
+              	   masjidTimes.add(isha);
               	 
                  }
                  
@@ -848,11 +667,11 @@ private class getMasjidTimings extends AsyncTask<String, String, String> {
 	protected void onPostExecute(String result) {
 		
 		pDialog.dismiss();
-		Collections.copy(timings, masjidtimes);
+		Collections.copy(timings, masjidTimes);
 		adapter.notifyDataSetChanged();
-		if(!istodayclicked)
+		if(!isTodayClicked)
 		{ checktime(); }
-		istodayclicked = false;
+		isTodayClicked = false;
 		
 	}
 	
@@ -881,8 +700,9 @@ private class getMasjidTimings2 extends AsyncTask<String, String, String> {
 		ArrayList<NameValuePair> params3 = new ArrayList<NameValuePair>();
 		
 		params3.add(new BasicNameValuePair("date", date333));
-		
-         JSONObject json = jParser.makeHttpRequest(url_timings_3, "GET", params3);
+
+        JSONObject json = jParser.nmakeHttpRequest(url_timings_3, "GET", params3);
+
 
          try {
 
@@ -890,13 +710,13 @@ private class getMasjidTimings2 extends AsyncTask<String, String, String> {
 
              if (success == 1) {
 
-                 tabletimings3 = json.getJSONArray("May");
+                 tableTimings3 = json.getJSONArray("May");
                  
-                 masjidtimes = new ArrayList<String>();
+                 masjidTimes = new ArrayList<String>();
                  
-                 for (int i = 0; i < tabletimings3.length(); i++) {
+                 for (int i = 0; i < tableTimings3.length(); i++) {
                 	 
-                	 JSONObject c = tabletimings3.getJSONObject(i);
+                	 JSONObject c = tableTimings3.getJSONObject(i);
                      
                      String fajar = c.getString("Fajar");
                      String zuhr = c.getString("Zuhr");
@@ -904,11 +724,11 @@ private class getMasjidTimings2 extends AsyncTask<String, String, String> {
                      String maghrib = c.getString("Maghrib");
                      String isha = c.getString("Isha");
                      
-              	   masjidtimes.add(fajar);
-              	   masjidtimes.add(zuhr);
-              	   masjidtimes.add(asar);
-              	   masjidtimes.add(maghrib);
-              	   masjidtimes.add(isha);
+              	   masjidTimes.add(fajar);
+              	   masjidTimes.add(zuhr);
+              	   masjidTimes.add(asar);
+              	   masjidTimes.add(maghrib);
+              	   masjidTimes.add(isha);
               	 
                  }
                  
@@ -925,7 +745,7 @@ private class getMasjidTimings2 extends AsyncTask<String, String, String> {
 	protected void onPostExecute(String result) {
 
 		pDialog.dismiss();
-		Collections.copy(timings, masjidtimes);
+		Collections.copy(timings, masjidTimes);
 		adapter.notifyDataSetChanged();
 	}
 	
@@ -968,19 +788,20 @@ private class getMarqueeInfo extends AsyncTask<String, String, String> {
 
 		ArrayList<NameValuePair> params4 = new ArrayList<NameValuePair>();
 		
-		JSONObject json = jParser.makeHttpRequest(url_timings_4, "GET", params4);
+		JSONObject json = jParser.nmakeHttpRequest(url_timings_4, "GET", params4);
 
          try {
-             int success = json.getInt(TAG_SUCCESS);
+             int success = 0;
+             success = json.getInt(TAG_SUCCESS);
              if (success == 1) {
 
-                 tabletimings4 = json.getJSONArray("Info");
-                 
-                 
-                 for (int i = 0; i < tabletimings4.length(); i++) {
+				 marqueeText = new ArrayList<String>();
+                 tableTimings4 = json.getJSONArray("Info");
+
+                 for (int i = 0; i < tableTimings4.length(); i++) {
                 	 
-                	 JSONObject c = tabletimings4.getJSONObject(i);
-                     marqueetext = c.getString("i_text");
+                	 JSONObject c = tableTimings4.getJSONObject(i);
+                     marqueeText.add(c.getString("i_text"));
                  }
                  
              } 
@@ -997,8 +818,73 @@ private class getMarqueeInfo extends AsyncTask<String, String, String> {
 	protected void onPostExecute(String result) {
 
 		pDialog.dismiss();
-		marquee.setText(marqueetext);
+
+        if(c.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) {
+            marquee.setText(marqueeText.get(1));
+            return;
+        }
+		marquee.setText(marqueeText.get(0));
 		
 		}
 	}
+
+    private class getQuranClassInfo extends AsyncTask<String, String, String> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            if(pDialog.isShowing())
+            {
+                pDialog.dismiss();
+                pDialog.show();
+            }
+            else
+            {
+                pDialog.show();
+            }
+        }
+
+        @Override
+        protected String doInBackground(String... params) {
+
+            ArrayList<NameValuePair> params5 = new ArrayList<NameValuePair>();
+
+            JSONObject json = jParser.nmakeHttpRequest(url_timings_5, "GET", params5);
+
+            try {
+                int success = 0;
+                success = json.getInt(TAG_SUCCESS);
+                if (success == 1) {
+
+                    quranClassTimes = new ArrayList<String>();
+                    tableTimings5 = json.getJSONArray("Info2");
+
+                    for (int i = 0; i < tableTimings5.length(); i++) {
+
+                        JSONObject c = tableTimings5.getJSONObject(i);
+                        quranClassTimes.add(c.getString("time"));
+
+                    }
+
+                }
+                else {
+
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            pDialog.dismiss();
+            quranclass2.setText(quranClassTimes.get(0));
+            quranclass.setText(quranClassTimes.get(1));
+
+        }
+    }
 }
+
+

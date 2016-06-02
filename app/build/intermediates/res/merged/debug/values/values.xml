@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/values/arrays.xml -->
-    <eat-comment/>
     <string-array name="listArray">
         <item>Ansaar</item>
         <item>Khudaam</item>
@@ -12,8 +10,6 @@
         <item>Khudaam</item>
         <item>Lajna</item>
     </string-array>
-    <!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/values/strings.xml -->
-    <eat-comment/>
     <string-array name="majalis">
         <item>Khudaam only</item>
         <item>Ansaar only</item>
@@ -53,6 +49,12 @@
         <item>Chanda Calculator</item>
         
     </string-array>
+    <string-array name="payperiod">
+        <item>weekly</item>
+        <item>bi-weekly</item>
+        <item>monthly</item>
+        <item>yearly</item>
+    </string-array>
     <string-array name="prayers">
         
         <item>Fajar</item>
@@ -71,15 +73,17 @@
         <item>7:00</item>
         <item>2:00</item>
     </string-array>
-    <!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/values/colors.xml -->
-    <eat-comment/>
+    <string-array name="wassiyatpercentage">
+        <item>10%</item>
+        <item>15%</item>
+        <item>20%</item>
+        <item>25%</item>
+        <item>30%</item>
+    </string-array>
     <color name="black">#000000</color>
-    <!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/values/dimens.xml -->
-    <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/values/strings.xml -->
-    <eat-comment/>
+    <dimen name="list_height">180dp</dimen>
     <item name="key_1" type="id"/>
     <item name="key_2" type="id"/>
     <item name="key_3" type="id"/>
@@ -97,11 +101,9 @@
     - Membership - 1% (minimum is $24 and for non-earning members) \n
     - Ijtima - $24</string>
     <string formatted="false" name="chanda_info_moosi">Moosian can contribute from 10% to 33% of income however 10% is minimum.</string>
-    <string name="dot">.</string>
+    <string name="dot">_</string>
     <string name="title_activity_splash">AMJ-BC</string>
     <string name="version"><u>"Version: 1.7"</u></string>
-    <!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/values/styles.xml -->
-    <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in

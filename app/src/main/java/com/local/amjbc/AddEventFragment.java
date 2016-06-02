@@ -80,8 +80,7 @@ public class AddEventFragment extends Fragment  {
 					
 					updateTime(tp.getCurrentHour(), tp.getCurrentMinute());
 					
-					if(title.getText().toString().matches("") ||  descri.getText().toString().matches("") || venue.getText().toString().matches("")) 
-					{
+					if(title.getText().toString().matches("") ||  descri.getText().toString().matches("") || venue.getText().toString().matches("")){
 						Toast.makeText(getActivity(), "Fill the required fields", Toast.LENGTH_LONG).show();
 					}
 					else
@@ -100,13 +99,7 @@ public class AddEventFragment extends Fragment  {
 	        return rootView;
 	        
 		}
-		
-		@Override
-		public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		    menu.findItem(R.id.rehman).setVisible(false);
-		    menu.findItem(R.id.rehman).setTitle("");
-		    super.onCreateOptionsMenu(menu, inflater);
-		}  
+
 
 	   private void updateTime(int hours, int mins) {
 	         
@@ -161,7 +154,7 @@ public class AddEventFragment extends Fragment  {
 	            params.add(new BasicNameValuePair("e_venue", venue.getText().toString()));
 	            params.add(new BasicNameValuePair("e_majlis", majlis.getSelectedItem().toString()));
 	 
-	            JSONObject json = jsonParser.makeHttpRequest(url_create_event, "POST", params);
+	            JSONObject json = jsonParser.nmakeHttpRequest(url_create_event, "POST", params);
 
 	            try {
 	                 success = json.getInt(TAG_SUCCESS);

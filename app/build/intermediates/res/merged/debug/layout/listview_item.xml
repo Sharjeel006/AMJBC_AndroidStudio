@@ -79,4 +79,4 @@
     	  android:layout_width="fill_parent"
 		  android:background="#d3d3d3" />
 
-</LinearLayout><!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/listview_item.xml -->
+</LinearLayout>

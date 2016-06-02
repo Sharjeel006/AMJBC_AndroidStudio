@@ -69,6 +69,9 @@ public class MainActivity extends Activity {
 
 		mTitle = mDrawerTitle = getTitle();
 		sp = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+
+
+//        Toast.makeText(getApplication(),sp.getString("title", "nothing"), Toast.LENGTH_LONG).show();
 		
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
         navMenuIcons = getResources().obtainTypedArray(R.array.nav_drawer_icons);
@@ -120,46 +123,6 @@ public class MainActivity extends Activity {
 		
 	}
 
-
-
-    public void HandleIntent(Intent intent) {
-
-//            Log.i("Main Activity:", "PUSH RECIEVED !!" + intent.getStringExtra("message") );
-//            Toast.makeText(this, intent.getStringExtra("message"), Toast.LENGTH_SHORT).show();
-
-        Bundle extras = intent.getExtras();
-
-        String jsonData = extras.getString("message");
-        Toast.makeText(this, jsonData, Toast.LENGTH_SHORT).show();
-//
-//        try {
-////				String action = intent.getAction();
-////				String channel = intent.getExtras().getString("com.parse.Channel");
-//            JSONObject json = new JSONObject(jsonData);
-//
-//            Iterator itr = json.keys();
-//            while (itr.hasNext()) {
-//                String key = (String)itr.next();
-//                Log.d("App", "key ::  " + json.getString(key));
-//                if(key.equals("alert")) {
-//                    String msg= json.getString(key);
-//                    Log.d("App", msg);
-//                }
-//
-//                if(key.equals("title")) {
-//                    String title= json.getString(key);
-//                    Log.d("App", title);
-//                }
-//            }
-//
-//        } catch (Exception e) {
-//            Log.d("App", "Parse Exception: " + e.getMessage());
-//        }
-
-
-
-    }
-
 	 private class SlideMenuClickListener implements ListView.OnItemClickListener {
 		 @Override
 		 public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -168,8 +131,7 @@ public class MainActivity extends Activity {
 			 displayView(position);
 		 	}
 	 }
-	
-	 
+
 	 private void displayView(int position) {
      // update the main content by replacing fragments
      Fragment fragment = null;
@@ -224,7 +186,6 @@ public class MainActivity extends Activity {
          Log.e("MainActivity", "Error in creating fragment");
      }
  }
- 
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -241,9 +202,7 @@ public class MainActivity extends Activity {
 	        }
 	        return false;
 	}
-	
-	
-	
+
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 	
@@ -252,8 +211,7 @@ public class MainActivity extends Activity {
         return super.onPrepareOptionsMenu(menu);
 		
 	}
-	
-	
+
 	public void showpush(Intent i)
 	{
 		JSONObject json;

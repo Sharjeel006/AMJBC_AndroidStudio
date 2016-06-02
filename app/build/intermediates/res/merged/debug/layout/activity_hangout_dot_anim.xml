@@ -60,4 +60,4 @@
         android:textSize="40sp"
         android:visibility="gone" />
 
-</merge><!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/activity_hangout_dot_anim.xml -->
+</merge>

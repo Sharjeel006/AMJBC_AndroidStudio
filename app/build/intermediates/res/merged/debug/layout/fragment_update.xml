@@ -19,4 +19,4 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"/>
  
-</RelativeLayout><!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_update.xml -->
+</RelativeLayout>

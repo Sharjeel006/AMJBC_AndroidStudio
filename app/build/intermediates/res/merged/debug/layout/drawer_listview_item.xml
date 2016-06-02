@@ -34,4 +34,4 @@
         android:layout_marginRight="8dp"
         android:textColor="#15726e"/>
  
-</RelativeLayout><!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/drawer_listview_item.xml -->
+</RelativeLayout>

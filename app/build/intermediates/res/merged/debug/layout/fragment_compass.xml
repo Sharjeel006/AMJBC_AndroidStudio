@@ -21,4 +21,4 @@
         
         android:src="@drawable/img_compass_2" />
 
-</RelativeLayout><!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_compass.xml -->
+</RelativeLayout>

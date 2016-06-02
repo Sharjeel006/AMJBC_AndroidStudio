@@ -5,4 +5,3 @@ android:interpolator="@android:anim/accelerate_interpolator">
     <alpha android:fromAlpha="0.0" android:toAlpha="1.0"
         android:duration="50" />
 </set>
-<!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/anim/slidetoptobottom.xml -->

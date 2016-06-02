@@ -21,7 +21,8 @@
         android:textSize="35dp"  
         android:textColor="#000000"
         android:paddingBottom="3dp"    
-        android:fontFamily="sans-serif-condensed"    
+        android:fontFamily="sans-serif-condensed"
+        android:visibility="gone"
         />
 
               <RelativeLayout
@@ -80,12 +81,12 @@
         android:id="@+id/selectedmasjid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:textSize="30dp"
         android:layout_margin="8dp"
         android:text="Baitur Rahman"
-        android:textColor="#000000"
+        android:textStyle="bold"
         android:layout_alignParentLeft="true"
-        />
+        android:textColor="@android:color/white" />
     
               <Button 
         android:id="@+id/today"
@@ -109,19 +110,17 @@
                      android:background="@android:color/transparent"
                      android:layout_height="fill_parent" 
                      android:layout_width="fill_parent"
-                     android:orientation="vertical" >   
-               
+                     android:orientation="vertical" >
 
-               
-                                            <LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content" 
-    android:layout_weight="0"
-    android:layout_alignParentTop="true"
-    android:layout_above="@+id/MarqueeText"
-    android:orientation="vertical">
+               <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:id="@+id/ll"
+                    android:layout_alignParentTop="true"
+                    android:orientation="vertical">
 
-           <ListView
+                   <ListView
                     android:id="@+id/listview1"
 					android:padding="10dp"
 					android:divider="@android:color/transparent"
@@ -129,34 +128,32 @@
 					android:dividerHeight="12dp"
 					android:listSelector="@android:color/transparent"
                     android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/list_height"
                     android:layout_marginLeft="8dp"
 					android:layout_marginRight="8dp"
 					android:layout_marginTop="3dp"
-                    android:layout_gravity="center_vertical"
                     android:entries="@array/prayers" >
                 </ListView>
              
               </LinearLayout>
-               
-              
-                   <TextView
-    android:text=""
-    android:id="@+id/MarqueeText" 
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:singleLine="true"
-    android:ellipsize="marquee" 
-    android:textSize="18dp"
-    android:marqueeRepeatLimit="marquee_forever"
-    android:scrollHorizontally="true"
-    android:layout_marginTop="6dp"
-    android:paddingLeft="15dip" 
-    android:paddingRight="15dip" 
-    android:focusable="true"
-    android:focusableInTouchMode="true" 
-    android:freezesText="true"
-    android:layout_above="@+id/infoicon" />
+
+               <TextView
+                   android:text=""
+                   android:id="@+id/MarqueeText"
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:singleLine="true"
+                   android:ellipsize="marquee"
+                   android:textSize="18dp"
+                   android:marqueeRepeatLimit="marquee_forever"
+                   android:scrollHorizontally="true"
+                   android:layout_marginTop="8dp"
+                   android:paddingLeft="15dip"
+                   android:paddingRight="15dip"
+                   android:focusable="true"
+                   android:focusableInTouchMode="true"
+                   android:freezesText="true"
+                   android:layout_below="@+id/ll" />
                    
                    <ImageView 
                        android:id="@+id/infoicon"
@@ -165,11 +162,95 @@
                        android:layout_margin="7dp"
                        android:layout_alignParentRight="true"
                        android:layout_alignParentBottom="true"
+                       android:visibility="gone"
                        android:src="@drawable/ic_aboutus"
                        />
-                     
-    </RelativeLayout>
 
+               <RelativeLayout
+                   android:id="@+id/countdown"
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content"
+                   android:background ="#50676767"
+                   android:orientation="vertical"
+                   android:layout_marginLeft="8dp"
+                   android:layout_marginRight="8dp"
+                   android:layout_marginTop="8dp"
+                   android:paddingLeft="5dp"
+                   android:layout_below="@+id/MarqueeText"
+                   android:paddingRight="5dp" >
 
+                   <TextView
+                       android:id="@+id/labelQuranClass"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20dp"
+                       android:layout_alignParentTop="true"
+                       android:layout_alignParentLeft="true"
+                       android:textColor="#FFFFFF"
+                       android:fontFamily="sans-serif-condensed"
+                       android:text="QURAN CLASS"
+                       />
 
-</LinearLayout><!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_namaz.xml -->
+                   <TextView
+                       android:id="@+id/baiturrahman"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@+id/labelQuranClass"
+                       android:textSize="15dp"
+                       android:textStyle="bold"
+                       android:text="Baitur Rahman"
+                       android:textColor="#FFFFFF"
+                       />
+                   <TextView
+                       android:id="@+id/upcoming3"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@+id/baiturrahman"
+                       android:textSize="15dp"
+                       android:textStyle="bold"
+                       android:text="Namaz Center"
+                       android:textColor="#FFFFFF"
+                       />
+
+                   <TextView
+                       android:id="@+id/timeleft3"
+                       android:layout_alignBaseline="@+id/baiturrahman"
+                       android:layout_width="fill_parent"
+                       android:layout_height="wrap_content"
+                       android:textSize="15dp"
+                       android:text=""
+                       android:textColor="#FFFFFF"
+                       android:layout_marginLeft="120dp"
+                       android:ellipsize="marquee"
+                       android:marqueeRepeatLimit="marquee_forever"
+                       android:scrollHorizontally="true"
+                       android:singleLine="true"
+                       android:focusable="true"
+                       android:focusableInTouchMode="true"
+                       android:freezesText="true"
+                       />
+
+                   <TextView
+                       android:id="@+id/timeleft2"
+                       android:layout_alignBaseline="@+id/upcoming3"
+                       android:layout_width="fill_parent"
+                       android:layout_height="wrap_content"
+                       android:textSize="15dp"
+                       android:text=""
+                       android:textColor="#FFFFFF"
+                       android:layout_marginLeft="120dp"
+                       android:ellipsize="marquee"
+                       android:marqueeRepeatLimit="marquee_forever"
+                       android:scrollHorizontally="true"
+                       android:singleLine="true"
+                       android:focusable="true"
+                       android:focusableInTouchMode="true"
+                       android:freezesText="true"
+                       />
+
+               </RelativeLayout>
+
+           </RelativeLayout>
+
+</LinearLayout>
+

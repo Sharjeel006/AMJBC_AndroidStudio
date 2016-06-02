@@ -7,4 +7,3 @@
     android:valueTo="0" 
     android:duration="500"/>
 </set>
-<!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/animator/slide_out.xml -->

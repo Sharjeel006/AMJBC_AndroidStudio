@@ -4,4 +4,3 @@
    <alpha android:fromAlpha="0.0" android:toAlpha="1.0"
          android:duration="300" />
 </set>
-<!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/anim/pushleftin.xml -->

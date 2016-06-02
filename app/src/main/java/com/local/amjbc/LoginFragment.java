@@ -7,8 +7,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -16,7 +14,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import com.local.amjbc.model.JSONParser;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
@@ -34,14 +34,14 @@ public class LoginFragment extends Fragment {
 	EditText username1, pass1;
     String email, password;
     JSONParser jParser = new JSONParser();
-    private static String url =  "http://amj-bc.com/check.php";
+    private static String url =  "http://amj-bc.com/amjbc/check.php";
     int success;
 	
 	   @Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	            Bundle savedInstanceState) {
 	  
-	        View rootView = inflater.inflate(R.layout.fragment_login, container, false);
+           View rootView = inflater.inflate(R.layout.fragment_login, container, false);
 	          
            username1 = (EditText)rootView.findViewById(R.id.username);
            pass1 = (EditText)rootView.findViewById(R.id.password);
@@ -65,15 +65,6 @@ public class LoginFragment extends Fragment {
 	        return rootView;
 	        
 		}
-		
-		@Override
-		public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-		    
-		    menu.findItem(R.id.rehman).setVisible(false);
-		    menu.findItem(R.id.rehman).setTitle("");
-		    super.onCreateOptionsMenu(menu, inflater);
-		}
-
 
 	private class JSONLogin extends AsyncTask<String, Void, Void> {
 
@@ -144,5 +135,4 @@ public class LoginFragment extends Fragment {
             }
 		}
 	}
-
 }

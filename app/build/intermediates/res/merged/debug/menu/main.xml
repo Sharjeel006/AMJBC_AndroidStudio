@@ -1,18 +1,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
-        android:id="@+id/rehman"
-        android:orderInCategory="100"
-        android:showAsAction="collapseActionView"
-        android:title="Bait ur Rehman"/>
-    
-    <item
         android:id="@+id/datepicker"
         android:orderInCategory="100"
         android:showAsAction="always"
         android:title=""/>
-    
-    
 
 </menu>
-<!-- From: file:/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/menu/main.xml -->

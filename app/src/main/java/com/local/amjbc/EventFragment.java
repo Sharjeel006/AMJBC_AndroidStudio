@@ -1,13 +1,5 @@
 package com.local.amjbc;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-
-import org.apache.http.NameValuePair;
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
@@ -23,8 +15,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -33,6 +23,14 @@ import android.widget.TextView;
 
 import com.local.amjbc.model.JSONParser;
 
+import org.apache.http.NameValuePair;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class EventFragment extends Fragment {
 
 public EventFragment(){}
@@ -40,6 +38,7 @@ public EventFragment(){}
 	private ProgressDialog pDialog;
 	private static String url_events = "http://www.amj-bc.com/get_all_events.php";
 	private TextView error;
+
 	
 	ListView lv;
 	ArrayList<HashMap<String, String>> eventList;
@@ -105,13 +104,7 @@ public EventFragment(){}
         return rootView;
         
 	}
-	
-	@Override
-	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-	   
-	    menu.findItem(R.id.rehman).setVisible(false);
-	    super.onCreateOptionsMenu(menu, inflater);
-	}  
+
 
 
     public static boolean isNetworkAvailable(Context context) {
@@ -153,7 +146,7 @@ public EventFragment(){}
 
             List<NameValuePair> params = new ArrayList<NameValuePair>();
 
-            JSONObject json = jParser.makeHttpRequest(url_events, "GET", params);
+            JSONObject json = jParser.nmakeHttpRequest(url_events, "GET", params);
 
             try {
 
