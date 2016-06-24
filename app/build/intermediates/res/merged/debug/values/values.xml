@@ -38,6 +38,7 @@
         <item>@drawable/ic_aboutus</item>
         <item>@drawable/ic_contact_us</item>
         <item>@drawable/ic_cal</item>
+        <item>@drawable/ic_ramazan</item>
     </array>
     <string-array name="nav_drawer_items">
         <item>Prayer Timings</item>
@@ -47,6 +48,7 @@
         <item>About</item>
         <item>Feedback</item>
         <item>Chanda Calculator</item>
+        <item>Ramadhan</item>
         
     </string-array>
     <string-array name="payperiod">

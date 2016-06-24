@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/animator/slide_in.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/animator/slide_in.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/animator/rotate_animation.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/animator/rotate_animation.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/animator/fade_in.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/animator/fade_in.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/animator/slide_out.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/animator/slide_out.xml"
+    }
+]

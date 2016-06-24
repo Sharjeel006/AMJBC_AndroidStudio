@@ -86,6 +86,7 @@ public class MainActivity extends Activity {
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[4], navMenuIcons.getResourceId(4, -1),false,"0"));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[5], navMenuIcons.getResourceId(5, -1),false,"0"));
         navDrawerItems.add(new NavDrawerItem(navMenuTitles[6], navMenuIcons.getResourceId(6, -1),false,"0"));
+        navDrawerItems.add(new NavDrawerItem(navMenuTitles[7], navMenuIcons.getResourceId(7, -1),false,"0"));
         navMenuIcons.recycle();
  
         adapter = new NavDrawerListAdapter(getApplicationContext(), navDrawerItems);
@@ -166,6 +167,10 @@ public class MainActivity extends Activity {
      case 6:
     	 overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
          fragment = new ChandaCal();
+         break;
+     case 7:
+         overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
+         fragment = new RamazanFragment();
          break;
        
      default:

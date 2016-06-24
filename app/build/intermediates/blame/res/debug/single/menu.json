@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/menu/main.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/menu/main.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/menu/options_menu.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/menu/options_menu.xml"
+    }
+]

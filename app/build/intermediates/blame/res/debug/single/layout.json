@@ -1,0 +1,102 @@
+[
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_event.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_event.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/drawer_listview_item.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/drawer_listview_item.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/custom_dialog.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/custom_dialog.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_update.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_update.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_editeventlist.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_editeventlist.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_editevent.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_editevent.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/shape_square.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/shape_square.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_namaz.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_namaz.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/activity_hangout_dot_anim.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/activity_hangout_dot_anim.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/other_chandas.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/other_chandas.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_admin_options.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_admin_options.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/test.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/test.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_chanda_calc.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_chanda_calc.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_update_timings_center.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_update_timings_center.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_ramazan.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_ramazan.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/splash_2.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/splash_2.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_aboutus.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_aboutus.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/custom_dialog_event_added.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/custom_dialog_event_added.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_addevent.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_addevent.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_compass.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_compass.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/activity_main.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/listview_item.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/listview_item.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/events_list_item.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/events_list_item.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_chanda_calc_updated.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_chanda_calc_updated.xml"
+    },
+    {
+        "merged": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/build/intermediates/res/merged/debug/layout/fragment_login.xml",
+        "source": "/Users/sharjeelhussain/AndroidStudioProjects/AMJBC/app/src/main/res/layout/fragment_login.xml"
+    }
+]

@@ -87,7 +87,20 @@
         android:textStyle="bold"
         android:layout_alignParentLeft="true"
         android:textColor="@android:color/white" />
-    
+
+                  <Button
+                      android:id="@+id/ramazangoto"
+                      android:layout_width="65dp"
+                      android:layout_height="wrap_content"
+                      android:layout_toLeftOf="@+id/today"
+                      android:text="Ramzan schedule"
+                      android:layout_marginRight="8dp"
+                      android:layout_marginLeft="8dp"
+                      android:textColor="#000000"
+                      android:textSize="13dp"
+                      android:background="@android:color/holo_red_light"
+                      />
+
               <Button 
         android:id="@+id/today"
         android:layout_width="wrap_content"
@@ -102,8 +115,6 @@
                   
     </RelativeLayout>
 
-
-              
            <RelativeLayout  
                      android:id="@+id/condition2"
                      android:layout_marginTop="0dp"
@@ -153,6 +164,7 @@
                    android:focusable="true"
                    android:focusableInTouchMode="true"
                    android:freezesText="true"
+                   android:textColor="@android:color/white"
                    android:layout_below="@+id/ll" />
                    
                    <ImageView 
@@ -188,7 +200,7 @@
                        android:layout_alignParentLeft="true"
                        android:textColor="#FFFFFF"
                        android:fontFamily="sans-serif-condensed"
-                       android:text="QURAN CLASS"
+                       android:text="DARS and TRAVEEH"
                        />
 
                    <TextView

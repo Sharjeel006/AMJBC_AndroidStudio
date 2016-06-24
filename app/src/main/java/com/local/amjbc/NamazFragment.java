@@ -29,7 +29,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.CalendarView.OnDateChangeListener;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,7 +52,7 @@ import java.util.List;
 public class NamazFragment extends Fragment {
 	
 	TextView temp, upcoming, marquee, selectedMasjid, today, label, timeLeft, quranclass, quranclass2;
-	ImageView infoIcon;
+	Button ramzanjump;
 	ListView prayerTimings;
 	NamazAdapter adapter;
 	CalendarView cv;
@@ -104,7 +103,7 @@ public class NamazFragment extends Fragment {
         quranclass2 = (TextView)rootView.findViewById(R.id.timeleft3);
         marquee = (TextView)rootView.findViewById(R.id.MarqueeText);
         selectedMasjid = (TextView)rootView.findViewById(R.id.selectedmasjid);
-        infoIcon = (ImageView)rootView.findViewById(R.id.infoicon);
+        ramzanjump = (Button)rootView.findViewById(R.id.ramazangoto);
         prayerTimings = (ListView)rootView.findViewById(R.id.listview1);
         timeLeft = (TextView)rootView.findViewById(R.id.timeleft);
         
@@ -263,12 +262,12 @@ public class NamazFragment extends Fragment {
         adapter = new NamazAdapter(getActivity(),R.layout.listview_item, prayers, timings);
         prayerTimings.setAdapter(adapter);
 
-        infoIcon.setOnClickListener(new OnClickListener() {
+        ramzanjump.setOnClickListener(new OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                Fragment newFragment = new AboutUsFragment();
+                Fragment newFragment = new RamazanFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 getActivity().overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
@@ -819,14 +818,20 @@ private class getMarqueeInfo extends AsyncTask<String, String, String> {
 
 		pDialog.dismiss();
 
-        if(c.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) {
-            marquee.setText(marqueeText.get(1));
-            return;
+        try {
+
+            if(c.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) {
+                marquee.setText(marqueeText.get(1));
+                return;
+            }
+            marquee.setText(marqueeText.get(0));
         }
-		marquee.setText(marqueeText.get(0));
-		
-		}
-	}
+        catch (Exception e)
+        {
+
+        }
+    }
+}
 
     private class getQuranClassInfo extends AsyncTask<String, String, String> {
 
@@ -880,8 +885,16 @@ private class getMarqueeInfo extends AsyncTask<String, String, String> {
         protected void onPostExecute(String result) {
 
             pDialog.dismiss();
-            quranclass2.setText(quranClassTimes.get(0));
-            quranclass.setText(quranClassTimes.get(1));
+
+            try {
+
+                quranclass2.setText(quranClassTimes.get(0));
+                quranclass.setText(quranClassTimes.get(1));
+            }
+            catch (Exception e)
+            {
+
+            }
 
         }
     }
