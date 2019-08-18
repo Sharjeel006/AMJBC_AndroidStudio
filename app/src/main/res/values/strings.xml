@@ -25,7 +25,7 @@
    <item type="id" name="key_3"/>
    <item type="id" name="key_4"/> 
     
-    <string name="version"><u>"Version: 1.7"</u></string>
+    <string name="version"><u>"Version: 5.0"</u></string>
 
     <string-array name="majalis">
         <item>Khudaam only</item>
@@ -43,7 +43,7 @@
     <string-array name="nav_drawer_items">
         <item>Prayer Timings</item>
         <item>Events</item>
-        <item>Admin</item>
+        <item>Event Request</item>
         <item>Compass</item>
         <item>About</item>
         <item>Feedback</item>

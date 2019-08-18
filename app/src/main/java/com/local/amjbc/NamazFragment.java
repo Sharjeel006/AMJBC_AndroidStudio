@@ -13,6 +13,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -41,6 +42,9 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -48,11 +52,12 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class NamazFragment extends Fragment {
 	
 	TextView temp, upcoming, marquee, selectedMasjid, today, label, timeLeft, quranclass, quranclass2;
-	Button ramzanjump;
+	Button ramzanjump, calendarwiz;
 	ListView prayerTimings;
 	NamazAdapter adapter;
 	CalendarView cv;
@@ -104,6 +109,7 @@ public class NamazFragment extends Fragment {
         marquee = (TextView)rootView.findViewById(R.id.MarqueeText);
         selectedMasjid = (TextView)rootView.findViewById(R.id.selectedmasjid);
         ramzanjump = (Button)rootView.findViewById(R.id.ramazangoto);
+        calendarwiz = (Button)rootView.findViewById(R.id.calendarwizbutton);
         prayerTimings = (ListView)rootView.findViewById(R.id.listview1);
         timeLeft = (TextView)rootView.findViewById(R.id.timeleft);
         
@@ -207,17 +213,17 @@ public class NamazFragment extends Fragment {
             }
         });
         
-        marquee.setSelected(true);
-        quranclass.setSelected(true);
-        quranclass2.setSelected(true);
+        //marquee.setSelected(true);
+        //quranclass.setSelected(true);
+        //quranclass2.setSelected(true);
         
         if(isNetworkAvailable(getActivity()))
         {
 
-    		getMarqueeInfo gmi =  new getMarqueeInfo();
-    		gmi.execute();
-            getQuranClassInfo gqci = new getQuranClassInfo();
-            gqci.execute();
+    		//getMarqueeInfo gmi =  new getMarqueeInfo();
+    		//gmi.execute();
+           // getQuranClassInfo gqci = new getQuranClassInfo();
+            //gqci.execute();
         }
         else
         {
@@ -261,6 +267,23 @@ public class NamazFragment extends Fragment {
         
         adapter = new NamazAdapter(getActivity(),R.layout.listview_item, prayers, timings);
         prayerTimings.setAdapter(adapter);
+
+        calendarwiz.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Fragment newFragment = new CalendarWiz();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+
+                getActivity().overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
+                transaction.replace(R.id.content_frame, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
+
 
         ramzanjump.setOnClickListener(new OnClickListener() {
 
@@ -381,7 +404,7 @@ public class NamazFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 
-    	checktime();
+    	//checktime();
     	
     	super.onCreateOptionsMenu(menu, inflater);
     	
@@ -491,7 +514,7 @@ public class NamazFragment extends Fragment {
    
     private static String TimeStampConverter(final String inputFormat, String inputTimeStamp, final String outputFormat)
            throws ParseException {
-       return new SimpleDateFormat(outputFormat).format(new SimpleDateFormat(inputFormat).parse(inputTimeStamp));
+       return new SimpleDateFormat(outputFormat, Locale.ENGLISH).format(new SimpleDateFormat(inputFormat).parse(inputTimeStamp));
    }
 
 	public void checktime()
@@ -514,7 +537,10 @@ public class NamazFragment extends Fragment {
     	String beta;
 		beta = Integer.toString(d)+ "/" + Integer.toString(m+1)+ "/"+Integer.toString(y)+ " ";
     	String namaztime555 = timings.get(4);
-		String namaztime22 = TimeStampConverter(inputFormat, beta+namaztime555, outputFormat);
+    	SimpleDateFormat sdf2 = new SimpleDateFormat(inputFormat, Locale.ENGLISH);
+    	Date parseddate = sdf2.parse(beta+namaztime555);
+    	SimpleDateFormat print = new SimpleDateFormat(outputFormat, Locale.ENGLISH);
+		String namaztime22 = TimeStampConverter(inputFormat, print.format(parseddate), outputFormat);
 		Date namaztime33 = sdf.parse(namaztime22);
 		
     	if(curDate2.getTime() > namaztime33.getTime())
@@ -554,11 +580,12 @@ public class NamazFragment extends Fragment {
 		}
 		
 		timeLeft.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left));
-		
+
 		
 		switch (magic) {
 		case 0:
 			upcoming.setText("FAJAR");
+            Toast.makeText(getActivity(), "Monthly", Toast.LENGTH_LONG).show();
 			break;
 		case 1:
             if(c.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) {
@@ -592,7 +619,10 @@ public class NamazFragment extends Fragment {
     }    	
     	catch(Exception ex)
     	{
-    		
+            Writer writer = new StringWriter();
+            ex.printStackTrace(new PrintWriter(writer));
+            String s = writer.toString();
+            Log.e("checktime exception",s);
     	}
 
     }
@@ -669,7 +699,8 @@ private class getMasjidTimings extends AsyncTask<String, String, String> {
 		Collections.copy(timings, masjidTimes);
 		adapter.notifyDataSetChanged();
 		if(!isTodayClicked)
-		{ checktime(); }
+		{ //checktime();
+		     }
 		isTodayClicked = false;
 		
 	}
@@ -762,8 +793,7 @@ public void onActivityCreated(Bundle savedInstanceState) {
 public void onResume() {
 
 	super.onResume();
-	
-	checktime();
+	//checktime();
 }
 
 private class getMarqueeInfo extends AsyncTask<String, String, String> {

@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -13,8 +14,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +21,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.legacy.app.ActionBarDrawerToggle;
 
 import com.local.amjbc.adapters.NavDrawerListAdapter;
 import com.local.amjbc.chandacal.ChandaCal;
@@ -121,6 +123,8 @@ public class MainActivity extends Activity {
             // on first time display view
             displayView(0);
         }
+
+
 		
 	}
 
@@ -143,12 +147,12 @@ public class MainActivity extends Activity {
          break;
      case 1:
     	 overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
-         fragment = new EventFragment();
+         fragment = new CalendarWiz();
          fragment.setHasOptionsMenu(false);
          break;
      case 2:
     	 overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
-         fragment = new LoginFragment();
+         fragment = new RequestEvent();
          break;
      case 3:
     	 overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
@@ -170,7 +174,7 @@ public class MainActivity extends Activity {
          break;
      case 7:
          overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
-         fragment = new RamazanFragment();
+         fragment = new PlaceholderFragment();
          break;
        
      default:
