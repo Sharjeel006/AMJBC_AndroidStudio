@@ -626,8 +626,6 @@ public class NamazFragment extends Fragment {
     	}
 
     }
-    
-
 
 private class getMasjidTimings extends AsyncTask<String, String, String> {
 
@@ -863,7 +861,7 @@ private class getMarqueeInfo extends AsyncTask<String, String, String> {
     }
 }
 
-    private class getQuranClassInfo extends AsyncTask<String, String, String> {
+private class getQuranClassInfo extends AsyncTask<String, String, String> {
 
         @Override
         protected void onPreExecute() {

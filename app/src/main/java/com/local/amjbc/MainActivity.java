@@ -174,7 +174,7 @@ public class MainActivity extends Activity {
          break;
      case 7:
          overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
-         fragment = new PlaceholderFragment();
+         fragment = new RamazanFragment();
          break;
        
      default:
