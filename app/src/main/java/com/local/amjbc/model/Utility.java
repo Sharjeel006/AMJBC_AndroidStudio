@@ -10,7 +10,13 @@ public class Utility {
 
  	public static String GetColumnValue(Cursor cur, String ColumnName) {
 		try {
-			return cur.getString(cur.getColumnIndex(ColumnName));
+			int columnIndex = cur.getColumnIndex(ColumnName);
+			if (columnIndex != -1) {
+				return cur.getString(columnIndex);
+			} else {
+				// Handle gracefully – return null, empty string, or throw custom exception as needed
+				return ""; // or `null`, depending on your logic
+			}
 		} catch (Exception ex) {
 			Log.v("chk oo", ex.toString());
 			return "";

@@ -1,12 +1,11 @@
 package com.local.amjbc;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.Color;
@@ -23,6 +22,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 import androidx.legacy.app.ActionBarDrawerToggle;
 
 import com.local.amjbc.adapters.NavDrawerListAdapter;
@@ -46,19 +46,19 @@ public class MainActivity extends Activity {
  
     // used to store app title
     private CharSequence mTitle;
-    
+
     SharedPreferences sp;
  
     // slide menu items
     private String[] navMenuTitles;
     private TypedArray navMenuIcons;
-    
-    private int newevents;
+
  
     private ArrayList<NavDrawerItem> navDrawerItems;
     private NavDrawerListAdapter adapter;
  
-	@Override
+	@SuppressLint("ResourceType")
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
@@ -139,7 +139,7 @@ public class MainActivity extends Activity {
 
 	 private void displayView(int position) {
      // update the main content by replacing fragments
-     Fragment fragment = null;
+         Fragment fragment = null;
      switch (position) {
      case 0:
     	 overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
@@ -160,7 +160,7 @@ public class MainActivity extends Activity {
          break;
      case 4:
     	 overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
-         fragment = new AboutUsFragment();
+         //fragment = new AboutUsFragment();
          break;
      case 5:
     	 overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
@@ -183,7 +183,7 @@ public class MainActivity extends Activity {
 
      if (fragment != null) {
          FragmentManager fragmentManager = getFragmentManager();
-         fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+       //  fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
          // update selected item and title, then close the drawer
          mDrawerList.setItemChecked(position, true);

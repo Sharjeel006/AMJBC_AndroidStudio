@@ -4,6 +4,7 @@
     android:layout_height="fill_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:fitsSystemWindows="true"
     android:background="@drawable/ic_namaz_bg_6">
 
     <RelativeLayout
