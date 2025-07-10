@@ -23,13 +23,13 @@ import android.widget.TextView;
 
 import com.local.amjbc.model.JSONParser;
 
-import org.apache.http.NameValuePair;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EventFragment extends Fragment {
 
@@ -144,7 +144,7 @@ public EventFragment(){}
 
         protected String doInBackground(String... args) {
 
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
+            List<Map.Entry<String, String>> params = new ArrayList<>();
 
             JSONObject json = jParser.nmakeHttpRequest(url_events, "GET", params);
 

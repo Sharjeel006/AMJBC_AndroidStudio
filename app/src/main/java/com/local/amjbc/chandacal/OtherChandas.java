@@ -1,22 +1,20 @@
 package com.local.amjbc.chandacal;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
-import android.content.Intent;
+import android.app.ActionBar;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.local.amjbc.MainActivity;
+import androidx.fragment.app.Fragment;
+
 import com.local.amjbc.R;
 
 public class OtherChandas extends Fragment {
@@ -34,7 +32,8 @@ public class OtherChandas extends Fragment {
         getActivity().overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         
         View rootView = inflater.inflate(R.layout.other_chandas, container, false);
-		((MainActivity)getActivity()).getActionBar().setTitle("Other Chandas");
+		ActionBar actionbar = getActivity().getActionBar();
+		actionbar.setTitle("Other Chandas");
 		setHasOptionsMenu(false);
         
         sp = PreferenceManager.getDefaultSharedPreferences(getActivity());

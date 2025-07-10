@@ -21,7 +21,8 @@
         android:layout_height="wrap_content"
         android:textSize="40dp"  
         android:textColor="#000000"
-        android:paddingBottom="3dp"    
+        android:paddingBottom="3dp"
+        android:visibility="gone"
         android:fontFamily="sans-serif-condensed"    
         />
               <RelativeLayout
@@ -31,7 +32,18 @@
                   android:background ="#50676767"
                   android:orientation="vertical"
                   android:paddingLeft="5dp"
+                  android:visibility="gone"
                   android:paddingRight="5dp" >
+
+                  <Button
+                      android:id="@+id/calendarwizbutton"
+                      android:layout_width="match_parent"
+                      android:text="*NEW* Calendar of Events"
+                      android:background="@drawable/selector"
+                      android:textColor="#000000"
+                      android:textSize="18dp"
+                      android:visibility="gone"
+                      android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/label1"
@@ -42,6 +54,7 @@
         android:layout_alignParentLeft="true"
         android:textColor="#FFFFFF"    
         android:fontFamily="sans-serif-condensed"
+        android:visibility="gone"
         android:text="UPCOMING PRAYER"    
         />
     
@@ -86,7 +99,18 @@
         android:textColor="#000000"
         android:layout_alignParentLeft="true"
         />
-    
+                  <Button
+                      android:id="@+id/ramazangoto"
+                      android:layout_width="65dp"
+                      android:layout_height="wrap_content"
+                      android:layout_toLeftOf="@+id/today"
+                      android:text="Ramzan schedule"
+                      android:layout_marginRight="8dp"
+                      android:layout_marginLeft="8dp"
+                      android:textColor="#000000"
+                      android:textSize="11dp"
+                      android:background="@android:color/holo_red_light"
+                      />
               <Button 
         android:id="@+id/today"
         android:layout_width="wrap_content"
@@ -108,23 +132,24 @@
     android:layout_gravity="center_vertical"
     android:orientation="vertical">
 
-           <ListView
-                    android:id="@+id/listview1"
-					android:padding="10dp"
-					android:divider="@android:color/transparent"
-					android:background ="#30676767"
-					android:dividerHeight="140dp"
-					android:listSelector="@android:color/transparent"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_marginLeft="8dp"
-					android:layout_marginRight="8dp"
-					android:layout_marginTop="3dp"
-                    android:layout_gravity="center_vertical"
-                    android:entries="@array/prayers" >
-                </ListView>
-             
-              </LinearLayout>
+                                 <ListView
+                                     android:id="@+id/listview1"
+                                     android:padding="10dp"
+                                     android:divider="@android:color/transparent"
+                                     android:background="#30676767"
+                                     android:dividerHeight="140dp"
+                                     android:listSelector="@android:color/transparent"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="0dp"
+                                     android:layout_weight="1"
+                                     android:layout_marginLeft="8dp"
+                                     android:layout_marginRight="8dp"
+                                     android:layout_marginTop="3dp"
+                                     android:layout_gravity="center_vertical"
+                                     android:entries="@array/prayers"/>
+
+
+                             </LinearLayout>
               
            <RelativeLayout  
                      android:id="@+id/condition2"

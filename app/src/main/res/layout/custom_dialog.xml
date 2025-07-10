@@ -10,8 +10,8 @@
         android:id="@+id/calendarView1"
     android:layout_width="match_parent"
     android:layout_height="250dp"
-    android:minDate="08/08/2019"
-    android:maxDate="01/01/2021"
+    android:minDate="05/05/2025"
+    android:maxDate="01/01/2030"
     android:showWeekNumber="false"
     android:tag="my tag" />
     

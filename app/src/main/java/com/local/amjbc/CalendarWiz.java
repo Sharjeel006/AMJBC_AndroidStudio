@@ -1,7 +1,6 @@
 package com.local.amjbc;
 
 import android.app.DownloadManager;
-import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -20,14 +19,16 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import androidx.core.app.ActivityCompat;
+import androidx.fragment.app.Fragment;
 
 public class CalendarWiz extends Fragment {
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        getActivity().setTitle("Events");
         View rootView = inflater.inflate(R.layout.calendar_wiz,container, false);
         setHasOptionsMenu(true);
 

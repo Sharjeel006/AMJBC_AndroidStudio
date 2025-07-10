@@ -1,8 +1,6 @@
 package com.local.amjbc.chandacal;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,7 +27,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.local.amjbc.MainActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.local.amjbc.R;
 
 import java.util.Calendar;
@@ -59,7 +59,6 @@ public class ChandaCal extends Fragment {
 			Bundle savedInstanceState) {
 		
 		View rootView = inflater.inflate(R.layout.fragment_chanda_calc, container, false);
-		((MainActivity)getActivity()).getActionBar().setTitle("Chanda Calculator");
 		setHasOptionsMenu(true);
 
         aam = (TextView) rootView.findViewById(R.id.main);
@@ -88,8 +87,8 @@ public class ChandaCal extends Fragment {
         
         
 		   
-		   if(monthly == true) Toast.makeText(getActivity(), "Monthly", Toast.LENGTH_LONG).show();
-		   else Toast.makeText(getActivity(), "Yearly", Toast.LENGTH_LONG).show();
+//		   if(monthly == true) Toast.makeText(getActivity(), "Monthly", Toast.LENGTH_LONG).show();
+//		   else Toast.makeText(getActivity(), "Yearly", Toast.LENGTH_LONG).show();
         
         
         
@@ -263,8 +262,12 @@ public class ChandaCal extends Fragment {
 			}
 			
 		};
-		
-		getActivity().registerReceiver(reciever1, filter);
+
+		getActivity().registerReceiver(
+				reciever1,
+				new IntentFilter("some.action"),
+				Context.RECEIVER_NOT_EXPORTED // or RECEIVER_EXPORTED depending on your needs
+		);
 		return rootView;
         
     }

@@ -1,10 +1,7 @@
 package com.local.amjbc;
 
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -13,7 +10,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -34,30 +30,31 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.local.amjbc.adapters.OnSwipeTouchListener;
 import com.local.amjbc.model.JSONParser;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.io.Writer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.chrono.HijrahDate;
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class NamazFragment extends Fragment {
 	
-	TextView temp, upcoming, marquee, selectedMasjid, today, label, timeLeft, quranclass, quranclass2;
-	Button ramzanjump, calendarwiz;
+	TextView selectedMasjid, today, label, timeLeft, quranclass, quranclass2, marquee;
+	private Button ramzanjump,  calendarwiz;
 	ListView prayerTimings;
 	NamazAdapter adapter;
 	CalendarView cv;
@@ -73,7 +70,7 @@ public class NamazFragment extends Fragment {
 	boolean isTodayClicked, isCalendarClicked =  false;
     boolean firstTime = true;
 
-	private static String url_timings_2 =  "http://amj-bc.com/amjbc/get_masjid_timings.php";
+	private static String url_timings_2 =  "https://amj-bc.com/amjbc/get_masjid_timings.php";
 	private static String url_timings_3 =  "http://amj-bc.com/amjbc/fetch_timings.php";
 	private static String url_timings_4 =  "http://amj-bc.com/amjbc/getMarqueeInfo.php";
     private static String url_timings_5 =  "http://amj-bc.com/amjbc/getQuranClasstimes.php";
@@ -82,16 +79,14 @@ public class NamazFragment extends Fragment {
 
 	JSONArray tableTimings2, tableTimings3, tableTimings4, tableTimings5 = null;
     JSONParser jParser = new JSONParser();
-	
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
   
         View rootView = inflater.inflate(R.layout.fragment_namaz, container, false);
         setHasOptionsMenu(true);
-        
-        ActionBar actionbar = getActivity().getActionBar();
-        actionbar.setTitle("Prayer Timings");
-        
+
         pDialog = new ProgressDialog(getActivity());
         pDialog.setMessage("Loading, Please wait...");
         pDialog.setIndeterminate(false);
@@ -99,20 +94,27 @@ public class NamazFragment extends Fragment {
         
         prayers = new ArrayList<String>();
         timings = new ArrayList<String>();
-        
-        temp = (TextView)rootView.findViewById(R.id.weather);
-        upcoming = (TextView)rootView.findViewById(R.id.upcoming2);
+
         today = (TextView)rootView.findViewById(R.id.today);
         label = (TextView)rootView.findViewById(R.id.label1);
         quranclass = (TextView)rootView.findViewById(R.id.timeleft2);
         quranclass2 = (TextView)rootView.findViewById(R.id.timeleft3);
-        marquee = (TextView)rootView.findViewById(R.id.MarqueeText);
         selectedMasjid = (TextView)rootView.findViewById(R.id.selectedmasjid);
         ramzanjump = (Button)rootView.findViewById(R.id.ramazangoto);
         calendarwiz = (Button)rootView.findViewById(R.id.calendarwizbutton);
         prayerTimings = (ListView)rootView.findViewById(R.id.listview1);
         timeLeft = (TextView)rootView.findViewById(R.id.timeleft);
-        
+        marquee = (TextView)rootView.findViewById(R.id.MarqueeText);
+
+
+        String hij_date = HijrahDate.now().toString();
+        int date_len = hij_date.length();
+        String m = hij_date.substring(date_len - 5, date_len - 3);
+        System.out.println(HijrahDate.now());
+
+        if(m.equals("09")) ramzanjump.setVisibility(View.VISIBLE);
+        else ramzanjump.setVisibility(View.GONE);
+
         prayerTimings.setOnTouchListener(new OnSwipeTouchListener() {
             public void onSwipeTop() {
 
@@ -212,14 +214,9 @@ public class NamazFragment extends Fragment {
 
             }
         });
-        
-        //marquee.setSelected(true);
-        //quranclass.setSelected(true);
-        //quranclass2.setSelected(true);
-        
-        if(isNetworkAvailable(getActivity()))
-        {
 
+        
+        if(isNetworkAvailable(getActivity())) {
     		//getMarqueeInfo gmi =  new getMarqueeInfo();
     		//gmi.execute();
            // getQuranClassInfo gqci = new getQuranClassInfo();
@@ -260,13 +257,14 @@ public class NamazFragment extends Fragment {
         Typeface tf3 = Typeface.createFromAsset(getActivity().getAssets(), "Ubahn.ttf");
          
         label.setTypeface(tf2);
-        temp.setTypeface(tf2);
-        upcoming.setTypeface(tf3);
         selectedMasjid.setTypeface(tf3);
         today.setTypeface(tf3);
         
         adapter = new NamazAdapter(getActivity(),R.layout.listview_item, prayers, timings);
         prayerTimings.setAdapter(adapter);
+
+
+
 
         calendarwiz.setOnClickListener(new OnClickListener() {
 
@@ -290,13 +288,12 @@ public class NamazFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Fragment newFragment = new RamazanFragment();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-                getActivity().overridePendingTransition(R.animator.slide_in, R.animator.slide_out);
-                transaction.replace(R.id.content_frame, newFragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                getActivity().getSupportFragmentManager()
+                        .beginTransaction()
+                        .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
+                        .hide(NamazFragment.this)
+                        .show(getActivity().getSupportFragmentManager().findFragmentByTag("3"))
+                        .commit();
 
             }
         });
@@ -312,8 +309,6 @@ public class NamazFragment extends Fragment {
 				   int month = c.get(Calendar.MONTH);
 				   int dayOfMonth = c.get(Calendar.DAY_OF_MONTH);
 				   int year = c.get(Calendar.YEAR);
-
-
 
                 if(month + 1 == 1 )
                 {
@@ -417,7 +412,7 @@ public class NamazFragment extends Fragment {
 		
     	SimpleDateFormat sdf = new SimpleDateFormat("MMMM-dd-yyyy");
         String datenew = sdf.format(c.getTime());
-        
+
         datePicker.setTitle(datenew);
         datePicker.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 
@@ -517,115 +512,7 @@ public class NamazFragment extends Fragment {
        return new SimpleDateFormat(outputFormat, Locale.ENGLISH).format(new SimpleDateFormat(inputFormat).parse(inputTimeStamp));
    }
 
-	public void checktime()
-    {
-    	try
-    	{
-    	int magic = 0;
-    	Date namaztime4 = null;
-    	Calendar c = Calendar.getInstance();
-    	SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm aa");
-    	String curDate = sdf.format(c.getTime());
-    	Date curDate2 = sdf.parse(curDate);
-    	final String inputFormat = "dd/MM/yyyy hh:mm aa";
-    	final String outputFormat = "dd/MM/yyyy hh:mm aa";
-    	
-    	int d = c.get(Calendar.DAY_OF_MONTH);
-    	int m = c.get(Calendar.MONTH);
-    	int y = c.get(Calendar.YEAR) ;
-    	
-    	String beta;
-		beta = Integer.toString(d)+ "/" + Integer.toString(m+1)+ "/"+Integer.toString(y)+ " ";
-    	String namaztime555 = timings.get(4);
-    	SimpleDateFormat sdf2 = new SimpleDateFormat(inputFormat, Locale.ENGLISH);
-    	Date parseddate = sdf2.parse(beta+namaztime555);
-    	SimpleDateFormat print = new SimpleDateFormat(outputFormat, Locale.ENGLISH);
-		String namaztime22 = TimeStampConverter(inputFormat, print.format(parseddate), outputFormat);
-		Date namaztime33 = sdf.parse(namaztime22);
-		
-    	if(curDate2.getTime() > namaztime33.getTime())
-    	{
-    		beta = Integer.toString(d+1)+ "/" + Integer.toString(m+1)+ "/"+Integer.toString(y)+ " ";
-    	}
-    	
-    	for(int i = 0 ; i < timings.size(); i++)
-    	{
-    			String namaztime = timings.get(i);
-    		
-				String namaztime2 = TimeStampConverter(inputFormat, beta+namaztime, outputFormat);
-				Date namaztime3 = sdf.parse(namaztime2);
-		
-				if(curDate2.getTime() < namaztime3.getTime())
-				{
-					namaztime4 = namaztime3;
-					magic = i;
-					break;
-				}
-    	}
-    	
-    	long diff = namaztime4.getTime() - curDate2.getTime();
-    	long diffSeconds = diff / 1000 % 60;
-		long diffMinutes = diff / (60 * 1000) % 60;
-		long diffHours = diff / (60 * 60 * 1000) % 24;
-		long diffDays = diff / (24 * 60 * 60 * 1000);
-    	
-		
-		
-		if(diffHours == 0)
-		{
-			timeLeft.setText(Long.toString(diffMinutes) + " MINS LEFT");
-		}
-		else {
-			timeLeft.setText(Long.toString(diffHours) + "" + " HRS " + Long.toString(diffMinutes) + " MINS LEFT");
-		}
-		
-		timeLeft.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left));
 
-		
-		switch (magic) {
-		case 0:
-			upcoming.setText("FAJAR");
-            Toast.makeText(getActivity(), "Monthly", Toast.LENGTH_LONG).show();
-			break;
-		case 1:
-            if(c.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) {
-                upcoming.setText("JUMMAH");
-                return;
-            }
-            else{ upcoming.setText("ZUHR"); }
-			break;
-		case 2:
-			upcoming.setText("ASAR");
-			break;
-		case 3:
-			if(timings.get(3).toString().equals(timings.get(4).toString()))
-			{
-				upcoming.setText("MAGHRIB & ISHA");
-				upcoming.setTextSize((float)22.0);
-			}else
-			{
-				upcoming.setText("MAGHRIB");
-			}
-			break;
-		case 4:
-			upcoming.setText("ISHA");
-			upcoming.setTextSize((float)28.0);
-
-		default:
-			break;
-		}
-		upcoming.startAnimation(AnimationUtils.loadAnimation(getActivity(), android.R.anim.slide_in_left));
-		
-    }    	
-    	catch(Exception ex)
-    	{
-            Writer writer = new StringWriter();
-            ex.printStackTrace(new PrintWriter(writer));
-            String s = writer.toString();
-            Log.e("checktime exception",s);
-    	}
-
-    }
 
 private class getMasjidTimings extends AsyncTask<String, String, String> {
 
@@ -647,7 +534,7 @@ private class getMasjidTimings extends AsyncTask<String, String, String> {
 	@Override
 	protected String doInBackground(String... params) {
 
-		List<NameValuePair> params2 = new ArrayList<NameValuePair>();
+        List<Map.Entry<String, String>> params2 = new ArrayList<>();
 		
          JSONObject json = jParser.nmakeHttpRequest(url_timings_2, "GET", params2);
 
@@ -694,7 +581,13 @@ private class getMasjidTimings extends AsyncTask<String, String, String> {
 	protected void onPostExecute(String result) {
 		
 		pDialog.dismiss();
-		Collections.copy(timings, masjidTimes);
+		try{
+            Collections.copy(timings, masjidTimes);
+        }
+		catch (Exception e){
+            Toast.makeText(getActivity(), "Server error", Toast.LENGTH_LONG).show();
+        }
+
 		adapter.notifyDataSetChanged();
 		if(!isTodayClicked)
 		{ //checktime();
@@ -725,10 +618,10 @@ private class getMasjidTimings2 extends AsyncTask<String, String, String> {
 	@Override
 	protected String doInBackground(String... params) {
 
-		ArrayList<NameValuePair> params3 = new ArrayList<NameValuePair>();
+        List<Map.Entry<String, String>> params3 = new ArrayList<>();
 		
-		params3.add(new BasicNameValuePair("date", date333));
-
+		//params3.add(new BasicNameValuePair("date", date333));
+        params3.add(new AbstractMap.SimpleEntry<>("date", date333));
         JSONObject json = jParser.nmakeHttpRequest(url_timings_3, "GET", params3);
 
 
@@ -773,7 +666,12 @@ private class getMasjidTimings2 extends AsyncTask<String, String, String> {
 	protected void onPostExecute(String result) {
 
 		pDialog.dismiss();
-		Collections.copy(timings, masjidTimes);
+        try {
+            Collections.copy(timings, masjidTimes);
+        }
+        catch (Exception e) {
+            Toast.makeText(getActivity(), "Server error", Toast.LENGTH_LONG).show();
+        }
 		adapter.notifyDataSetChanged();
 	}
 	
@@ -813,7 +711,7 @@ private class getMarqueeInfo extends AsyncTask<String, String, String> {
 	@Override
 	protected String doInBackground(String... params) {
 
-		ArrayList<NameValuePair> params4 = new ArrayList<NameValuePair>();
+        List<Map.Entry<String, String>> params4 = new ArrayList<>();
 		
 		JSONObject json = jParser.nmakeHttpRequest(url_timings_4, "GET", params4);
 
@@ -843,20 +741,15 @@ private class getMarqueeInfo extends AsyncTask<String, String, String> {
 	
 	@Override
 	protected void onPostExecute(String result) {
-
-		pDialog.dismiss();
-
+	    pDialog.dismiss();
         try {
-
             if(c.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) {
                 marquee.setText(marqueeText.get(1));
                 return;
             }
             marquee.setText(marqueeText.get(0));
         }
-        catch (Exception e)
-        {
-
+        catch (Exception e) {
         }
     }
 }
@@ -879,16 +772,13 @@ private class getQuranClassInfo extends AsyncTask<String, String, String> {
 
         @Override
         protected String doInBackground(String... params) {
-
-            ArrayList<NameValuePair> params5 = new ArrayList<NameValuePair>();
-
+            List<Map.Entry<String, String>> params5 = new ArrayList<>();
             JSONObject json = jParser.nmakeHttpRequest(url_timings_5, "GET", params5);
 
             try {
                 int success = 0;
                 success = json.getInt(TAG_SUCCESS);
                 if (success == 1) {
-
                     quranClassTimes = new ArrayList<String>();
                     tableTimings5 = json.getJSONArray("Info2");
 
@@ -896,9 +786,7 @@ private class getQuranClassInfo extends AsyncTask<String, String, String> {
 
                         JSONObject c = tableTimings5.getJSONObject(i);
                         quranClassTimes.add(c.getString("time"));
-
                     }
-
                 }
                 else {
 
@@ -915,7 +803,6 @@ private class getQuranClassInfo extends AsyncTask<String, String, String> {
             pDialog.dismiss();
 
             try {
-
                 quranclass2.setText(quranClassTimes.get(0));
                 quranclass.setText(quranClassTimes.get(1));
             }

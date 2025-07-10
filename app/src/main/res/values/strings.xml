@@ -4,27 +4,27 @@
     <string name="app_name">AMJ-BC</string>
     <string name="action_settings">Settings</string>
     <string name="dot">_</string>
-    <string formatted="false"  name="chanda_info_moosi" >Moosian can contribute from 10% to 33% of income however 10% is minimum.</string>
-    
+    <string name="chanda_info_moosi" formatted="false">Moosian can contribute from 10% to 33% of income however 10% is minimum.</string>
+
     <string name="chanda_info_Ansar">Ansar chanda rates are as below: \n
     - Membership - 1% (minimum is $18 and for non-earning members) \n
     - Ijtima - 1.5%  of monthly income once a year ($2.25 minimum for non earning) \n
     - Ishat - $5 per year</string>
-    
+
     <string name="chanda_info_Khuddam">Khuddam chanda rates are as below: \n
     - Membership - 1% (minimum is $36 and for non-earning members) \n
     - Ijtima -  2.5% of monthly income once a year (minimum is $30 and for non-earning members)</string>
-    
+
     <string name="chanda_info_Lajna"> Lajna chanda rates are as below: \n
     - Membership - 1% (minimum is $24 and for non-earning members) \n
     - Ijtima - $24</string>
-    
-    
-   <item type="id" name="key_1"/>
-   <item type="id" name="key_2"/>
-   <item type="id" name="key_3"/>
-   <item type="id" name="key_4"/> 
-    
+
+
+    <item name="key_1" type="id" />
+    <item name="key_2" type="id" />
+    <item name="key_3" type="id" />
+    <item name="key_4" type="id" />
+
     <string name="version"><u>"Version: 5.0"</u></string>
 
     <string-array name="majalis">
@@ -39,7 +39,7 @@
         <item>Lajna and Nasirat</item>
         <item>Everyone</item>
     </string-array>
-    
+
     <string-array name="nav_drawer_items">
         <item>Prayer Timings</item>
         <item>Events</item>
@@ -49,9 +49,9 @@
         <item>Feedback</item>
         <item>Chanda Calculator</item>
         <item>Ramadhan</item>
-        
+
     </string-array>
-    
+
     <string-array name="timings">
         <item>4:00</item>
         <item>6:45</item>
@@ -61,19 +61,19 @@
         <item>7:00</item>
         <item>2:00</item>
     </string-array>
-    
+
     <string-array name="masjids">
         <item>Baitur Rahman</item>
         <item>Surrey Namaz Center</item>
     </string-array>
     <string-array name="prayers">
-        
+
         <item>Fajar</item>
         <item>Zuhr</item>
         <item>Asar</item>
         <item>Maghrib</item>
         <item>Isha</item>
-        
+
     </string-array>
 
     <!-- Nav Drawer List Item Icons -->
@@ -89,11 +89,18 @@
         <item>@drawable/ic_ramazan</item>
     </array>
 
-        <string-array name="masjidss">
+    <string-array name="masjidss">
         <item>Baitur Rahman</item>
         <item>Surrey Namaz Center</item>
     </string-array>
-    
+
     <string name="title_activity_splash">AMJ-BC</string>
+    <string name="title_activity_main2">British Columbia</string>
+    <string name="title_home">Home</string>
+    <string name="title_events">Events</string>
+    <string name="title_ramzan">Ramzan</string>
+
+    <string name="facebook_app_id">723696761720538</string>
+    <string name="fb_login_protocol_scheme">fb723696761720538</string>
 
 </resources>

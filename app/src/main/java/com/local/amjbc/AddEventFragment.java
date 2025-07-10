@@ -20,13 +20,13 @@ import android.widget.Toast;
 
 import com.local.amjbc.model.JSONParser;
 
-import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class AddEventFragment extends Fragment  {
 	
@@ -144,14 +144,23 @@ public class AddEventFragment extends Fragment  {
 	            
 	        	Looper.prepare();
 	            // Building Parameters
-	            List<NameValuePair> params = new ArrayList<NameValuePair>();
-	            params.add(new BasicNameValuePair("e_title", title.getText().toString()));
-	            params.add(new BasicNameValuePair("e_description", descri.getText().toString()));
-	            params.add(new BasicNameValuePair("e_date", bigdate));
-	            params.add(new BasicNameValuePair("e_time", bigtime));
-	            params.add(new BasicNameValuePair("e_venue", venue.getText().toString()));
-	            params.add(new BasicNameValuePair("e_majlis", majlis.getSelectedItem().toString()));
-	 
+//				List<Map.Entry<String, String>> params = new ArrayList<>();
+//
+//	            params.add(new BasicNameValuePair("e_title", title.getText().toString()));
+//	            params.add(new BasicNameValuePair("e_description", descri.getText().toString()));
+//	            params.add(new BasicNameValuePair("e_date", bigdate));
+//	            params.add(new BasicNameValuePair("e_time", bigtime));
+//	            params.add(new BasicNameValuePair("e_venue", venue.getText().toString()));
+//	            params.add(new BasicNameValuePair("e_majlis", majlis.getSelectedItem().toString()));
+//
+				List<Map.Entry<String, String>> params = new ArrayList<>();
+
+				params.add(new AbstractMap.SimpleEntry<>("e_title", title.getText().toString()));
+				params.add(new AbstractMap.SimpleEntry<>("e_description", descri.getText().toString()));
+				params.add(new AbstractMap.SimpleEntry<>("e_date", bigdate));
+				params.add(new AbstractMap.SimpleEntry<>("e_time", bigtime));
+				params.add(new AbstractMap.SimpleEntry<>("e_venue", venue.getText().toString()));
+				params.add(new AbstractMap.SimpleEntry<>("e_majlis", majlis.getSelectedItem().toString()));
 	            JSONObject json = jsonParser.nmakeHttpRequest(url_create_event, "POST", params);
 
 	            try {
