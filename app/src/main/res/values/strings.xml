@@ -11,6 +11,8 @@
     - Ijtima - 1.5%  of monthly income once a year ($2.25 minimum for non earning) \n
     - Ishat - $5 per year</string>
 
+
+
     <string name="chanda_info_Khuddam">Khuddam chanda rates are as below: \n
     - Membership - 1% (minimum is $36 and for non-earning members) \n
     - Ijtima -  2.5% of monthly income once a year (minimum is $30 and for non-earning members)</string>
@@ -63,14 +65,14 @@
     </string-array>
 
     <string-array name="masjids">
-        <item>Baitur Rahman</item>
+        <item>Baitur Rahman/Baitul Hamd</item>
         <item>Surrey Namaz Center</item>
     </string-array>
     <string-array name="prayers">
 
-        <item>Fajar</item>
-        <item>Zuhr</item>
-        <item>Asar</item>
+        <item>Fajr</item>
+        <item>Dhuhr</item>
+        <item>Asr</item>
         <item>Maghrib</item>
         <item>Isha</item>
 
@@ -90,17 +92,18 @@
     </array>
 
     <string-array name="masjidss">
-        <item>Baitur Rahman</item>
+        <item>Baitur Rahman/Baitul Hamd</item>
         <item>Surrey Namaz Center</item>
     </string-array>
 
-    <string name="title_activity_splash">AMJ-BC</string>
+    <string name="title_activity_splash">Vancouver Imarat</string>
     <string name="title_activity_main2">British Columbia</string>
     <string name="title_home">Home</string>
     <string name="title_events">Events</string>
-    <string name="title_ramzan">Ramzan</string>
+    <string name="title_ramzan">Ramadhan</string>
 
     <string name="facebook_app_id">723696761720538</string>
     <string name="fb_login_protocol_scheme">fb723696761720538</string>
+    <string name="baitur_rahman_baitul_hamd"><![CDATA[Baitur Rahman & Baitul Hamd]]></string>
 
 </resources>

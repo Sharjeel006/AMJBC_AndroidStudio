@@ -1,27 +1,18 @@
 package com.local.amjbc;
 
 import android.app.Activity;
-import android.app.AlarmManager;
 import android.app.Notification;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.media.RingtoneManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class NamazAdapter extends ArrayAdapter<String> {
@@ -59,8 +50,8 @@ public class NamazAdapter extends ArrayAdapter<String> {
         timingtext = (TextView) row.findViewById(R.id.textView2);
         alarm = (ImageView) row.findViewById(R.id.alarm);
 
-        namaztext.setTypeface(tf3);
-        timingtext.setTypeface(tf3);
+       //namaztext.setTypeface(tf3);
+        //timingtext.setTypeface(tf3);
 
         namaztext.setText(namaz.get(position));
         timingtext.setText(timings.get(position));

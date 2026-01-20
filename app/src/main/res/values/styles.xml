@@ -10,7 +10,16 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
         -->
+
+        <item name="android:statusBarColor">@color/design_default_color_primary</item>
+        <item name="android:navigationBarColor">@color/design_default_color_primary</item>
+        <item name="android:windowLightStatusBar">false</item> <!-- makes icons white -->
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
     </style>
+
+
+
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="android:style/Theme.Holo.Light">

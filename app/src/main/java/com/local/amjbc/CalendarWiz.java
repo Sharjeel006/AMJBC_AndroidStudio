@@ -3,12 +3,16 @@ package com.local.amjbc;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.CookieManager;
@@ -23,7 +27,8 @@ import androidx.fragment.app.Fragment;
 
 public class CalendarWiz extends Fragment {
 
-
+    MenuItem suggest_event;
+    WebView webView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,7 +39,7 @@ public class CalendarWiz extends Fragment {
 
         final ProgressDialog pd = ProgressDialog.show(getActivity(), "", "Loading...",true);
 
-        WebView webView = (WebView)rootView.findViewById(R.id.webview);
+        webView = (WebView)rootView.findViewById(R.id.webview);
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient(){
             @Override
@@ -76,6 +81,39 @@ public class CalendarWiz extends Fragment {
                     }
             }});
         return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.events_menu, menu);
+
+
+    }
+
+    @Override
+    public void onPrepareOptionsMenu(Menu menu) {
+        if (menu.findItem(R.id.suggest_event) != null) {
+            menu.findItem(R.id.suggest_event).setVisible(false);
+            menu.findItem(R.id.suggest_event).setVisible(true);
+            menu.findItem(R.id.datepicker).setVisible(false);
+        }
+        super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.suggest_event:
+                String url = "https://forms.gle/TEnkCXVMq4UfHZQN9";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public  boolean checkpermission2()

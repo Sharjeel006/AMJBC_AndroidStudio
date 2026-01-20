@@ -8,13 +8,13 @@
 
     <CalendarView
         android:id="@+id/calendarView1"
-    android:layout_width="match_parent"
-    android:layout_height="250dp"
-    android:minDate="05/05/2025"
-    android:maxDate="01/01/2030"
-    android:showWeekNumber="false"
-    android:tag="my tag" />
-    
+        android:layout_width="match_parent"
+        android:layout_height="311dp"
+        android:maxDate="01/01/2030"
+        android:minDate="05/05/2025"
+        android:showWeekNumber="false"
+        android:tag="my tag" />
+
     <Button
         android:id="@+id/ok"
         android:layout_width="fill_parent"

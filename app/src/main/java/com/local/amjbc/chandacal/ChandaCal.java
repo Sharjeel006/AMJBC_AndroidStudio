@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Editable;
@@ -40,7 +41,7 @@ public class ChandaCal extends Fragment {
 	TextWatcher tw_netincome, tw_main, tw_jsalana, tw_otherChandas;
 	EditText et_netincome, et_mainamount, et_otheramount;
 	TextView auxamount, jsalanaamount, aam, nettotalamount, netremamount, aux, netincome, tc, bal, marquee;
-	Button save, otherChandas, moreInfo;
+	Button save, otherChandas, moreInfo, donation_button;
 	SharedPreferences sp;
 	CheckBox cb_yearly, cb_monthly;
 	boolean roundup, autocalculate, moosi, monthly;
@@ -63,6 +64,7 @@ public class ChandaCal extends Fragment {
 
         aam = (TextView) rootView.findViewById(R.id.main);
         aux = (TextView) rootView.findViewById(R.id.aux);
+		donation_button = (Button) rootView.findViewById(R.id.dontation_button);
         netincome = (TextView) rootView.findViewById(R.id.textView1);
         tc = (TextView) rootView.findViewById(R.id.textView7);
         marquee = (TextView)rootView.findViewById(R.id.MarqueeTextCalFragment);
@@ -86,10 +88,14 @@ public class ChandaCal extends Fragment {
         org = sp.getString("org", "Ansaar");
         
         
-		   
-//		   if(monthly == true) Toast.makeText(getActivity(), "Monthly", Toast.LENGTH_LONG).show();
-//		   else Toast.makeText(getActivity(), "Yearly", Toast.LENGTH_LONG).show();
-        
+		donation_button.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String url = "https://www.amjinc.ca";
+				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+				startActivity(intent);
+			}
+		});
         
         
         setOrganisation();
@@ -386,7 +392,16 @@ public class ChandaCal extends Fragment {
 		
 		chanda_total();
     }
-	
+
+
+	@Override
+	public void onPrepareOptionsMenu(Menu menu) {
+		if (menu.findItem(R.id.suggest_event) != null) {
+			menu.findItem(R.id.suggest_event).setVisible(false);
+			menu.findItem(R.id.datepicker).setVisible(false);
+		}
+		super.onPrepareOptionsMenu(menu);
+	}
 	void chanda_total() {
     	net_total = chanda_main + chanda_jsalana + chanda_aux + other;
 		rem_total = income - net_total;
@@ -410,6 +425,8 @@ public class ChandaCal extends Fragment {
    	        	aux.setText(sp.getString("org", "Ansaar")); }
    		
    	}
+
+
        
        @Override
 	public void onResume() {
@@ -463,6 +480,6 @@ public class ChandaCal extends Fragment {
    			
    		}
    	}
-	
+
 
 }

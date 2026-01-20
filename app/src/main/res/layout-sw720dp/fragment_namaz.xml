@@ -1,197 +1,360 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout 
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:layout_gravity="center_vertical"
+    android:fitsSystemWindows="true"
     android:background="@drawable/ic_namaz_bg_6"
     >
-    
-    <LinearLayout 
-        android:orientation="vertical"
-        android:layout_margin="8dp"
-        android:layout_width="fill_parent"
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="@drawable/prayers_background"
+        android:gravity="center_vertical"
+        android:layout_margin="8dp"
         >
-        
-    <TextView
-        android:id="@+id/weather"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="40dp"  
-        android:textColor="#000000"
-        android:paddingBottom="3dp"
-        android:visibility="gone"
-        android:fontFamily="sans-serif-condensed"    
-        />
-              <RelativeLayout
-                  android:id="@+id/condition"
-                  android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:background ="#50676767"
-                  android:orientation="vertical"
-                  android:paddingLeft="5dp"
-                  android:visibility="gone"
-                  android:paddingRight="5dp" >
 
-                  <Button
-                      android:id="@+id/calendarwizbutton"
-                      android:layout_width="match_parent"
-                      android:text="*NEW* Calendar of Events"
-                      android:background="@drawable/selector"
-                      android:textColor="#000000"
-                      android:textSize="18dp"
-                      android:visibility="gone"
-                      android:layout_height="wrap_content" />
+        <!-- Left Icon -->
+        <ImageView
+            android:id="@+id/hijri_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/ic_event"
+            android:tint="@android:color/white"
+            android:layout_marginEnd="12dp"/>
 
-    <TextView
-        android:id="@+id/label1"
-        android:layout_width="wrap_content"
+        <!-- Middle Text -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/hijri_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hijri Date"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/islamic_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Islamic Calendar"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:ellipsize="end"
+                android:singleLine="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/hijri_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12 Jumada 1447"
+                android:layout_marginRight="25dp"
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:textColor="#FFFFFF"    
-        android:fontFamily="sans-serif-condensed"
-        android:visibility="gone"
-        android:text="UPCOMING PRAYER"    
-        />
-    
-    <TextView
-        android:id="@+id/upcoming2"
-        android:layout_width="wrap_content"
+        android:id="@+id/sunRow"
+        android:background="@drawable/prayers_background"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:padding="12dp"
+        android:orientation="horizontal">
+
+        <!-- SUNRISE -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+
+
+            <ImageView
+                android:id="@+id/sunriseIcon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_sunrise_1"
+                android:tint="@android:color/white"
+                android:layout_marginRight="0dp"/>
+
+            <TextView
+                android:id="@+id/sunriseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunrise:"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+
+            <TextView
+                android:id="@+id/sunriseTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--:--"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- DELTA LOCATION -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <!--
+                The ImageView is positioned on top.
+                Removed android:layout_marginRight="6dp" to ensure perfect horizontal centering.
+            -->
+            <ImageView
+                android:id="@+id/deltaicon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_location"
+                android:tint="@android:color/white"/>
+
+            <!--
+                The TextView is positioned below the image.
+                It is also centered horizontally.
+            -->
+            <TextView
+                android:id="@+id/Delta_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delta, BC"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+        <!-- SUNSET -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+
+
+            <ImageView
+                android:id="@+id/sunsetIcon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_sunset"
+                android:tint="@android:color/white"
+                android:layout_marginRight="0dp"/>
+
+            <TextView
+                android:id="@+id/sunsetText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sunset:"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+
+            <TextView
+                android:id="@+id/sunsetTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--:--"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/ramazangoto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/label1"
-        android:textSize="25dp"  
-        android:textColor="#FFFFFF"
-        />
-    
-    <TextView
-        android:id="@+id/timeleft"
-        android:layout_alignParentRight="true"
-        android:layout_alignBaseline="@+id/upcoming2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="25dp"
-        android:textColor="#FFFFFF"
-        />
-    
-    </RelativeLayout>
-    
-    </LinearLayout>                
-              
-              <RelativeLayout
-                  android:layout_width="fill_parent"
-                  android:layout_height="wrap_content"
-                  android:background="@android:color/transparent"
-                  android:orientation="horizontal"
-                  android:id="@+id/textlayout"
-                   >
-      
-    <TextView
-        android:id="@+id/selectedmasjid"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="35sp"
-        android:layout_margin="8dp"
-        android:text="Baitur Rahman"
-        android:textColor="#000000"
-        android:layout_alignParentLeft="true"
-        />
-                  <Button
-                      android:id="@+id/ramazangoto"
-                      android:layout_width="65dp"
-                      android:layout_height="wrap_content"
-                      android:layout_toLeftOf="@+id/today"
-                      android:text="Ramzan schedule"
-                      android:layout_marginRight="8dp"
-                      android:layout_marginLeft="8dp"
-                      android:textColor="#000000"
-                      android:textSize="11dp"
-                      android:background="@android:color/holo_red_light"
-                      />
-              <Button 
-        android:id="@+id/today"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:text="TODAY"
-        android:layout_marginRight="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/hijri_background"
+        android:gravity="center"
+
+        android:layout_gravity="end"
+        android:text="Ramzan Schedule"
         android:textColor="#000000"
-        android:background="@drawable/selector"
-        />
-                  
+        android:textSize="15sp"
+        android:textAlignment="center"/>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:background="@drawable/prayers_background"
+        android:gravity="center_vertical"
+        android:layout_margin="8dp">
+
+        <!-- Left Icon -->
+        <ImageView
+            android:id="@+id/juma_icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/ic_mosque"
+            android:tint="@android:color/white"
+            android:layout_marginEnd="12dp"/>
+
+        <!-- Middle Text -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/juma_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="JUMA PRAYER"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/juma_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Friday Congregation"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                android:ellipsize="end"
+                android:singleLine="true"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/jumatimeid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1:00 PM"
+                android:layout_marginRight="25dp"
+                android:textColor="@android:color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/condition2"
+        android:layout_marginTop="0dp"
+        android:background="@android:color/transparent"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:id="@+id/ll"
+            android:background="@null"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/listview1"
+                android:padding="10dp"
+                android:divider="@android:color/transparent"
+                android:background ="@drawable/prayers_background"
+                android:dividerHeight="12dp"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="3dp"
+                android:entries="@array/prayers"
+                >
+            </ListView>
+
+            <ImageButton
+                android:id="@+id/today"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_refresh_4"
+                android:background="@null"
+                android:padding="16dp"
+                android:elevation="0dp" />
+
+        </LinearLayout>
+
     </RelativeLayout>
-
-                             <LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content" 
-    android:gravity="center_vertical"
-    android:layout_gravity="center_vertical"
-    android:orientation="vertical">
-
-                                 <ListView
-                                     android:id="@+id/listview1"
-                                     android:padding="10dp"
-                                     android:divider="@android:color/transparent"
-                                     android:background="#30676767"
-                                     android:dividerHeight="140dp"
-                                     android:listSelector="@android:color/transparent"
-                                     android:layout_width="match_parent"
-                                     android:layout_height="0dp"
-                                     android:layout_weight="1"
-                                     android:layout_marginLeft="8dp"
-                                     android:layout_marginRight="8dp"
-                                     android:layout_marginTop="3dp"
-                                     android:layout_gravity="center_vertical"
-                                     android:entries="@array/prayers"/>
-
-
-                             </LinearLayout>
-              
-           <RelativeLayout  
-                     android:id="@+id/condition2"
-                     android:layout_marginTop="0dp"
-                     android:background="@android:color/transparent"
-                     android:layout_height="fill_parent" 
-                     android:layout_width="fill_parent"
-                     android:orientation="vertical" >   
-               
-
-              
-                   <TextView
-    android:text=""
-    android:id="@+id/MarqueeText" 
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:singleLine="true"
-    android:ellipsize="marquee" 
-    android:textSize="18dp"
-    android:marqueeRepeatLimit="marquee_forever"
-    android:scrollHorizontally="true"
-    android:layout_marginTop="6dp"
-    android:paddingLeft="15dip" 
-    android:paddingRight="15dip" 
-    android:focusable="true"
-    android:focusableInTouchMode="true" 
-    android:freezesText="true"
-    android:layout_alignParentTop="false"
-    android:layout_above="@+id/infoicon" />
-                   
-                   <ImageView 
-                       android:id="@+id/infoicon"
-                       android:layout_width="20dp"
-                       android:layout_height="20dp"
-                       android:layout_margin="7dp"
-                       android:layout_alignParentRight="true"
-                       android:layout_alignParentBottom="true"
-                       android:src="@drawable/ic_aboutus"
-                       />
-                     
-    </RelativeLayout>
-
-
 
 </LinearLayout>
+
+

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
@@ -97,7 +98,17 @@ public class RamazanFragment extends Fragment {
 			return true;
 		}
 	}
-	
+
+
+	@Override
+	public void onPrepareOptionsMenu(Menu menu) {
+		if (menu.findItem(R.id.suggest_event) != null) {
+			menu.findItem(R.id.suggest_event).setVisible(false);
+			menu.findItem(R.id.datepicker).setVisible(false);
+		}
+		super.onPrepareOptionsMenu(menu);
+	}
+
 	@Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

@@ -58,14 +58,14 @@ MERGED from [com.google.android.datatransport:transport-api:2.2.0] C:\Users\user
 	package
 		INJECTED from C:\Users\user\Documents\Android projects\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from C:\Users\user\Documents\Android projects\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:5:5-30
+		ADDED from C:\Users\user\Documents\Android projects\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:5:5-31
 		INJECTED from C:\Users\user\Documents\Android projects\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\user\Documents\Android projects\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:3:5-51
 	xmlns:android
 		ADDED from C:\Users\user\Documents\Android projects\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:2:11-69
 	android:versionCode
-		ADDED from C:\Users\user\Documents\Android projects\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:4:5-29
+		ADDED from C:\Users\user\Documents\Android projects\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:4:5-30
 		INJECTED from C:\Users\user\Documents\Android projects\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.POST_NOTIFICATIONS
 ADDED from C:\Users\user\Documents\Android projects\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:7:5-77

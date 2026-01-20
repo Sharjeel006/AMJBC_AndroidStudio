@@ -7,6 +7,43 @@
     android:fitsSystemWindows="true"
     android:background="@drawable/ic_namaz_bg_6">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="@drawable/juma_background"
+        android:gravity="center"
+        android:layout_margin="8dp"
+        >
+
+        <ImageView
+            android:id="@+id/donation_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:src="@drawable/ic_web_2"
+            android:tint="@android:color/white"
+            android:paddingTop="12dp"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <Button
+            android:id="@+id/dontation_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="amjinc.ca"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            android:textSize="18sp"
+            android:background="?attr/selectableItemBackground"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            />
+
+
+    </LinearLayout>
+
     <RelativeLayout
         android:id="@+id/InnerLinearLayout"
         android:layout_width="wrap_content" android:layout_height="wrap_content"
