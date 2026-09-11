@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.local.amjbc.app-mergeDebugResources-15:/values-sw720dp-land-v13/values-sw720dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Sharjeel\\Documents\\AMJBC_AndroidStudio-20241010T070555Z-001\\AMJBC_AndroidStudio\\app\\src\\main\\res\\values-sw720dp-land\\dimens.xml",
+                    "from": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "205",
+                        "endColumns": "58",
+                        "endOffsets": "259"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    }
+                }
+            ]
+        }
+    ]
+}

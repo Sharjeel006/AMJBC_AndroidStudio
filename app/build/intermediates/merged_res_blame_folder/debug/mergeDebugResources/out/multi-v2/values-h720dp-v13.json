@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.local.amjbc.app-mergeDebugResources-15:/values-h720dp-v13/values-h720dp-v13.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Sharjeel\\.gradle\\caches\\8.10.2\\transforms\\c3ca577571583184000ebb98e8bb22be\\transformed\\appcompat-1.0.2\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
+                    }
+                }
+            ]
+        }
+    ]
+}

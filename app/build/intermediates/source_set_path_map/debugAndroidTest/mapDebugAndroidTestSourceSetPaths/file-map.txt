@@ -1,0 +1,4 @@
+com.local.amjbc.test.app-androidTest-0 C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\build\generated\res\resValues\androidTest\debug
+com.local.amjbc.test.app-mergeDebugAndroidTestResources-1 C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.local.amjbc.test.app-mergeDebugAndroidTestResources-2 C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.local.amjbc.test.app-debugAndroidTest-3 C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

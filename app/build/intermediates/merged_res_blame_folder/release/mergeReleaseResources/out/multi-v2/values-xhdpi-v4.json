@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.local.amjbc.app-mergeReleaseResources-15:/values-xhdpi-v4/values-xhdpi-v4.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Sharjeel\\Documents\\AMJBC_AndroidStudio-20241010T070555Z-001\\AMJBC_AndroidStudio\\app\\src\\main\\res\\values-xhdpi\\dimens.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "59",
+                        "endColumns": "43",
+                        "endOffsets": "98"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "43",
+                        "endOffsets": "94"
+                    }
+                }
+            ]
+        }
+    ]
+}

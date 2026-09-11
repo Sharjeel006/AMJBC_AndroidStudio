@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "623523701473",
+    "firebase_url": "https://amjbc-android.firebaseio.com",
+    "project_id": "amjbc-android",
+    "storage_bucket": "amjbc-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:623523701473:android:90691811c314927b",
+        "android_client_info": {
+          "package_name": "com.local.amjbc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "623523701473-soci5bht49kllgnm9f7grc4n5oerk7n4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.local.amjbc",
+            "certificate_hash": "a4dfa4eab889ba4a60f3e69a05b6d04672e0abb0"
+          }
+        },
+        {
+          "client_id": "623523701473-pti7glp958ru7detljtemquc0tj0jgbr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.local.amjbc",
+            "certificate_hash": "a7cf69a59a55d30eb1dd742519c6df1295b70314"
+          }
+        },
+        {
+          "client_id": "623523701473-53rcj1l05ara4spfrqadlamjl0ob66cc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMEwihIBN--lODabG8vrWQiTKVTy6m8FA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "623523701473-53rcj1l05ara4spfrqadlamjl0ob66cc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

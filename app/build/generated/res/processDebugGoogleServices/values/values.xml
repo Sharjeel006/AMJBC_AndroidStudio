@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">623523701473-53rcj1l05ara4spfrqadlamjl0ob66cc.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://amjbc-android.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">623523701473</string>
+    <string name="google_api_key" translatable="false">AIzaSyCMEwihIBN--lODabG8vrWQiTKVTy6m8FA</string>
+    <string name="google_app_id" translatable="false">1:623523701473:android:90691811c314927b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCMEwihIBN--lODabG8vrWQiTKVTy6m8FA</string>
+    <string name="google_storage_bucket" translatable="false">amjbc-android.appspot.com</string>
+    <string name="project_id" translatable="false">amjbc-android</string>
+</resources>
