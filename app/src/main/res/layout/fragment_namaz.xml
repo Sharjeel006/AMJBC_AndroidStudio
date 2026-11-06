@@ -14,15 +14,15 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="16dp"
-            android:paddingVertical="12dp">
+            android:paddingHorizontal="14dp"
+            android:paddingVertical="8dp">
 
             <!-- Date and Navigation Header -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_date_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="4dp"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
@@ -38,7 +38,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/text_dark"
-                        android:textSize="14sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         tools:text="DECEMBER 12, 2024" />
 
@@ -47,15 +47,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/text_muted"
-                        android:textSize="11sp"
+                        android:textSize="10sp"
                         tools:text="10 JUMADA AL-AKHIRAH 1446" />
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/today"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:padding="4dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:padding="2dp"
                     android:src="@drawable/ic_refresh_4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -68,16 +68,17 @@
                 android:id="@+id/cv_next_prayer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="6dp"
                 app:cardBackgroundColor="@color/card_dark"
-                app:cardCornerRadius="16dp"
+                app:cardCornerRadius="14dp"
                 app:cardElevation="0dp"
                 app:layout_constraintTop_toBottomOf="@id/cl_date_header">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="16dp">
+                    android:paddingVertical="10dp"
+                    android:paddingHorizontal="14dp">
 
                     <TextView
                         android:id="@+id/tv_next_prayer_label"
@@ -85,7 +86,7 @@
                         android:layout_height="wrap_content"
                         android:text="UPCOMING PRAYER"
                         android:textColor="@color/text_white"
-                        android:textSize="10sp"
+                        android:textSize="9sp"
                         android:textStyle="bold"
                         android:letterSpacing="0.05"
                         app:layout_constraintStart_toStartOf="parent"
@@ -95,10 +96,10 @@
                         android:id="@+id/tv_next_prayer_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
+                        android:layout_marginTop="1dp"
                         android:text="Dhuhr"
                         android:textColor="@color/text_white"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tv_next_prayer_label" />
@@ -109,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:text="1:30 PM"
                         android:textColor="@color/text_white"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@id/tv_next_prayer_name"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -120,7 +121,7 @@
                         style="?android:attr/progressBarStyleHorizontal"
                         android:layout_width="match_parent"
                         android:layout_height="3dp"
-                        android:layout_marginTop="12dp"
+                        android:layout_marginTop="6dp"
                         android:progress="45"
                         android:progressDrawable="@android:drawable/progress_horizontal"
                         android:progressTint="@color/white"
@@ -130,10 +131,10 @@
                         android:id="@+id/tv_next_prayer_countdown"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
+                        android:layout_marginTop="4dp"
                         android:text="in 4h 23m"
                         android:textColor="@color/text_white"
-                        android:textSize="11sp"
+                        android:textSize="10sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/pb_prayer_progress" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -144,7 +145,7 @@
                 android:id="@+id/sun_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="6dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/cv_next_prayer">
@@ -155,12 +156,13 @@
                     android:layout_marginEnd="4dp"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="16dp"
+                    app:cardCornerRadius="12dp"
                     app:cardElevation="0dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
+                        android:paddingVertical="6dp"
+                        android:paddingHorizontal="8dp"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:background="@drawable/bg_gradient_sunrise">
@@ -168,7 +170,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="SUNRISE"
-                            android:textSize="9sp"
+                            android:textSize="8sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_muted"/>
                         <TextView
@@ -176,7 +178,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="--:--"
-                            android:textSize="14sp"
+                            android:textSize="13sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_dark"/>
                     </LinearLayout>
@@ -186,12 +188,12 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginHorizontal="6dp"
                     android:gravity="center"
                     android:orientation="vertical">
                     <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
                         android:src="@drawable/ic_location"
                         app:tint="@color/text_muted" />
                     <TextView
@@ -200,7 +202,7 @@
                         android:layout_height="wrap_content"
                         android:text="Delta, BC"
                         android:textColor="@color/text_muted"
-                        android:textSize="10sp"
+                        android:textSize="9sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -210,12 +212,13 @@
                     android:layout_marginStart="4dp"
                     android:layout_weight="1"
                     app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="16dp"
+                    app:cardCornerRadius="12dp"
                     app:cardElevation="0dp">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
+                        android:paddingVertical="6dp"
+                        android:paddingHorizontal="8dp"
                         android:orientation="vertical"
                         android:gravity="center"
                         android:background="@drawable/bg_gradient_sunset">
@@ -223,7 +226,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="SUNSET"
-                            android:textSize="9sp"
+                            android:textSize="8sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_muted"/>
                         <TextView
@@ -231,7 +234,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="--:--"
-                            android:textSize="14sp"
+                            android:textSize="13sp"
                             android:textStyle="bold"
                             android:textColor="@color/text_dark"/>
                     </LinearLayout>
@@ -244,18 +247,18 @@
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="4dp"
                 android:text="Go to Ramadan Schedule"
                 android:textAllCaps="false"
                 android:textColor="#EAB308"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                android:paddingVertical="12dp"
+                android:paddingVertical="8dp"
                 android:visibility="gone"
                 app:strokeColor="#EAB308"
-                app:strokeWidth="2dp"
-                app:cornerRadius="12dp"
+                app:strokeWidth="1.5dp"
+                app:cornerRadius="10dp"
                 app:layout_constraintTop_toBottomOf="@id/sun_section"
                 tools:visibility="visible" />
 
@@ -264,53 +267,97 @@
                 android:id="@+id/cv_jumuah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="6dp"
                 app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="24dp"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 app:layout_constraintTop_toBottomOf="@id/ramazangoto">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="12dp"
-                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="8dp"
+                    android:paddingHorizontal="14dp"
                     android:background="@drawable/bg_gradient_jumuah">
 
                     <ImageView
                         android:id="@+id/juma_icon"
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:src="@drawable/ic_mosque"
-                        android:tint="#0C3E57"
+                        app:tint="#0C3E57"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:id="@+id/juma_title"
+                    <LinearLayout
+                        android:id="@+id/jumuah_text_container"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="Jumu'ah Prayer"
-                        android:textColor="#0C3E57"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                        android:textStyle="bold"
-                        app:layout_constraintEnd_toStartOf="@+id/jumatimeid"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="6dp"
+                        android:orientation="vertical"
+                        android:gravity="center_vertical"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@id/juma_icon"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintEnd_toStartOf="@+id/jumuah_reminder_container">
 
-                    <TextView
-                        android:id="@+id/juma_location"
-                        android:layout_width="0dp"
+                        <TextView
+                            android:id="@+id/juma_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Jumu'ah Prayer"
+                            android:textColor="#0C3E57"
+                            android:textSize="15sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/juma_location"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:text="Friday congregation"
+                            android:textColor="#608090"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/jumuah_reminder_container"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Friday congregation"
-                        android:textColor="#608090"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-                        app:layout_constraintEnd_toEndOf="@id/juma_title"
-                        app:layout_constraintStart_toStartOf="@id/juma_title"
-                        app:layout_constraintTop_toBottomOf="@id/juma_title" />
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/jumatimeid"
+                        app:layout_constraintStart_toEndOf="@+id/jumuah_text_container"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:src="@drawable/ic_alarm_outline"
+                            app:tint="#800C3E57"
+                            tools:ignore="UseAppTint" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/jumuah_reminder_toggle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-6dp"
+                            android:scaleX="0.6"
+                            android:scaleY="0.6" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="-8dp"
+                            android:text="1 hour"
+                            android:textColor="#800C3E57"
+                            android:textSize="8sp" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/jumatimeid"
@@ -318,7 +365,7 @@
                         android:layout_height="wrap_content"
                         android:text="1:00 PM"
                         android:textColor="#0C3E57"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                        android:textSize="18sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -331,14 +378,14 @@
                 android:id="@+id/cl_list_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@id/cv_jumuah">
 
                 <ImageView
                     android:id="@+id/btn_prev_day"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:padding="4dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:padding="2dp"
                     android:src="@android:drawable/ic_media_previous"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -350,7 +397,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center"
-                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginHorizontal="6dp"
                     app:layout_constraintStart_toEndOf="@id/btn_prev_day"
                     app:layout_constraintEnd_toStartOf="@id/btn_next_day"
                     app:layout_constraintTop_toTopOf="parent"
@@ -362,7 +409,7 @@
                         android:layout_height="wrap_content"
                         android:text="PRAYER TIMES"
                         android:textColor="@color/text_muted"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                        android:textSize="9sp"
                         android:textStyle="bold"
                         android:letterSpacing="0.05" />
 
@@ -370,18 +417,18 @@
                         android:id="@+id/tv_masjid_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Baitur-Rehman &amp; Baitul-Hamd"
+                        android:text="Baitur-Rahman &amp; Baitul-Hamd"
                         android:textColor="@color/text_dark"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:gravity="center" />
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/btn_next_day"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:padding="4dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:padding="2dp"
                     android:src="@android:drawable/ic_media_next"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -395,20 +442,20 @@
                 android:id="@+id/cv_prayer_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 app:cardBackgroundColor="#F1F5F9"
-                app:cardCornerRadius="24dp"
+                app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
                 app:layout_constraintTop_toBottomOf="@id/cl_list_header">
 
                 <ListView
                     android:id="@+id/listview1"
                     android:layout_width="match_parent"
-                    android:layout_height="350dp"
+                    android:layout_height="wrap_content"
                     android:divider="#20000000"
                     android:dividerHeight="0.5dp"
-                    android:paddingVertical="8dp"
-                    android:nestedScrollingEnabled="true"
+                    android:paddingVertical="2dp"
+                    android:nestedScrollingEnabled="false"
                     tools:listitem="@layout/listview_item" />
             </androidx.cardview.widget.CardView>
 

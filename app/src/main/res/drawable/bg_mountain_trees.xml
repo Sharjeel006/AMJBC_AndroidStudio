@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="90dp"
+    android:viewportWidth="360"
+    android:viewportHeight="90">
+
+    <!-- Mountain background layer 1 -->
+    <path
+        android:fillColor="#134732"
+        android:pathData="M0,90 L0,55 L45,35 L95,65 L145,30 L195,60 L245,25 L295,55 L345,40 L360,50 L360,90 Z" />
+
+    <!-- Mountain background layer 2 -->
+    <path
+        android:fillColor="#18523A"
+        android:pathData="M0,90 L0,70 L55,50 L105,75 L155,45 L205,70 L255,40 L305,65 L360,55 L360,90 Z" />
+
+    <!-- Trees on left -->
+    <path
+        android:fillColor="#206347"
+        android:pathData="M15,90 L20,68 L25,90 Z M26,90 L31,73 L36,90 Z M38,90 L42,78 L46,90 Z" />
+
+    <!-- Trees on right -->
+    <path
+        android:fillColor="#206347"
+        android:pathData="M315,90 L320,66 L325,90 Z M327,90 L332,71 L337,90 Z M339,90 L343,77 L347,90 Z" />
+</vector>

@@ -4,10 +4,12 @@ import android.app.AlertDialog
 import android.app.Fragment
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
 import android.preference.PreferenceManager
@@ -63,6 +65,13 @@ class EventFragment : Fragment() {
                 .setNegativeButton(android.R.string.no) { dialog, which -> }
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show()
+        }
+
+        val btnRequestBooking = rootView.findViewById<View>(R.id.btn_request_booking)
+        btnRequestBooking?.setOnClickListener {
+            val url = "https://script.google.com/macros/s/AKfycbwlbP-xme8Ae4KSzgFLjoOwSCgpZAE40LfFVY7t10jaCbigAMm4lkF7RRadhufwfP1Tqw/exec"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
         }
 
         setHasOptionsMenu(true)

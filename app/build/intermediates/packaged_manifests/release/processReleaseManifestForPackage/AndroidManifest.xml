@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.local.amjbc"
-    android:versionCode="200"
-    android:versionName="20.0" >
+    android:versionCode="202"
+    android:versionName="20.2" >
 
     <uses-sdk
         android:minSdkVersion="28"
         android:targetSdkVersion="36" />
-    <!-- Required to act as a custom watch face. -->
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required for complications to receive complication data and open the provider chooser. -->
-    <uses-permission android:name="com.google.android.wearable.permission.RECEIVE_COMPLICATION_DATA" />
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+
+    <!-- Essential Permissions Needed for Core App Functionality -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <!-- Required by older versions of Google Play services to create IID tokens -->
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <permission
-        android:name="com.local.amjbc.permission.C2D_MESSAGE"
+        android:name="com.local.amjbc.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.local.amjbc.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.local.amjbc.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
         android:name="com.local.amjbc.Application"
@@ -55,8 +52,7 @@
         <activity
             android:name="com.local.amjbc.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/CustomActionBarTheme" >
-        </activity>
+            android:theme="@style/CustomActionBarTheme" />
         <activity android:name="com.local.amjbc.chandacal.DetailActivity" />
         <activity
             android:name="com.local.amjbc.Splash"
@@ -67,11 +63,7 @@
 
         <receiver
             android:name="com.local.amjbc.NotificationPublisher"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.PHONE_STATE" />
-            </intent-filter>
-        </receiver>
+            android:exported="false" />
 
         <service
             android:name="com.local.amjbc.MyFirebaseMessagingService"
@@ -81,6 +73,10 @@
             </intent-filter>
         </service>
         <service android:name="com.local.amjbc.chandacal.SyncService" />
+
+        <receiver
+            android:name="com.local.amjbc.PrayerReminderReceiver"
+            android:exported="false" />
     </application>
 
 </manifest>

@@ -1,79 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-	android:orientation="vertical"    
-    >
+    android:paddingVertical="16dp"
+    android:paddingHorizontal="32dp"
+    android:background="@android:color/transparent">
 
-<LinearLayout 
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" 
-    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/prayer_icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/ic_sun"
+        android:tint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent" 
-    android:orientation="vertical"
-    android:layout_weight="1"
-         >
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="110dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textSize="25dp"
-        android:textColor="#000000"
-        android:layout_marginTop="12dp"
-        android:layout_marginLeft="14dp"
-        android:layout_gravity="center_horizontal"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="Prayer Name"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginStart="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/prayer_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/reminder_container" />
+
+    <LinearLayout
+        android:id="@+id/reminder_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:src="@drawable/ic_alarm_outline"
+            android:tint="#80000000"
+            tools:ignore="UseAppTint" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/reminder_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-4dp"
+            android:padding="0dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 mins"
+            android:textColor="#80000000"
+            android:textSize="11sp"
+            android:layout_marginTop="-8dp" />
 
     </LinearLayout>
-    
- <LinearLayout 
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:orientation="vertical"
-     android:layout_weight="1"
-     >
-     
-     <ImageView 
-         android:padding="3dp"
-         android:layout_width="55dp"
-         android:layout_height="55dp"
-         android:layout_gravity="center_horizontal"
-         android:src="@drawable/ic_alarm_3"
-         android:id="@+id/alarm"
-         />
-     
- </LinearLayout>
-    
 
-        <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="fill_parent" 
-    android:orientation="vertical"
-    android:layout_gravity="right"
-    android:layout_weight="1"
-         >
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="110dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Medium Text"
-        android:textColor="#000000"
-        android:textSize="25dp"
-        android:layout_marginTop="8dp"
-        android:layout_gravity="center"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:text="12:00 PM"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
-
-        
-</LinearLayout>
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

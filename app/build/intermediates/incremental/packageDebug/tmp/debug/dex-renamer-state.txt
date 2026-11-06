@@ -1,18 +1,18 @@
-#Thu Sep 10 09:58:12 PDT 2026
+#Fri Nov 06 09:29:43 GMT-07:00 2026
 base.0=C\:\\Users\\Sharjeel\\Documents\\AMJBC_AndroidStudio-20241010T070555Z-001\\AMJBC_AndroidStudio\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Users\\Sharjeel\\Documents\\AMJBC_AndroidStudio-20241010T070555Z-001\\AMJBC_AndroidStudio\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Users\\Sharjeel\\Documents\\AMJBC_AndroidStudio-20241010T070555Z-001\\AMJBC_AndroidStudio\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\11\\classes.dex
 base.3=C\:\\Users\\Sharjeel\\Documents\\AMJBC_AndroidStudio-20241010T070555Z-001\\AMJBC_AndroidStudio\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
 base.4=C\:\\Users\\Sharjeel\\Documents\\AMJBC_AndroidStudio-20241010T070555Z-001\\AMJBC_AndroidStudio\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\1\\classes.dex
 base.5=C\:\\Users\\Sharjeel\\Documents\\AMJBC_AndroidStudio-20241010T070555Z-001\\AMJBC_AndroidStudio\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\4\\classes.dex
-base.6=C\:\\Users\\Sharjeel\\Documents\\AMJBC_AndroidStudio-20241010T070555Z-001\\AMJBC_AndroidStudio\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\9\\classes.dex
+base.6=C\:\\Users\\Sharjeel\\Documents\\AMJBC_AndroidStudio-20241010T070555Z-001\\AMJBC_AndroidStudio\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=11/classes.dex
 path.3=12/classes.dex
 path.4=1/classes.dex
 path.5=4/classes.dex
-path.6=9/classes.dex
+path.6=classes2.dex
 renamed.0=classes.dex
 renamed.1=classes2.dex
 renamed.2=classes3.dex

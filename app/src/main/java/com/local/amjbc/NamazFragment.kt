@@ -24,6 +24,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import android.widget.CalendarView.OnDateChangeListener
 import androidx.annotation.RequiresApi
+import androidx.appcompat.widget.SwitchCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.local.amjbc.adapters.OnSwipeTouchListener
 import com.local.amjbc.model.JSONParser
@@ -68,9 +70,23 @@ class NamazFragment : Fragment() {
     var c = Calendar.getInstance()
     private var pDialog: ProgressDialog? = null
 
+    private lateinit var reminderManager: PrayerReminderManager
+
+    private val PERMISSION_REQUEST_CODE = 123
+
+    private var lastUpdateDayOfYear: Int = -1
+
     private val handler = Handler(Looper.getMainLooper())
     private val updateTask = object : Runnable {
         override fun run() {
+            val now = Calendar.getInstance()
+            val currentDay = now.get(Calendar.DAY_OF_YEAR)
+
+            if (lastUpdateDayOfYear != -1 && lastUpdateDayOfYear != currentDay) {
+                lastUpdateDayOfYear = currentDay
+                resetToToday()
+            }
+
             updateNextPrayerUI()
             handler.postDelayed(this, 60000) // Update every minute
         }
@@ -103,6 +119,10 @@ class NamazFragment : Fragment() {
 
         val rootView = inflater.inflate(R.layout.fragment_namaz, container, false)
         setHasOptionsMenu(true)
+        
+        reminderManager = PrayerReminderManager(activity!!)
+
+        checkNotificationPermission()
 
         pDialog = ProgressDialog(activity)
         pDialog!!.setMessage("Loading, Please wait...")
@@ -121,6 +141,17 @@ class NamazFragment : Fragment() {
         juma_time = rootView.findViewById<TextView>(R.id.jumatimeid)
         hijri_date = rootView.findViewById<TextView>(R.id.tv_hijri_date)
 
+        val jumuahToggle = rootView.findViewById<SwitchCompat>(R.id.jumuah_reminder_toggle)
+        jumuahToggle?.isChecked = reminderManager.isReminderEnabled("Jumu'ah")
+        jumuahToggle?.setOnCheckedChangeListener { _, isChecked ->
+            reminderManager.setReminderEnabled("Jumu'ah", isChecked)
+            if (isChecked) {
+                juma_time?.text?.toString()?.let { reminderManager.scheduleReminder("Jumu'ah", it) }
+            } else {
+                reminderManager.cancelReminder("Jumu'ah")
+            }
+        }
+
         tvDates = rootView.findViewById<TextView>(R.id.tv_dates)
         tvNextPrayerName = rootView.findViewById<TextView>(R.id.tv_next_prayer_name)
         tvNextPrayerTime = rootView.findViewById<TextView>(R.id.tv_next_prayer_time)
@@ -133,6 +164,8 @@ class NamazFragment : Fragment() {
 
         btnPrev?.setOnClickListener { navigateDate(-1) }
         btnNext?.setOnClickListener { navigateDate(1) }
+
+        lastUpdateDayOfYear = Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
 
         updateDateUI()
         updateRamadanButtonVisibility()
@@ -183,6 +216,7 @@ class NamazFragment : Fragment() {
 
         adapter = NamazAdapter(activity!!, R.layout.listview_item, prayers!!, timings!!)
         prayerTimings!!.adapter = adapter
+        prayerTimings!!.post { setListViewHeightBasedOnChildren(prayerTimings) }
 
         ramzanjump?.setOnClickListener {
             activity?.supportFragmentManager
@@ -197,6 +231,28 @@ class NamazFragment : Fragment() {
             resetToToday()
         }
         return rootView
+    }
+
+    private fun checkNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ContextCompat.checkSelfPermission(
+                    activity!!,
+                    android.Manifest.permission.POST_NOTIFICATIONS
+                ) != android.content.pm.PackageManager.PERMISSION_GRANTED
+            ) {
+                requestPermissions(arrayOf(android.Manifest.permission.POST_NOTIFICATIONS), PERMISSION_REQUEST_CODE)
+            }
+        }
+    }
+
+    private fun rescheduleAllReminders() {
+        if (prayers == null || timings == null) return
+        for (i in prayers!!.indices) {
+            if (i < timings!!.size) {
+                reminderManager.scheduleReminder(prayers!![i], timings!![i])
+            }
+        }
+        juma_time?.text?.toString()?.let { reminderManager.scheduleReminder("Jumu'ah", it) }
     }
 
     private fun resetToToday() {
@@ -304,6 +360,7 @@ class NamazFragment : Fragment() {
         datePicker!!.setOnMenuItemClickListener {
             val dialog = Dialog(activity!!)
             dialog.setContentView(R.layout.custom_dialog)
+            dialog.window?.setBackgroundDrawable(android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT))
             dialog.setTitle("Pick a date")
             dialog.setCancelable(true)
 
@@ -364,35 +421,26 @@ class NamazFragment : Fragment() {
         // Start periodic updates
         handler.post(updateTask)
 
-        // Reset calendar instance to NOW
-        c = Calendar.getInstance()
+        val today = Calendar.getInstance()
+        val currentDay = today.get(Calendar.DAY_OF_YEAR)
 
-        // Reset flags
-        isCalendarClicked = false
-        firstTime = true
-
-        // Update Hijri date
-        try {
-            val formatter = DateTimeFormatter.ofPattern("d MMMM y")
-            val hijrahDate = HijrahDate.now()
-            val formattedHijriDate = hijrahDate.format(formatter)
-            hijri_date!!.text = formattedHijriDate
-        } catch (ignored: Exception) {
+        // Detect if the day has changed since last update
+        if (lastUpdateDayOfYear != -1 && lastUpdateDayOfYear != currentDay) {
+            lastUpdateDayOfYear = currentDay
+            resetToToday()
+        } else {
+            // Otherwise just refresh timings to be safe
+            if (isNetworkAvailable(activity)) {
+                getMasjidTimings().execute()
+                getQuranClassInfo().execute()
+                GetSunriseSunsetInfo().execute()
+            }
         }
 
         // Update DatePicker title
         if (datePicker != null) {
             val sdf = SimpleDateFormat("MMM. d, yyyy", Locale.getDefault())
             datePicker!!.title = sdf.format(c.time)
-        }
-
-        // Refresh ALL API Data
-        if (isNetworkAvailable(activity)) {
-
-            getMasjidTimings().execute()       // Prayer timings
-            getQuranClassInfo().execute()      // Juma time
-            GetSunriseSunsetInfo().execute()   // Sunrise / Sunset
-
         }
     }
 
@@ -526,6 +574,26 @@ class NamazFragment : Fragment() {
         }
     }
 
+    private fun setListViewHeightBasedOnChildren(listView: ListView?) {
+        if (listView == null) return
+        val listAdapter = listView.adapter ?: return
+        var totalHeight = 0
+        for (i in 0 until listAdapter.count) {
+            val listItem = listAdapter.getView(i, null, listView)
+            listItem.measure(
+                View.MeasureSpec.makeMeasureSpec(listView.width, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+            )
+            totalHeight += listItem.measuredHeight
+        }
+        val params = listView.layoutParams
+        if (params != null) {
+            params.height = totalHeight + (listView.dividerHeight * (listAdapter.count - 1)) + listView.paddingTop + listView.paddingBottom
+            listView.layoutParams = params
+            listView.requestLayout()
+        }
+    }
+
     private inner class getMasjidTimings : AsyncTask<String, String, String>() {
 
         override fun onPreExecute() {
@@ -594,7 +662,9 @@ class NamazFragment : Fragment() {
             }
 
             adapter!!.notifyDataSetChanged()
+            setListViewHeightBasedOnChildren(prayerTimings)
             updateNextPrayerUI()
+            rescheduleAllReminders()
             if (!isTodayClicked) { //checktime();
             }
             isTodayClicked = false
@@ -671,9 +741,9 @@ class NamazFragment : Fragment() {
                 Toast.makeText(activity, "Server error", Toast.LENGTH_LONG).show()
             }
             adapter!!.notifyDataSetChanged()
+            setListViewHeightBasedOnChildren(prayerTimings)
             updateNextPrayerUI()
-
-
+            rescheduleAllReminders()
         }
 
 
@@ -772,7 +842,7 @@ class NamazFragment : Fragment() {
             pDialog!!.dismiss()
             try {
                 juma_time!!.text = quranClassTimes!!.last()
-
+                rescheduleAllReminders()
             } catch (e: Exception) {
             }
 

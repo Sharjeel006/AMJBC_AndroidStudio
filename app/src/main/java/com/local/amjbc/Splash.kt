@@ -1,6 +1,5 @@
 package com.local.amjbc
 
-import android.accounts.AccountManager
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
@@ -34,19 +33,9 @@ class Splash : Activity(), SensorEventListener {
     var animFadein: Animation? = null
     var mp: MediaPlayer? = null
     var lm: Location? = null
-    var emailid: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val am = AccountManager.get(this)
-        val accounts = am.accounts
-        for (account in accounts) {
-            if (account.type.compareTo("com.google") == 0) {
-                emailid = account.name
-                break
-            }
-        }
 
         setContentView(R.layout.splash_2)
 
@@ -66,16 +55,11 @@ class Splash : Activity(), SensorEventListener {
 
         waveAnimation()
 
-
         val tf2 = Typeface.createFromAsset(assets, "Bender-Solid.otf")
-
         tv!!.typeface = tf2
 
-
         animFadein = AnimationUtils.loadAnimation(applicationContext, R.anim.fadein)
-
         tv!!.startAnimation(animFadein)
-
 
         startMain = Handler()
 
@@ -83,7 +67,7 @@ class Splash : Activity(), SensorEventListener {
             finish()
 
             if (!isBackButtonPressed) {
-                val intent = Intent(this@Splash, MainActivity::class.java)
+                val intent = Intent(this@Splash, MainActivity2::class.java)
                 this@Splash.startActivity(intent)
                 finish()
             }
@@ -123,21 +107,13 @@ class Splash : Activity(), SensorEventListener {
         super.onBackPressed()
     }
 
-
     override fun onDestroy() {
-
         super.onDestroy()
     }
 
     override fun onSensorChanged(event: SensorEvent) {
-
-
     }
-
 
     override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
-        // TODO Auto-generated method stub
-
     }
-
 }

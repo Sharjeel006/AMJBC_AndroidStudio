@@ -1,17 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "com.local.amjbc.app-mergeDebugResources-15:/values-v11/values-v11.xml",
+            "outputFile": "com.local.amjbc.app-mergeDebugResources-40:/values-v11/values-v11.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Sharjeel\\Documents\\AMJBC_AndroidStudio-20241010T070555Z-001\\AMJBC_AndroidStudio\\app\\src\\main\\res\\values-v11\\styles.xml",
                     "from": {
                         "startLines": "6",
                         "startColumns": "4",
-                        "startOffsets": "182",
+                        "startOffsets": "183",
                         "endLines": "8",
                         "endColumns": "12",
-                        "endOffsets": "316"
+                        "endOffsets": "335"
                     },
                     "to": {
                         "startLines": "2",
@@ -19,7 +19,7 @@
                         "startOffsets": "55",
                         "endLines": "4",
                         "endColumns": "12",
-                        "endOffsets": "138"
+                        "endOffsets": "156"
                     }
                 }
             ]

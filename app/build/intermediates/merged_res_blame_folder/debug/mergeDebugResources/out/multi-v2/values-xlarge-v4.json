@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.local.amjbc.app-mergeDebugResources-15:/values-xlarge-v4/values-xlarge-v4.xml",
+            "outputFile": "com.local.amjbc.app-mergeDebugResources-40:/values-xlarge-v4/values-xlarge-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Sharjeel\\.gradle\\caches\\8.10.2\\transforms\\c3ca577571583184000ebb98e8bb22be\\transformed\\appcompat-1.0.2\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
+                    "source": "C:\\Users\\Sharjeel\\.gradle\\caches\\8.10.2\\transforms\\5feec919f98fde553a43bc7ce7a0dfed\\transformed\\appcompat-1.7.0\\res\\values-xlarge-v4\\values-xlarge-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7",
                         "startColumns": "4,4,4,4,4,4",

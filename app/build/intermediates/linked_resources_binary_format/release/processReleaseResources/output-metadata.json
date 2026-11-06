@@ -11,8 +11,8 @@
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 200,
-      "versionName": "20.0",
+      "versionCode": 202,
+      "versionName": "20.2",
       "outputFile": "linked-resources-binary-format-release.ap_"
     }
   ],

@@ -11,8 +11,11 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.widget.SwitchCompat
 
 class NamazAdapter(private val context: Context, private val resource: Int, private val namaz: List<String>, private val timings: List<String>) : ArrayAdapter<String>(context, resource, namaz) {
+
+    private val reminderManager = PrayerReminderManager(context)
 
     override fun getView(position: Int, convert: View?, parent: ViewGroup): View {
         val row = convert ?: (context as Activity).layoutInflater.inflate(resource, parent, false)!!
@@ -20,9 +23,24 @@ class NamazAdapter(private val context: Context, private val resource: Int, priv
         val namaztext = row.findViewById<View>(R.id.textView1) as? TextView
         val timingtext = row.findViewById<View>(R.id.textView2) as? TextView
         val prayerIcon = row.findViewById<ImageView>(R.id.prayer_icon)
+        val reminderToggle = row.findViewById<SwitchCompat>(R.id.reminder_toggle)
 
-        namaztext?.text = namaz[position]
-        timingtext?.text = timings[position]
+        val prayerName = namaz[position]
+        val prayerTime = timings[position]
+
+        namaztext?.text = prayerName
+        timingtext?.text = prayerTime
+
+        reminderToggle?.setOnCheckedChangeListener(null)
+        reminderToggle?.isChecked = reminderManager.isReminderEnabled(prayerName)
+        reminderToggle?.setOnCheckedChangeListener { _, isChecked ->
+            reminderManager.setReminderEnabled(prayerName, isChecked)
+            if (isChecked) {
+                reminderManager.scheduleReminder(prayerName, prayerTime)
+            } else {
+                reminderManager.cancelReminder(prayerName)
+            }
+        }
 
         // Clear any black tints to preserve original asset colors
         prayerIcon?.imageTintList = null

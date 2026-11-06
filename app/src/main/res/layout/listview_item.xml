@@ -1,35 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingVertical="12dp"
-    android:paddingHorizontal="16dp"
+    android:paddingVertical="6dp"
+    android:paddingHorizontal="12dp"
     android:background="@android:color/transparent">
 
     <ImageView
         android:id="@+id/prayer_icon"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
         android:src="@drawable/ic_sun"
-        android:tint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Prayer Name"
         android:textColor="@color/black"
-        android:textSize="17sp"
+        android:textSize="15sp"
         android:textStyle="bold"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/prayer_icon"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/reminder_container" />
+
+    <LinearLayout
+        android:id="@+id/reminder_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.5">
+
+        <ImageView
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:src="@drawable/ic_alarm_outline"
+            app:tint="#80000000"
+            tools:ignore="UseAppTint" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/reminder_toggle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-6dp"
+            android:padding="0dp"
+            android:scaleX="0.6"
+            android:scaleY="0.6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15 mins"
+            android:textColor="#80000000"
+            android:textSize="8sp"
+            android:layout_marginTop="-8dp" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"
@@ -37,12 +75,10 @@
         android:layout_height="wrap_content"
         android:text="12:00 PM"
         android:textColor="@color/black"
-        android:textSize="17sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!-- Alarm icon removed -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

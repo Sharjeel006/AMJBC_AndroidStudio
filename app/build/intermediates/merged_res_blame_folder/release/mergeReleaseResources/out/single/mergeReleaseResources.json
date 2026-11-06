@@ -1,594 +1,618 @@
 [
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_islam_4.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_islam_4.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\animator_fade_in.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\animator\\fade_in.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_custom_dialog_event_added.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/custom_dialog_event_added.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_compass.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_compass.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_rain.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_rain.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_compass.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_compass.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_admin_options.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_admin_options.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_suncloud.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_suncloud.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_pushupout.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/pushupout.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_rain.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_rain.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout-sw720dp_fragment_namaz.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout-sw720dp/fragment_namaz.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_schedule_1.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_schedule_1.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_sunrise.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_sunrise.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_custom_dialog_event_added.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\custom_dialog_event_added.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/animator_slide_in.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/animator/slide_in.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_moonclouds.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_moonclouds.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_test.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/test.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_notifications_black_24dp.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_notifications_black_24dp.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_dotted_line_1.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/dotted_line_1.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_simple_border.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\simple_border.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/animator_fade_in.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/animator/fade_in.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_sun.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_sun.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-mdpi_rounded_corners.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-mdpi/rounded_corners.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_bg_gradient.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\bg_gradient.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_addevent.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_addevent.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_azan_off.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_azan_off.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_juma_background.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/juma_background.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_refresh_2.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_refresh_2.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_pushupin.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/pushupin.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_bg_2.jpg.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_bg_2.jpg"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_tick.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_tick.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_refresh_2.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_refresh_2.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_list_selector.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\list_selector.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_moon.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_moon.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_web_2.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_web_2.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_bg_2.jpg.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_bg_2.jpg"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_calendar_wiz.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\calendar_wiz.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_aboutus.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_aboutus.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_custom_dialog.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\custom_dialog.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_dashboard_black_24dp.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_dashboard_black_24dp.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_islam_2.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_islam_2.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_storm.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_storm.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_sunrise.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_sunrise.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_bg_card_sunset.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/bg_card_sunset.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_other_chandas.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\other_chandas.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_ramazan.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_ramazan.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_pushleftin.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\pushleftin.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_shape_square.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/shape_square.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_checkbox.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\checkbox.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_activity_main.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/activity_main.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_editevent.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_editevent.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_simple_border.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/simple_border.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\raw_notification_sound.mpeg.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\raw\\notification_sound.mpeg"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_moonclouds.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_moonclouds.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_islam_3.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_islam_3.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_activity_main2.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/activity_main2.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_shake.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\shake.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_clock.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_clock.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\menu_events_menu.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\menu\\events_menu.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_event.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_event.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_dotted_line.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\dotted_line.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_date_event_3.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_date_event_3.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_date_event.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_date_event.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_listview_item.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/listview_item.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_bg_card_dark.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\bg_card_dark.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_location.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_location.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_namaz_bg_4.jpg.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_namaz_bg_4.jpg"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_web.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_web.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout-sw720dp_fragment_namaz.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout-sw720dp\\fragment_namaz.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_azan_on.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_azan_on.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\menu_main.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\menu\\main.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_drawer_listview_item.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/drawer_listview_item.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_schedule_2.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_schedule_2.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_bg_1.jpg.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_bg_1.jpg"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_storm.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_storm.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_namaz.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_namaz.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_list_item_selector.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\list_item_selector.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/menu_options_menu.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/menu/options_menu.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_clock_4.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_clock_4.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_splash_2.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/splash_2.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\animator_slide_out.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\animator\\slide_out.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_border_2.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/border_2.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_event.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_event.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_namaz_bg_4.jpg.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_namaz_bg_4.jpg"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_namaz.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_namaz.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_tick_3_a.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_tick_3_a.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_activity_main2.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\activity_main2.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout-sw720dp_listview_item.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout-sw720dp/listview_item.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_wavescale.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\wavescale.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_bg_card_light.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/bg_card_light.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_img_compass_2.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\img_compass_2.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_bg_card_dark.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/bg_card_dark.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_ramazan2.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_ramazan2.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_majlis.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_majlis.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_slideintop.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\slideintop.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_bg_gradient.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/bg_gradient.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_drawer.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_drawer.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/menu_main.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/menu/main.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_sunrise_1.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_sunrise_1.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_drawer.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_drawer.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-mdpi_rounded_corners.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-mdpi\\rounded_corners.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/menu_bottom_nav_menu.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/menu/bottom_nav_menu.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_pushleftout.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\pushleftout.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_custom_dialog.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/custom_dialog.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_moon.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_moon.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_list_item_bg_normal.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/list_item_bg_normal.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_list_divider.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\list_divider.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout-sw720dp_splash_2.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout-sw720dp/splash_2.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_islam_4.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_islam_4.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_tick_2.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_tick_2.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_cal.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_cal.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_islam_3.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_islam_3.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_editeventlist.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_editeventlist.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_refresh.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_refresh.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_button_border.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\button_border.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_dotted_line.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/dotted_line.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_list_item_bg_pressed.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/list_item_bg_pressed.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_cycle.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\cycle.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_suncloud.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_suncloud.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_dotted_line_1.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\dotted_line_1.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_pushleftout.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/pushleftout.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_contact_us.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_contact_us.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_update_timings_center.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_update_timings_center.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_ramazan.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_ramazan.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-xxhdpi_ic_launcher.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-xxhdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_ramazan.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_ramazan.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_chanda_calc_updated.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_chanda_calc_updated.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_border.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\border.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_fadein.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/fadein.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_notification_mosque.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_notification_mosque.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_refresh_4.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_refresh_4.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_alarm_outline.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_alarm_outline.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_slideintop.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/slideintop.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_location_2.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_location_2.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_editevent.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_editevent.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_bg_card_sunset.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\bg_card_sunset.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_sunset.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_sunset.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_dashboard_black_24dp.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_dashboard_black_24dp.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_fadeout.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/fadeout.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_mosque.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_mosque.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_schedule_3.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_schedule_3.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_list_item_bg_normal.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\list_item_bg_normal.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_events_list_item.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/events_list_item.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\animator_rotate_animation.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\animator\\rotate_animation.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_cbchk_blue.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/cbchk_blue.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_splash_2.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\splash_2.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_prayers_background_2.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/prayers_background_2.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_schedule_4.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_schedule_4.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_hyperspaceout.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/hyperspaceout.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_bg_gradient_sunset.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\bg_gradient_sunset.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_aboutus.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_aboutus.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_refresh_3.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_refresh_3.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_img_compass_2.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/img_compass_2.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_login.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_login.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_namaz_bg_6.jpg.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_namaz_bg_6.jpg"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_fastrain.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_fastrain.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_mosque.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_mosque.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_cbunchk_blue.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/cbunchk_blue.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_juma_background.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\juma_background.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_clouds.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_clouds.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_dotted.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\dotted.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_clock_4.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_clock_4.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_settings.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_settings.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_update.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_update.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_pushupout.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\pushupout.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_cycle.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/cycle.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_chanda_calc_updated.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_chanda_calc_updated.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_chanda_calc.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_chanda_calc.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_prayers_background.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\prayers_background.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-xhdpi_ic_launcher.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-xhdpi/ic_launcher.png"
+        "merged": "com.local.amjbc.app-release-42:/layout_fragment_namaz.xml.flat",
+        "source": "com.local.amjbc.app-main-43:/layout/fragment_namaz.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_sun.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_sun.png"
+        "merged": "com.local.amjbc.app-release-42:/layout_custom_dialog.xml.flat",
+        "source": "com.local.amjbc.app-main-43:/layout/custom_dialog.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_twitter.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_twitter.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_selector.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\selector.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_counter_bg.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/counter_bg.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_ramzan_placeholder.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\ramzan_placeholder.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_schedule_2.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_schedule_2.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_update.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_update.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_date_event.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_date_event.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_alarm_3.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_alarm_3.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_namaz.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_namaz.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_web.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_web.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_event.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_event.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout-sw720dp_splash_2.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout-sw720dp\\splash_2.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_activity_hangout_dot_anim.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/activity_hangout_dot_anim.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_activity_hangout_dot_anim.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\activity_hangout_dot_anim.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/xml_activity_preference2.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/xml/activity_preference2.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_tick_3_a.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_tick_3_a.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_compass.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_compass.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_home_black_24dp.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_home_black_24dp.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/animator_slide_out.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/animator/slide_out.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_border_2.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\border_2.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_selector.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/selector.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_addevent.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_addevent.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_bg_gradient_sunrise.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/bg_gradient_sunrise.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_test.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\test.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_border_3.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/border_3.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_location.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_location.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_launcher.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_bg_card_light.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\bg_card_light.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_other_chandas.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/other_chandas.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_clock.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_clock.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_settings.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_settings.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_azan_on.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_azan_on.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_hijri_background.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/hijri_background.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_fastrain.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_fastrain.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_drawer_listview_item.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\drawer_listview_item.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_sunrise_1.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_sunrise_1.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_majlis_5.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_majlis_5.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_cal.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_cal.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_pushrightin.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\pushrightin.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_ramazan.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_ramazan.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_tick_2.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_tick_2.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_list_selector.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/list_selector.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_events_list_item.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\events_list_item.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_compass.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_compass.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_prayers_background_2.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\prayers_background_2.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_shake.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/shake.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_fadeout.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\fadeout.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_bg_card_jumuah.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/bg_card_jumuah.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_border_3.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\border_3.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_notifications_black_24dp.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_notifications_black_24dp.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_slidetoptobottom.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\slidetoptobottom.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_schedule_1.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_schedule_1.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_chanda_calc.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_chanda_calc.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_wavescale.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/wavescale.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_facebook_login.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\facebook_login.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_dotted.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/dotted.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_cbchk_blue.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\cbchk_blue.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_alarm_3.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_alarm_3.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_fadein.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\fadein.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_checkbox.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/checkbox.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout-sw720dp_listview_item.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout-sw720dp\\listview_item.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/menu_events_menu.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/menu/events_menu.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_event.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_event.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_majlis_5.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_majlis_5.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_update_timings_center.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_update_timings_center.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_bg_gradient_sunset.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/bg_gradient_sunset.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_clouds.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_clouds.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/animator_rotate_animation.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/animator/rotate_animation.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_namaz.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_namaz.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_calendar_wiz.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/calendar_wiz.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_namaz_bg_6.jpg.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_namaz_bg_6.jpg"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_facebook_login.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/facebook_login.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_bg_1.jpg.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_bg_1.jpg"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_prayers_background.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/prayers_background.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\menu_bottom_nav_menu.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\menu\\bottom_nav_menu.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_border.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/border.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_pushupin.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\pushupin.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_slidetoptobottom.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/slidetoptobottom.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_bg_gradient_sunrise.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\bg_gradient_sunrise.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_login.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_login.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_tick.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_tick.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_pushleftin.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/pushleftin.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_schedule_3.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_schedule_3.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_islam_2.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_islam_2.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_shape_square.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\shape_square.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_schedule_4.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_schedule_4.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_counter_bg.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\counter_bg.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_ramzan_placeholder.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/ramzan_placeholder.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_listview_item.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\listview_item.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_web_2.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_web_2.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_list_item_bg_pressed.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\list_item_bg_pressed.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_refresh_3.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_refresh_3.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\menu_options_menu.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\menu\\options_menu.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_list_divider.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/list_divider.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_refresh_4.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_refresh_4.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_ramazan2.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_ramazan2.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\anim_hyperspaceout.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\anim\\hyperspaceout.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/layout_fragment_editeventlist.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/layout/fragment_editeventlist.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_sunset.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_sunset.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_azan_off.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_azan_off.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_majlis.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_majlis.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_location_2.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_location_2.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_twitter.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_twitter.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-mdpi_ic_launcher.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-mdpi/ic_launcher.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_date_event_3.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_date_event_3.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_login.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_login.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_bg_card_jumuah.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\bg_card_jumuah.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_button_border.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/button_border.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_ic_refresh.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\ic_refresh.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_list_item_selector.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/list_item_selector.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\xml_activity_preference2.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\xml\\activity_preference2.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_border_1.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/border_1.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\animator_slide_in.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\animator\\slide_in.xml"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable-hdpi_ic_contact_us.png.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable-hdpi/ic_contact_us.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_cbunchk_blue.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\cbunchk_blue.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/drawable_ic_home_black_24dp.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/drawable/ic_home_black_24dp.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_aboutus.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_aboutus.png"
     },
     {
-        "merged": "com.local.amjbc.app-release-17:/anim_pushrightin.xml.flat",
-        "source": "com.local.amjbc.app-main-18:/anim/pushrightin.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_login.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_login.png"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_hijri_background.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\hijri_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_admin_options.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_admin_options.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable_bg_gradient_jumuah.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable\\bg_gradient_jumuah.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\drawable-hdpi_border_1.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\drawable-hdpi\\border_1.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-release-42:\\layout_fragment_aboutus.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-43:\\layout\\fragment_aboutus.xml"
     }
 ]
