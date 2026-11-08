@@ -14,6 +14,7 @@ import android.util.Log
 import android.view.*
 import android.widget.*
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.local.amjbc.R
 import java.text.DecimalFormat
@@ -87,7 +88,7 @@ class ChandaCal : Fragment() {
         aux = rootView.findViewById<View>(R.id.aux) as TextView
         donation_button = rootView.findViewById<View>(R.id.dontation_button) as Button
         donationIcon = rootView.findViewById(R.id.donation_icon)
-        
+
         mainamount = rootView.findViewById<View>(R.id.mainamount_text) as TextView
         jsalanaamount = rootView.findViewById<View>(R.id.jsalanaamount_text) as TextView
         auxamount = rootView.findViewById<View>(R.id.auxamount_text) as TextView
@@ -189,14 +190,18 @@ class ChandaCal : Fragment() {
 
         spOrg!!.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                org = spOrg!!.selectedItem.toString()
-                val editor = sp!!.edit()
-                editor.putString("org", org)
-                editor.apply()
+                val selected = spOrg!!.selectedItem.toString()
+                val selectedOrg = if (selected == "Khudaam") "Khuddam" else selected
+                if (org != selectedOrg) {
+                    org = selectedOrg
+                    val editor = sp!!.edit()
+                    editor.putString("org", org)
+                    editor.apply()
 
-                updateUIForOrg(org!!)
-                calculate()
-                populate_fields()
+                    updateUIForOrg(org!!)
+                    calculate()
+                    populate_fields()
+                }
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
@@ -237,7 +242,7 @@ class ChandaCal : Fragment() {
         moreInfo!!.setOnClickListener {
             var info: String? = "No information available"
             if (org == "Lajna") info = resources.getString(R.string.chanda_info_Lajna)
-            else if (org == "Khudaam") info = resources.getString(R.string.chanda_info_Khuddam)
+            else if (org == "Khuddam" || org == "Khudaam") info = resources.getString(R.string.chanda_info_Khuddam)
             else if (org == "Ansaar") info = resources.getString(R.string.chanda_info_Ansar)
 
             AlertDialog.Builder(activity)
@@ -279,19 +284,35 @@ class ChandaCal : Fragment() {
             }
         }
 
-        androidx.core.content.ContextCompat.registerReceiver(
+        ContextCompat.registerReceiver(
             requireActivity(),
             reciever1,
             filter,
-            androidx.core.content.ContextCompat.RECEIVER_NOT_EXPORTED
+            ContextCompat.RECEIVER_NOT_EXPORTED
         )
+
         return rootView
     }
 
     private fun selectOrg(orgName: String) {
+        org = orgName
+        val editor = sp?.edit()
+        editor?.putString("org", org)
+        editor?.apply()
+
         val orgArray = resources.getStringArray(R.array.listArray)
-        val index = orgArray.indexOf(orgName).coerceAtLeast(0)
-        spOrg?.setSelection(index)
+        var index = orgArray.indexOf(orgName)
+        if (index == -1 && (orgName == "Khuddam" || orgName == "Khudaam")) {
+            index = orgArray.indexOf("Khudaam")
+            if (index == -1) index = orgArray.indexOf("Khuddam")
+        }
+        if (index != -1) {
+            spOrg?.setSelection(index, false)
+        }
+
+        updateUIForOrg(orgName)
+        calculate()
+        populate_fields()
     }
 
     private fun CheckSyncronization() {
@@ -401,14 +422,16 @@ class ChandaCal : Fragment() {
         var annualAux = 0.0
         val monthlyIncome = income / 12.0
 
-        when (org) {
+        val normalizedOrg = if (org == "Khudaam") "Khuddam" else (org ?: "Ansaar")
+
+        when (normalizedOrg) {
             "Ansaar" -> {
                 annualAux += Math.max(income * 0.01, 36.0)
                 annualAux += Math.max(monthlyIncome * 0.025, 24.0)
                 annualAux += 10.0
                 tvAuxFormula?.text = "1% of income · min $36"
             }
-            "Khudaam" -> {
+            "Khuddam" -> {
                 if (incomeStatus == "Earner") {
                     annualAux += Math.max(income * 0.01, 36.0)
                     annualAux += Math.max(monthlyIncome * 0.025, 30.0)
@@ -440,22 +463,23 @@ class ChandaCal : Fragment() {
     }
 
     private fun updateUIForOrg(orgName: String) {
-        aux!!.text = orgName
+        val normalizedOrg = if (orgName == "Khudaam") "Khuddam" else orgName
+        aux?.text = normalizedOrg
 
         val textDarkGreen = Color.parseColor("#0F4E36")
         val textMuted = Color.parseColor("#64748B")
 
         // Update Pill Styles
-        tvPillAnsaar?.setBackgroundResource(if (orgName == "Ansaar") R.drawable.bg_tab_selected else 0)
-        tvPillAnsaar?.setTextColor(if (orgName == "Ansaar") textDarkGreen else textMuted)
+        tvPillAnsaar?.setBackgroundResource(if (normalizedOrg == "Ansaar") R.drawable.bg_tab_selected else 0)
+        tvPillAnsaar?.setTextColor(if (normalizedOrg == "Ansaar") textDarkGreen else textMuted)
 
-        tvPillKhuddam?.setBackgroundResource(if (orgName == "Khuddam") R.drawable.bg_tab_selected else 0)
-        tvPillKhuddam?.setTextColor(if (orgName == "Khuddam") textDarkGreen else textMuted)
+        tvPillKhuddam?.setBackgroundResource(if (normalizedOrg == "Khuddam") R.drawable.bg_tab_selected else 0)
+        tvPillKhuddam?.setTextColor(if (normalizedOrg == "Khuddam") textDarkGreen else textMuted)
 
-        tvPillLajna?.setBackgroundResource(if (orgName == "Lajna") R.drawable.bg_tab_selected else 0)
-        tvPillLajna?.setTextColor(if (orgName == "Lajna") textDarkGreen else textMuted)
+        tvPillLajna?.setBackgroundResource(if (normalizedOrg == "Lajna") R.drawable.bg_tab_selected else 0)
+        tvPillLajna?.setTextColor(if (normalizedOrg == "Lajna") textDarkGreen else textMuted)
 
-        when (orgName) {
+        when (normalizedOrg) {
             "Ansaar" -> {
                 llIncomeStatus?.visibility = View.GONE
             }
@@ -504,12 +528,15 @@ class ChandaCal : Fragment() {
         swMoosi?.isChecked = moosi
         updateUIForMoosi(moosi)
 
-        val orgArray = resources.getStringArray(R.array.listArray)
-        val orgIndex = orgArray.indexOf(org).coerceAtLeast(0)
-        spOrg?.setSelection(orgIndex)
-        updateUIForOrg(org!!)
+        val normalizedOrg = if (org == "Khudaam") "Khuddam" else (org ?: "Ansaar")
+        updateUIForOrg(normalizedOrg)
 
-        aux!!.text = org
+        val orgArray = resources.getStringArray(R.array.listArray)
+        var orgIndex = orgArray.indexOf(normalizedOrg)
+        if (orgIndex == -1) orgIndex = 0
+        spOrg?.setSelection(orgIndex, false)
+
+        aux!!.text = normalizedOrg
         calculate()
         populate_fields()
 
