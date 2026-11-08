@@ -4,241 +4,316 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="#F6FAF7">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:paddingHorizontal="14dp"
-            android:paddingVertical="8dp">
+            android:paddingTop="8dp"
+            android:paddingBottom="12dp">
 
             <!-- Date and Navigation Header -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_date_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="4dp"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginBottom="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="start"
                     android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tv_title_main"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Vancouver Imarat"
+                        android:textColor="#0F4E36"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_dates"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/text_dark"
-                        android:textSize="13sp"
-                        android:textStyle="bold"
-                        tools:text="DECEMBER 12, 2024" />
+                        android:textColor="#64748B"
+                        android:textSize="12sp"
+                        tools:text="Fri, Nov 6, 2026 • 26 Jumada I 1448" />
 
                     <TextView
                         android:id="@+id/tv_hijri_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/text_muted"
-                        android:textSize="10sp"
-                        tools:text="10 JUMADA AL-AKHIRAH 1446" />
+                        android:visibility="gone" />
                 </LinearLayout>
 
+                <!-- Refresh Button Top Right -->
                 <ImageView
                     android:id="@+id/today"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:padding="2dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_refresh_circle"
+                    android:padding="7dp"
                     android:src="@drawable/ic_refresh_4"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/text_dark" />
+                    app:tint="#0F4E36"
+                    tools:ignore="ContentDescription" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- Next Prayer Card (Compact) -->
-            <androidx.cardview.widget.CardView
+            <!-- Upcoming Prayer Hero Card -->
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cv_next_prayer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                app:cardBackgroundColor="@color/card_dark"
-                app:cardCornerRadius="14dp"
-                app:cardElevation="0dp"
-                app:layout_constraintTop_toBottomOf="@id/cl_date_header">
+                android:background="@drawable/bg_namaz_hero_card"
+                android:paddingHorizontal="14dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- Mountain Silhouette Background -->
+                <ImageView
                     android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg_mountain_trees"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <!-- Clock / Upcoming Prayer Header -->
+                <LinearLayout
+                    android:id="@+id/ll_upcoming_header"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="10dp"
-                    android:paddingHorizontal="14dp">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/ic_alarm_outline"
+                        app:tint="#A3E635"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/tv_next_prayer_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:letterSpacing="0.08"
                         android:text="UPCOMING PRAYER"
-                        android:textColor="@color/text_white"
+                        android:textColor="#CBD5E1"
                         android:textSize="9sp"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.05"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Prayer Name & Time Row -->
+                <TextView
+                    android:id="@+id/tv_next_prayer_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_upcoming_header"
+                    tools:text="Dhuhr" />
+
+                <TextView
+                    android:id="@+id/tv_next_prayer_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_next_prayer_name"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tv_next_prayer_name"
+                    tools:text="1:30 PM" />
+
+                <!-- Progress Bar -->
+                <ProgressBar
+                    android:id="@+id/pb_prayer_progress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_marginTop="10dp"
+                    android:progress="45"
+                    android:progressDrawable="@android:drawable/progress_horizontal"
+                    android:progressTint="#A3E635"
+                    app:layout_constraintTop_toBottomOf="@id/tv_next_prayer_name" />
+
+                <!-- Subtext Row Below Progress Bar -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    app:layout_constraintTop_toBottomOf="@id/pb_prayer_progress">
 
                     <TextView
-                        android:id="@+id/tv_next_prayer_name"
+                        android:id="@+id/tv_prev_prayer_status"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="1dp"
-                        android:text="Dhuhr"
-                        android:textColor="@color/text_white"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
+                        android:textColor="#E2E8F0"
+                        android:textSize="10sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/tv_next_prayer_label" />
-
-                    <TextView
-                        android:id="@+id/tv_next_prayer_time"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="1:30 PM"
-                        android:textColor="@color/text_white"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_next_prayer_name"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/tv_next_prayer_name" />
-
-                    <ProgressBar
-                        android:id="@+id/pb_prayer_progress"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="match_parent"
-                        android:layout_height="3dp"
-                        android:layout_marginTop="6dp"
-                        android:progress="45"
-                        android:progressDrawable="@android:drawable/progress_horizontal"
-                        android:progressTint="@color/white"
-                        app:layout_constraintTop_toBottomOf="@id/tv_next_prayer_name" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="After Fajr" />
 
                     <TextView
                         android:id="@+id/tv_next_prayer_countdown"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="in 4h 23m"
-                        android:textColor="@color/text_white"
+                        android:textColor="#E2E8F0"
                         android:textSize="10sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/pb_prayer_progress" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="in 4h 28m" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
 
-            <!-- Sunrise/Sunset Section -->
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Sunrise & Sunset Cards Row -->
             <LinearLayout
                 android:id="@+id/sun_section"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/cv_next_prayer">
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
 
-                <androidx.cardview.widget.CardView
+                <!-- Sunrise Card -->
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="4dp"
+                    android:layout_marginEnd="5dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp">
+                    app:cardBackgroundColor="#EFF5F1"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingVertical="6dp"
-                        android:paddingHorizontal="8dp"
                         android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/bg_gradient_sunrise">
-                        <TextView
-                            android:layout_width="wrap_content"
+                        android:paddingVertical="8dp"
+                        android:paddingHorizontal="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="SUNRISE"
-                            android:textSize="8sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/text_muted"/>
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:src="@drawable/ic_sehr_sunrise"
+                                app:tint="#0F4E36"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:letterSpacing="0.05"
+                                android:text="SUNRISE"
+                                android:textColor="#64748B"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
                         <TextView
                             android:id="@+id/sunriseTime"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="--:--"
-                            android:textSize="13sp"
+                            android:layout_marginTop="2dp"
+                            android:textColor="#0F4E36"
+                            android:textSize="14sp"
                             android:textStyle="bold"
-                            android:textColor="@color/text_dark"/>
+                            tools:text="8:07 AM" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
 
-                <!-- Centered Location Info -->
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="6dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="14dp"
-                        android:layout_height="14dp"
-                        android:src="@drawable/ic_location"
-                        app:tint="@color/text_muted" />
-                    <TextView
-                        android:id="@+id/tv_location"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Delta, BC"
-                        android:textColor="@color/text_muted"
-                        android:textSize="9sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <androidx.cardview.widget.CardView
+                <!-- Sunset Card -->
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
+                    android:layout_marginStart="5dp"
                     android:layout_weight="1"
-                    app:cardBackgroundColor="@android:color/transparent"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp">
+                    app:cardBackgroundColor="#EFF5F1"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingVertical="6dp"
-                        android:paddingHorizontal="8dp"
                         android:orientation="vertical"
-                        android:gravity="center"
-                        android:background="@drawable/bg_gradient_sunset">
-                        <TextView
-                            android:layout_width="wrap_content"
+                        android:paddingVertical="8dp"
+                        android:paddingHorizontal="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="SUNSET"
-                            android:textSize="8sp"
-                            android:textStyle="bold"
-                            android:textColor="@color/text_muted"/>
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:src="@drawable/ic_iftar_moon"
+                                app:tint="#0F4E36"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="5dp"
+                                android:letterSpacing="0.05"
+                                android:text="SUNSET"
+                                android:textColor="#64748B"
+                                android:textSize="8sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
                         <TextView
                             android:id="@+id/sunsetTime"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="--:--"
-                            android:textSize="13sp"
+                            android:layout_marginTop="2dp"
+                            android:textColor="#0F4E36"
+                            android:textSize="14sp"
                             android:textStyle="bold"
-                            android:textColor="@color/text_dark"/>
+                            tools:text="5:42 PM" />
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </com.google.android.material.card.MaterialCardView>
+
+                <!-- Hidden location view to maintain binding compatibility -->
+                <TextView
+                    android:id="@+id/tv_location"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:visibility="gone" />
+
             </LinearLayout>
 
             <!-- Ramadan Jump Button (Visible only during Ramadan) -->
@@ -248,47 +323,48 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="4dp"
+                android:paddingVertical="8dp"
                 android:text="Go to Ramadan Schedule"
                 android:textAllCaps="false"
-                android:textColor="#EAB308"
-                android:textSize="14sp"
+                android:textColor="#0F4E36"
+                android:textSize="13sp"
                 android:textStyle="bold"
-                android:paddingVertical="8dp"
                 android:visibility="gone"
-                app:strokeColor="#EAB308"
-                app:strokeWidth="1.5dp"
                 app:cornerRadius="10dp"
-                app:layout_constraintTop_toBottomOf="@id/sun_section"
+                app:strokeColor="#0F4E36"
+                app:strokeWidth="1.5dp"
                 tools:visibility="visible" />
 
-            <!-- Jumu'ah Card (Subtle Green Gradient) -->
-            <androidx.cardview.widget.CardView
+            <!-- Jumu'ah Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cv_jumuah"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                app:cardBackgroundColor="@android:color/transparent"
+                android:layout_marginTop="8dp"
+                app:cardBackgroundColor="#EFF5F1"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="0dp"
-                app:layout_constraintTop_toBottomOf="@id/ramazangoto">
+                app:strokeWidth="0dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingVertical="8dp"
-                    android:paddingHorizontal="14dp"
-                    android:background="@drawable/bg_gradient_jumuah">
+                    android:paddingVertical="10dp"
+                    android:paddingHorizontal="12dp">
 
+                    <!-- Mosque Icon Dark Circle Background -->
                     <ImageView
                         android:id="@+id/juma_icon"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/bg_icon_circle_dark"
+                        android:padding="7dp"
                         android:src="@drawable/ic_mosque"
-                        app:tint="#0C3E57"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="#FFFFFF"
+                        tools:ignore="ContentDescription" />
 
                     <LinearLayout
                         android:id="@+id/jumuah_text_container"
@@ -297,170 +373,159 @@
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="6dp"
                         android:orientation="vertical"
-                        android:gravity="center_vertical"
-                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/jumatimeid"
                         app:layout_constraintStart_toEndOf="@id/juma_icon"
-                        app:layout_constraintEnd_toStartOf="@+id/jumuah_reminder_container">
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
                             android:id="@+id/juma_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Jumu'ah Prayer"
-                            android:textColor="#0C3E57"
-                            android:textSize="15sp"
+                            android:textColor="#0F4E36"
+                            android:textSize="14sp"
                             android:textStyle="bold" />
 
-                        <TextView
-                            android:id="@+id/juma_location"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="1dp"
-                            android:text="Friday congregation"
-                            android:textColor="#608090"
-                            android:textSize="12sp" />
-                    </LinearLayout>
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:id="@+id/jumuah_reminder_container"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/jumatimeid"
-                        app:layout_constraintStart_toEndOf="@+id/jumuah_text_container"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintHorizontal_bias="0.5">
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:src="@drawable/ic_alarm_outline"
+                                app:tint="#64748B"
+                                tools:ignore="ContentDescription" />
 
-                        <ImageView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:src="@drawable/ic_alarm_outline"
-                            app:tint="#800C3E57"
-                            tools:ignore="UseAppTint" />
-
-                        <androidx.appcompat.widget.SwitchCompat
-                            android:id="@+id/jumuah_reminder_toggle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="-6dp"
-                            android:scaleX="0.6"
-                            android:scaleY="0.6" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="-8dp"
-                            android:text="1 hour"
-                            android:textColor="#800C3E57"
-                            android:textSize="8sp" />
-
+                            <TextView
+                                android:id="@+id/juma_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp"
+                                android:text="Alarm 1 hour before"
+                                android:textColor="#64748B"
+                                android:textSize="10sp" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <TextView
                         android:id="@+id/jumatimeid"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="10dp"
                         android:text="1:00 PM"
-                        android:textColor="#0C3E57"
-                        android:textSize="18sp"
+                        android:textColor="#0F4E36"
+                        android:textSize="16sp"
                         android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/jumuah_reminder_toggle"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/jumuah_reminder_toggle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
 
-            <!-- Today's Times Header Section -->
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Prayer Times Header Section -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_list_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@id/cv_jumuah">
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="4dp">
 
                 <ImageView
                     android:id="@+id/btn_prev_day"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:padding="2dp"
+                    android:background="@drawable/bg_nav_circle"
+                    android:padding="5dp"
                     android:src="@android:drawable/ic_media_previous"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:tint="@color/text_dark" />
+                    app:tint="#0F4E36"
+                    tools:ignore="ContentDescription" />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:gravity="center"
                     android:layout_marginHorizontal="6dp"
-                    app:layout_constraintStart_toEndOf="@id/btn_prev_day"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/btn_next_day"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
+                    app:layout_constraintStart_toEndOf="@id/btn_prev_day"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
                         android:id="@+id/tv_header_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:letterSpacing="0.08"
                         android:text="PRAYER TIMES"
-                        android:textColor="@color/text_muted"
+                        android:textColor="#64748B"
                         android:textSize="9sp"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.05" />
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_masjid_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Baitur-Rahman &amp; Baitul-Hamd"
-                        android:textColor="@color/text_dark"
+                        android:textColor="#0F4E36"
                         android:textSize="13sp"
-                        android:textStyle="bold"
-                        android:gravity="center" />
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <ImageView
                     android:id="@+id/btn_next_day"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:padding="2dp"
+                    android:background="@drawable/bg_nav_circle"
+                    android:padding="5dp"
                     android:src="@android:drawable/ic_media_next"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:tint="@color/text_dark" />
+                    app:tint="#0F4E36"
+                    tools:ignore="ContentDescription" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Prayer Times List Card -->
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cv_prayer_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                app:cardBackgroundColor="#F1F5F9"
-                app:cardCornerRadius="16dp"
+                app:cardBackgroundColor="#EFF5F1"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
-                app:layout_constraintTop_toBottomOf="@id/cl_list_header">
+                app:strokeWidth="0dp">
 
                 <ListView
                     android:id="@+id/listview1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:divider="#20000000"
+                    android:divider="#10000000"
                     android:dividerHeight="0.5dp"
-                    android:paddingVertical="2dp"
                     android:nestedScrollingEnabled="false"
+                    android:padding="6dp"
                     tools:listitem="@layout/listview_item" />
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

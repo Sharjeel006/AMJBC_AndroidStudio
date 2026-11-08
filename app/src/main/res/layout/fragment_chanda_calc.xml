@@ -4,187 +4,297 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="#F6FAF7">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:paddingHorizontal="16dp"
-            android:paddingTop="8dp"
+            android:paddingTop="12dp"
             android:paddingBottom="24dp">
 
-            <!-- Header Section -->
+            <!-- Top Header Bar -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cl_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginBottom="12dp">
 
-                <TextView
-                    android:id="@+id/tv_title"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="DONATION CALCULATOR"
-                    android:textColor="@color/text_dark"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/tv_subtitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Calculate your monthly chandas"
-                    android:textColor="@color/text_muted"
-                    android:textSize="11sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_title" />
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Donation Calculator"
+                        android:textColor="#0F4E36"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
+                    <TextView
+                        android:id="@+id/tv_subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Calculate your monthly chandas"
+                        android:textColor="#64748B"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <!-- Globe / Link Button Top Right -->
                 <ImageView
                     android:id="@+id/donation_icon"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:padding="6dp"
-                    android:src="@drawable/ic_web_2"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_refresh_circle"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_globe"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:tint="@color/text_dark" />
+                    app:tint="#0F4E36"
+                    tools:ignore="ContentDescription" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- Income Input Card -->
-            <androidx.cardview.widget.CardView
+            <!-- Net Annual Income Hero Card -->
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/cv_income"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:cardBackgroundColor="@color/card_dark"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="0dp"
-                app:layout_constraintTop_toBottomOf="@id/cl_header">
+                android:background="@drawable/bg_namaz_hero_card"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <!-- Mountain Silhouette Background -->
+                <ImageView
                     android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/bg_mountain_trees"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <!-- Cash Icon & Header -->
+                <LinearLayout
+                    android:id="@+id/ll_income_header"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="19dp">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_cash"
+                        app:tint="#A3E635"
+                        tools:ignore="ContentDescription" />
 
                     <TextView
                         android:id="@+id/textView1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:letterSpacing="0.08"
                         android:text="NET ANNUAL INCOME"
-                        android:textColor="@color/text_white"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-                        android:textStyle="bold"
-                        android:letterSpacing="0.05"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        android:textColor="#CBD5E1"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Value Display / EditText Row -->
+                <LinearLayout
+                    android:id="@+id/ll_income_input_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/ll_income_header">
 
                     <TextView
                         android:id="@+id/tv_dollar_sign"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="$"
-                        android:textColor="@color/white"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
-                        android:textStyle="bold"
-                        android:layout_marginTop="24dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/textView1" />
+                        android:text="$ "
+                        android:textColor="#A3E635"
+                        android:textSize="36sp"
+                        android:textStyle="bold" />
 
                     <EditText
                         android:id="@+id/income"
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@null"
-                        android:hint="0.00"
+                        android:hint="48,000"
                         android:inputType="numberDecimal"
-                        android:textColor="@color/white"
+                        android:textColor="#FFFFFF"
                         android:textColorHint="#80FFFFFF"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline3"
+                        android:textSize="36sp"
                         android:textStyle="bold"
-                        android:layout_marginStart="4dp"
-                        app:layout_constraintStart_toEndOf="@id/tv_dollar_sign"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/tv_dollar_sign"
-                        app:layout_constraintBottom_toBottomOf="@id/tv_dollar_sign" />
+                        tools:text="48,000" />
+                </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#40FFFFFF"
-                        app:layout_constraintTop_toBottomOf="@id/income" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="12dp"
+                    android:background="#30FFFFFF"
+                    app:layout_constraintTop_toBottomOf="@id/ll_income_input_row" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- Configuration Settings Card -->
-            <androidx.cardview.widget.CardView
+            <!-- Moosi Status & Organization Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cv_settings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:cardBackgroundColor="#F8FAFC"
-                app:cardCornerRadius="16dp"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#EFF5F1"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
-                app:layout_constraintTop_toBottomOf="@id/cv_income">
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="12dp">
+                    android:padding="16dp">
 
-                    <RelativeLayout
+                    <!-- Moosi Status Row -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
-                        <TextView
-                            android:layout_width="wrap_content"
+
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:text="Moosi status"
-                            android:textColor="@color/text_dark"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                            android:textStyle="bold" />
+                            android:layout_marginEnd="8dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/sw_moosi"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Moosi status"
+                                android:textColor="#0F4E36"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_moosi_subtitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="Off – Chanda Aam at 1/16"
+                                android:textColor="#64748B"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
                         <androidx.appcompat.widget.SwitchCompat
                             android:id="@+id/sw_moosi"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true" />
-                    </RelativeLayout>
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginVertical="8dp"
-                        android:background="#E2E8F0" />
+                        android:layout_marginVertical="12dp"
+                        android:background="#D1E7DD" />
 
+                    <!-- Organization Row -->
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Organization"
-                            android:textColor="@color/text_dark"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                            android:textColor="#0F4E36"
+                            android:textSize="15sp"
                             android:textStyle="bold" />
-                        <Spinner
-                            android:id="@+id/sp_org"
+
+                        <!-- Segmented Pill Selector for Organization -->
+                        <LinearLayout
+                            android:id="@+id/ll_org_pills"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
-                            android:entries="@array/listArray"
-                            android:spinnerMode="dropdown" />
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/bg_segmented_control"
+                            android:orientation="horizontal"
+                            android:padding="4dp">
+
+                            <TextView
+                                android:id="@+id/tv_pill_ansaar"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:background="@drawable/bg_tab_selected"
+                                android:gravity="center"
+                                android:paddingVertical="8dp"
+                                android:text="Ansaar"
+                                android:textColor="#0F4E36"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_pill_khuddam"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:paddingVertical="8dp"
+                                android:text="Khuddam"
+                                android:textColor="#64748B"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_pill_lajna"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:paddingVertical="8dp"
+                                android:text="Lajna"
+                                android:textColor="#64748B"
+                                android:textSize="13sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
                     </LinearLayout>
+
+                    <!-- Hidden Spinners & Views for Logic Compatibility -->
+                    <Spinner
+                        android:id="@+id/sp_org"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:entries="@array/listArray"
+                        android:visibility="gone" />
 
                     <LinearLayout
                         android:id="@+id/ll_wasiyyat_rate"
@@ -198,14 +308,14 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Wasiyyat Rate"
-                            android:textColor="@color/text_dark"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                            android:textColor="#0F4E36"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
                         <Spinner
                             android:id="@+id/sp_wasiyyat_rate"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
+                            android:layout_marginStart="12dp"
                             android:entries="@array/wassiyatpercentage"
                             android:spinnerMode="dropdown" />
                     </LinearLayout>
@@ -222,272 +332,313 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Income Status"
-                            android:textColor="@color/text_dark"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                            android:textColor="#0F4E36"
+                            android:textSize="13sp"
                             android:textStyle="bold" />
                         <Spinner
                             android:id="@+id/sp_income_status"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="16dp"
+                            android:layout_marginStart="12dp"
                             android:spinnerMode="dropdown" />
                     </LinearLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
 
-            <!-- Total Chanda Display Card (Revised for Dual Totals) -->
-            <androidx.cardview.widget.CardView
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Monthly Total & Annual Total Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cv_total"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:cardBackgroundColor="#E0F7F9"
-                app:cardCornerRadius="24dp"
+                android:layout_marginTop="12dp"
+                app:cardBackgroundColor="#EFF5F1"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
-                app:layout_constraintTop_toBottomOf="@id/cv_settings">
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:padding="20dp">
+                    android:padding="16dp">
 
+                    <!-- Left: Monthly Total -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:letterSpacing="0.08"
                             android:text="MONTHLY TOTAL"
-                            android:textColor="#0C3E57"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
-                            android:textStyle="bold"
-                            android:letterSpacing="0.05" />
+                            android:textColor="#64748B"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/nettotalamount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="$0.00"
-                            android:textColor="#0C3E57"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                            android:textStyle="bold" />
+                            android:layout_marginTop="4dp"
+                            android:textColor="#0F4E36"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            tools:text="$323.33" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
-                        android:layout_marginHorizontal="16dp"
-                        android:background="#200C3E57" />
+                        android:layout_marginHorizontal="12dp"
+                        android:background="#D1E7DD" />
 
+                    <!-- Right: Annual Total -->
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:letterSpacing="0.08"
                             android:text="ANNUAL TOTAL"
-                            android:textColor="#0C3E57"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
-                            android:textStyle="bold"
-                            android:letterSpacing="0.05" />
+                            android:textColor="#64748B"
+                            android:textSize="10sp"
+                            android:textStyle="bold" />
+
                         <TextView
                             android:id="@+id/annualtotalamount"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="$0.00"
-                            android:textColor="#0C3E57"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                            android:textStyle="bold" />
+                            android:layout_marginTop="4dp"
+                            android:textColor="#0F4E36"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            tools:text="$3,880.00" />
                     </LinearLayout>
 
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <!-- Calculation Settings Header -->
-            <TextView
-                android:id="@+id/tv_settings_header"
-                android:layout_width="wrap_content"
+            <!-- Breakdown Header Row -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_breakdown_header"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="CALCULATION BREAKDOWN"
-                android:textColor="@color/text_muted"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:letterSpacing="0.05"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/cv_total" />
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp">
 
-            <!-- Breakdown Card -->
-            <androidx.cardview.widget.CardView
+                <TextView
+                    android:id="@+id/tv_settings_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.08"
+                    android:text="CALCULATION BREAKDOWN"
+                    android:textColor="#64748B"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Per year"
+                    android:textColor="#64748B"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Breakdown Items Card -->
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cv_breakdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:cardBackgroundColor="#F1F5F9"
-                app:cardCornerRadius="24dp"
+                app:cardBackgroundColor="#EFF5F1"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="0dp"
-                app:layout_constraintTop_toBottomOf="@id/tv_settings_header">
+                app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:paddingVertical="12dp"
+                    android:paddingHorizontal="16dp">
 
-                    <!-- Aam/Wassiyat Row -->
-                    <RelativeLayout
+                    <!-- Row 1: Chanda Aam / Wasiyyat -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingVertical="8dp">
-                        <TextView
-                            android:id="@+id/main"
-                            android:layout_width="wrap_content"
+                        android:paddingVertical="6dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Aam / Wassiyat"
-                            android:textColor="@color/text_dark"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                            android:textStyle="bold" />
+                            android:layout_marginEnd="8dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/mainamount_text"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/main"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Chanda Aam"
+                                android:textColor="#0F4E36"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_main_formula"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="1/16 of income"
+                                android:textColor="#64748B"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
                         <TextView
                             android:id="@+id/mainamount_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:text="$0.00"
-                            android:textColor="@color/text_dark"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                            android:textStyle="bold" />
+                            android:textColor="#0F4E36"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="$3,000.00" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    </RelativeLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="6dp"
+                        android:background="#D1E7DD" />
 
-                    <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#20000000" />
-
-                    <!-- J. Salana Row -->
-                    <RelativeLayout
+                    <!-- Row 2: Jalsa Salana -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingVertical="8dp">
-                        <TextView
-                            android:id="@+id/jsalana"
-                            android:layout_width="wrap_content"
+                        android:paddingVertical="6dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Jalsa Salana"
-                            android:textColor="@color/text_dark"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                            android:textStyle="bold" />
+                            android:layout_marginEnd="8dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/jsalanaamount_text"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/jsalana"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Jalsa Salana"
+                                android:textColor="#0F4E36"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_jsalana_formula"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="1/120 of income"
+                                android:textColor="#64748B"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
                         <TextView
                             android:id="@+id/jsalanaamount_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:text="$0.00"
-                            android:textColor="@color/text_dark"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                            android:textStyle="bold" />
+                            android:textColor="#0F4E36"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="$400.00" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    </RelativeLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="6dp"
+                        android:background="#D1E7DD" />
 
-                    <View android:layout_width="match_parent" android:layout_height="0.5dp" android:background="#20000000" />
-
-                    <!-- Aux Row -->
-                    <RelativeLayout
+                    <!-- Row 3: Auxiliary Organization -->
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingVertical="8dp">
-                        <TextView
-                            android:id="@+id/aux"
-                            android:layout_width="wrap_content"
+                        android:paddingVertical="6dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:text="Auxiliary Org"
-                            android:textColor="@color/text_dark"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                            android:textStyle="bold" />
+                            android:layout_marginEnd="8dp"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/auxamount_text"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <TextView
+                                android:id="@+id/aux"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ansaar"
+                                android:textColor="#0F4E36"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/tv_aux_formula"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="2dp"
+                                android:text="1% of income · min $36"
+                                android:textColor="#64748B"
+                                android:textSize="11sp" />
+                        </LinearLayout>
+
                         <TextView
                             android:id="@+id/auxamount_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:text="$0.00"
-                            android:textColor="@color/text_dark"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                            android:textStyle="bold" />
+                            android:textColor="#0F4E36"
+                            android:textSize="16sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="$480.00" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    </RelativeLayout>
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <!-- Options Section -->
-            <LinearLayout
-                android:id="@+id/options_section"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/cv_breakdown">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/card_sunrise"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp">
-                    <CheckBox
-                        android:id="@+id/amount_roundup"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:paddingStart="12dp"
-                        android:paddingEnd="12dp"
-                        android:text="Round Up"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-                        android:textColor="@color/text_dark"
-                        android:buttonTint="@color/card_dark" />
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    app:cardBackgroundColor="@color/card_sunset"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp">
-                    <Button
-                        android:id="@+id/moreInfo"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:text="More Info"
-                        android:textColor="@color/text_dark"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-                        android:textStyle="bold"
-                        android:padding="0dp" />
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-
-            <!-- Action Buttons -->
-
-            <!-- Hidden Views for Logic Compatibility -->
-
-            <Button
-                android:id="@+id/dontation_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="16dp"
-                android:backgroundTint="@color/card_dark"
-                android:text="Go to amjinc.ca"
-                android:textAllCaps="false"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/options_section"
-                app:layout_constraintVertical_bias="0.0" />
-
+            <!-- Hidden Views for Logic & Compatibility -->
+            <Button android:id="@+id/dontation_button" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" tools:ignore="MissingConstraints" />
+            <Button android:id="@+id/moreInfo" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" tools:ignore="MissingConstraints" />
+            <CheckBox android:id="@+id/amount_roundup" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" tools:ignore="MissingConstraints" />
             <EditText android:id="@+id/otheramount" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" tools:ignore="MissingConstraints" />
             <Button android:id="@+id/save" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" tools:ignore="MissingConstraints" />
             <Button android:id="@+id/otherChandas" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" tools:ignore="MissingConstraints" />
@@ -495,7 +646,7 @@
             <TextView android:id="@+id/textView9" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" tools:ignore="MissingConstraints" />
             <TextView android:id="@+id/netremamount" android:layout_width="0dp" android:layout_height="0dp" android:visibility="gone" tools:ignore="MissingConstraints" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,10 +48,6 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\bg_ramzan_hero_card.xml"
     },
     {
-        "merged": "com.local.amjbc.app-debug-42:/drawable-hdpi_list_selector.xml.flat",
-        "source": "com.local.amjbc.app-main-44:/drawable-hdpi/list_selector.xml"
-    },
-    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\menu_options_menu.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\menu\\options_menu.xml"
     },
@@ -100,6 +96,10 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\ic_location.png"
     },
     {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-hdpi_list_item_bg_normal.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\list_item_bg_normal.xml"
+    },
+    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-hdpi_ic_suncloud.png.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\ic_suncloud.png"
     },
@@ -126,6 +126,10 @@
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-hdpi_ic_majlis.png.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\ic_majlis.png"
+    },
+    {
+        "merged": "com.local.amjbc.app-debug-42:/drawable_ic_cash.xml.flat",
+        "source": "com.local.amjbc.app-main-44:/drawable/ic_cash.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_list_item_selector.xml.flat",
@@ -160,16 +164,20 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\ic_aboutus.png"
     },
     {
+        "merged": "com.local.amjbc.app-debug-42:/drawable_ic_globe.xml.flat",
+        "source": "com.local.amjbc.app-main-44:/drawable/ic_globe.xml"
+    },
+    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_bg_card_sunset.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\bg_card_sunset.xml"
     },
     {
-        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-hdpi_img_compass_2.png.flat",
-        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\img_compass_2.png"
-    },
-    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\layout_activity_hangout_dot_anim.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\layout\\activity_hangout_dot_anim.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-hdpi_img_compass_2.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\img_compass_2.png"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\layout_activity_main.xml.flat",
@@ -186,6 +194,10 @@
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_bg_segmented_control.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\bg_segmented_control.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_bg_icon_circle_dark.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\bg_icon_circle_dark.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\layout_calendar_wiz.xml.flat",
@@ -256,8 +268,16 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\ic_clock.png"
     },
     {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-hdpi_list_item_bg_pressed.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\list_item_bg_pressed.xml"
+    },
+    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\anim_pushupout.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\anim\\pushupout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_bg_namaz_hero_card.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\bg_namaz_hero_card.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\layout_custom_dialog.xml.flat",
@@ -316,6 +336,10 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\ic_sun.png"
     },
     {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-hdpi_list_selector.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\list_selector.xml"
+    },
+    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_bg_tab_selected.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\bg_tab_selected.xml"
     },
@@ -330,6 +354,10 @@
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-mdpi_rounded_corners.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-mdpi\\rounded_corners.xml"
+    },
+    {
+        "merged": "com.local.amjbc.app-debug-42:/layout_fragment_chanda_calc.xml.flat",
+        "source": "com.local.amjbc.app-main-44:/layout/fragment_chanda_calc.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\anim_hyperspaceout.xml.flat",
@@ -348,6 +376,10 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\layout\\fragment_namaz.xml"
     },
     {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_bg_refresh_circle.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\bg_refresh_circle.xml"
+    },
+    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_bg_day_circle_today.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\bg_day_circle_today.xml"
     },
@@ -358,6 +390,10 @@
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\anim_slideintop.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\anim\\slideintop.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_bg_nav_circle.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\bg_nav_circle.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-hdpi_border_3.xml.flat",
@@ -400,10 +436,6 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "com.local.amjbc.app-debug-42:/drawable-hdpi_list_item_bg_pressed.xml.flat",
-        "source": "com.local.amjbc.app-main-44:/drawable-hdpi/list_item_bg_pressed.xml"
-    },
-    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\layout_other_chandas.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\layout\\other_chandas.xml"
     },
@@ -414,10 +446,6 @@
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-hdpi_ic_clock_4.png.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\ic_clock_4.png"
-    },
-    {
-        "merged": "com.local.amjbc.app-debug-42:/drawable-hdpi_list_item_bg_normal.xml.flat",
-        "source": "com.local.amjbc.app-main-44:/drawable-hdpi/list_item_bg_normal.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_bg_day_circle.xml.flat",

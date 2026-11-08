@@ -5,9 +5,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.os.AsyncTask
 import android.os.Build
 import android.os.Bundle
@@ -15,14 +13,11 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.*
-import android.view.View.OnClickListener
-import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.view.animation.TranslateAnimation
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
-import android.widget.CalendarView.OnDateChangeListener
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
@@ -34,7 +29,6 @@ import org.json.JSONObject
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.ZoneId
 import java.time.chrono.HijrahDate
 import java.time.format.DateTimeFormatter
 import java.util.*
@@ -48,6 +42,7 @@ class NamazFragment : Fragment() {
     var tvNextPrayerName: TextView? = null
     var tvNextPrayerTime: TextView? = null
     var tvNextPrayerCountdown: TextView? = null
+    var tvPrevPrayerStatus: TextView? = null
     var pbPrayerProgress: ProgressBar? = null
     private var ramzanjump: Button? = null
     var prayerTimings: ListView? = null
@@ -92,10 +87,6 @@ class NamazFragment : Fragment() {
         }
     }
 
-    var year1: Int = 0
-    var month1: Int = 0
-    var day1: Int = 0
-
     var isTodayClicked: Boolean = false
     var isCalendarClicked: Boolean = false
     var firstTime = true
@@ -103,7 +94,6 @@ class NamazFragment : Fragment() {
     private val url_timings_2 = "https://amj-bc.com/amjbc/get_masjid_timings.php"
     private val url_timings_3 = "https://amj-bc.com/amjbc/fetch_timings.php"
     private val url_timings_4 = "https://amj-bc.com/amjbc/getMarqueeInfo.php"
-    private val url_timings_5 = "https//amj-bc.com/amjbc/getQuranClasstimes.php"
     private val url_timings_6 = "https://amj-bc.com/amjbc/get_juma_time.php"
 
     private val TAG_SUCCESS = "success"
@@ -119,8 +109,8 @@ class NamazFragment : Fragment() {
 
         val rootView = inflater.inflate(R.layout.fragment_namaz, container, false)
         setHasOptionsMenu(true)
-        
-        reminderManager = PrayerReminderManager(activity!!)
+
+        reminderManager = PrayerReminderManager(requireActivity())
 
         checkNotificationPermission()
 
@@ -157,6 +147,7 @@ class NamazFragment : Fragment() {
         tvNextPrayerTime = rootView.findViewById<TextView>(R.id.tv_next_prayer_time)
         label = rootView.findViewById<TextView>(R.id.tv_next_prayer_label)
         tvNextPrayerCountdown = rootView.findViewById<TextView>(R.id.tv_next_prayer_countdown)
+        tvPrevPrayerStatus = rootView.findViewById<TextView>(R.id.tv_prev_prayer_status)
         pbPrayerProgress = rootView.findViewById<ProgressBar>(R.id.pb_prayer_progress)
 
         btnPrev = rootView.findViewById(R.id.btn_prev_day)
@@ -168,13 +159,6 @@ class NamazFragment : Fragment() {
         lastUpdateDayOfYear = Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
 
         updateDateUI()
-        updateRamadanButtonVisibility()
-
-        val formatter = DateTimeFormatter.ofPattern("d MMMM y")
-        val hijrahDate = HijrahDate.now()
-        val formattedHijriDate = hijrahDate.format(formatter)
-        hijri_date?.text = formattedHijriDate
-
         updateRamadanButtonVisibility()
 
         prayerTimings!!.setOnTouchListener(object : OnSwipeTouchListener() {
@@ -214,7 +198,7 @@ class NamazFragment : Fragment() {
         timings!!.add("...")
         timings!!.add("...")
 
-        adapter = NamazAdapter(activity!!, R.layout.listview_item, prayers!!, timings!!)
+        adapter = NamazAdapter(requireActivity(), R.layout.listview_item, prayers!!, timings!!)
         prayerTimings!!.adapter = adapter
         prayerTimings!!.post { setListViewHeightBasedOnChildren(prayerTimings) }
 
@@ -236,7 +220,7 @@ class NamazFragment : Fragment() {
     private fun checkNotificationPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             if (ContextCompat.checkSelfPermission(
-                    activity!!,
+                    requireActivity(),
                     android.Manifest.permission.POST_NOTIFICATIONS
                 ) != android.content.pm.PackageManager.PERMISSION_GRANTED
             ) {
@@ -277,7 +261,7 @@ class NamazFragment : Fragment() {
             date333 = sdf.format(c.time)
             firstTime = false
         }
-        
+
         try {
             val date = sdf.parse(date333)
             val cal = Calendar.getInstance()
@@ -303,20 +287,21 @@ class NamazFragment : Fragment() {
     }
 
     private fun updateDateUI() {
-        val sdf = SimpleDateFormat("MMMM d, yyyy", Locale.US)
+        val sdf = SimpleDateFormat("EEE, MMM d, yyyy", Locale.US)
         val formattedDate = sdf.format(c.time)
-        tvDates?.text = formattedDate.uppercase()
         datePicker?.title = formattedDate
 
         try {
-            val formatter = DateTimeFormatter.ofPattern("d MMMM y")
+            val formatter = DateTimeFormatter.ofPattern("d MMMM y", Locale.ENGLISH)
             val localDate = LocalDate.of(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH))
             val hijrahDate = HijrahDate.from(localDate)
             val formattedHijriDate = hijrahDate.format(formatter)
+            tvDates?.text = "$formattedDate • $formattedHijriDate AH"
             hijri_date?.text = formattedHijriDate
             updateRamadanButtonVisibility()
         } catch (ignored: Exception) {
             Log.e("NamazFragment", "Error updating Hijri date", ignored)
+            tvDates?.text = formattedDate
         }
     }
 
@@ -324,10 +309,10 @@ class NamazFragment : Fragment() {
         try {
             val localDate = LocalDate.of(c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH))
             val hijrahDate = HijrahDate.from(localDate)
-            
+
             // HijrahMonth is 1-indexed, Ramadan is month 9
             val isRamadan = hijrahDate.get(java.time.temporal.ChronoField.MONTH_OF_YEAR) == 9
-            
+
             ramzanjump?.visibility = if (isRamadan) View.VISIBLE else View.GONE
         } catch (e: Exception) {
             Log.e("NamazFragment", "Error checking Ramadan month", e)
@@ -338,7 +323,6 @@ class NamazFragment : Fragment() {
     override fun onPrepareOptionsMenu(menu: Menu) {
         if (menu.findItem(R.id.suggest_event) != null) {
             menu.findItem(R.id.suggest_event).isVisible = false
-
         }
         super.onPrepareOptionsMenu(menu)
     }
@@ -358,7 +342,7 @@ class NamazFragment : Fragment() {
 
         datePicker!!.title = datenew
         datePicker!!.setOnMenuItemClickListener {
-            val dialog = Dialog(activity!!)
+            val dialog = Dialog(requireActivity())
             dialog.setContentView(R.layout.custom_dialog)
             dialog.window?.setBackgroundDrawable(android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT))
             dialog.setTitle("Pick a date")
@@ -404,32 +388,26 @@ class NamazFragment : Fragment() {
         }
     }
 
-    @Throws(ParseException::class)
-    private fun TimeStampConverter(inputFormat: String, inputTimeStamp: String, outputFormat: String): String {
-        return SimpleDateFormat(outputFormat, Locale.ENGLISH).format(SimpleDateFormat(inputFormat).parse(inputTimeStamp))
-    }
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val imm = activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.hideSoftInputFromWindow(view!!.windowToken, 0)
+        val act = activity ?: return
+        val v = view ?: return
+        val imm = act.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(v.windowToken, 0)
     }
 
     override fun onResume() {
         super.onResume()
 
-        // Start periodic updates
         handler.post(updateTask)
 
         val today = Calendar.getInstance()
         val currentDay = today.get(Calendar.DAY_OF_YEAR)
 
-        // Detect if the day has changed since last update
         if (lastUpdateDayOfYear != -1 && lastUpdateDayOfYear != currentDay) {
             lastUpdateDayOfYear = currentDay
             resetToToday()
         } else {
-            // Otherwise just refresh timings to be safe
             if (isNetworkAvailable(activity)) {
                 getMasjidTimings().execute()
                 getQuranClassInfo().execute()
@@ -437,7 +415,6 @@ class NamazFragment : Fragment() {
             }
         }
 
-        // Update DatePicker title
         if (datePicker != null) {
             val sdf = SimpleDateFormat("MMM. d, yyyy", Locale.getDefault())
             datePicker!!.title = sdf.format(c.time)
@@ -446,7 +423,6 @@ class NamazFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        // Stop periodic updates
         handler.removeCallbacks(updateTask)
     }
 
@@ -456,20 +432,20 @@ class NamazFragment : Fragment() {
 
         val now = Calendar.getInstance()
         val sdf = SimpleDateFormat("h:mm a", Locale.US)
-        
+
         var nextPrayerIndex = -1
         var minDiff = Long.MAX_VALUE
 
         val prayerNames = arrayOf("Fajr", "Dhuhr", "Asr", "Maghrib", "Isha")
+        val statusLabels = arrayOf("Before Fajr", "After Fajr", "After Dhuhr", "After Asr", "After Maghrib")
 
-        // 1. Try to find a prayer later today
         for (i in 0 until 5) {
             try {
                 if (timings!!.size <= i) break
-                
+
                 val timeStr = timings!![i]
                 val prayerTime = sdf.parse(timeStr) ?: continue
-                
+
                 val prayerCal = Calendar.getInstance()
                 prayerCal.time = prayerTime
                 prayerCal.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH))
@@ -487,46 +463,47 @@ class NamazFragment : Fragment() {
         }
 
         if (nextPrayerIndex != -1) {
-            // Found a prayer today
             val name = prayerNames[nextPrayerIndex]
             tvNextPrayerName?.text = name
             tvNextPrayerTime?.text = timings!![nextPrayerIndex]
             label?.text = "UPCOMING PRAYER"
-            
+            tvPrevPrayerStatus?.text = statusLabels[nextPrayerIndex]
+            adapter?.setActivePrayer(name)
+
             val totalMinutes = minDiff / (1000 * 60)
             val hours = totalMinutes / 60
             val minutes = totalMinutes % 60
-            
+
             if (hours > 0) {
                 tvNextPrayerCountdown?.text = "in ${hours}h ${minutes}m"
             } else {
                 tvNextPrayerCountdown?.text = "in ${minutes}m"
             }
-            
-            // Update Progress Bar
+
             updateProgressBar(nextPrayerIndex, now, sdf)
-            
+
         } else {
-            // All prayers passed today, next is Fajr tomorrow
             tvNextPrayerName?.text = "Fajr"
             label?.text = "UPCOMING PRAYER"
+            tvPrevPrayerStatus?.text = "After Isha"
+            adapter?.setActivePrayer("Fajr")
+
             if (timings!!.isNotEmpty()) {
                 tvNextPrayerTime?.text = timings!![0]
             }
-            
-            // Calculate time until tomorrow's Fajr
+
             try {
                 val fajrTime = sdf.parse(timings!![0])
                 val fajrCal = Calendar.getInstance()
                 fajrCal.time = fajrTime
-                fajrCal.add(Calendar.DATE, 1) // Tomorrow
+                fajrCal.add(Calendar.DATE, 1)
                 fajrCal.set(now.get(Calendar.YEAR), now.get(Calendar.MONTH), now.get(Calendar.DAY_OF_MONTH) + 1)
-                
+
                 val diff = fajrCal.timeInMillis - now.timeInMillis
                 val totalMinutes = diff / (1000 * 60)
                 val hours = totalMinutes / 60
                 val minutes = totalMinutes % 60
-                
+
                 if (hours > 0) {
                     tvNextPrayerCountdown?.text = "in ${hours}h ${minutes}m"
                 } else {
@@ -551,8 +528,6 @@ class NamazFragment : Fragment() {
 
             val prevCal = Calendar.getInstance()
             if (nextIndex == 0) {
-                // Next is Fajr today, previous was Isha yesterday. 
-                // For simplicity, we just start from midnight or keep it at 0.
                 prevCal.set(Calendar.HOUR_OF_DAY, 0)
                 prevCal.set(Calendar.MINUTE, 0)
             } else {
@@ -564,7 +539,7 @@ class NamazFragment : Fragment() {
 
             val duration = nextCal.timeInMillis - prevCal.timeInMillis
             val elapsed = now.timeInMillis - prevCal.timeInMillis
-            
+
             if (duration > 0) {
                 val progress = (elapsed.toFloat() / duration.toFloat() * 100).toInt()
                 pbPrayerProgress?.progress = progress.coerceIn(0, 100)
@@ -604,30 +579,20 @@ class NamazFragment : Fragment() {
             } else {
                 pDialog!!.show()
             }
-
         }
 
         override fun doInBackground(vararg params: String): String? {
-
             val params2 = ArrayList<Map.Entry<String, String>>()
-
             val json = jParser.nmakeHttpRequest(url_timings_2, "GET", params2)
 
-
             try {
-
                 val success = json!!.getInt(TAG_SUCCESS)
-
                 if (success == 1) {
-
-                    tableTimings2 = json!!.getJSONArray("May")
-
+                    tableTimings2 = json.getJSONArray("May")
                     masjidTimes = ArrayList()
 
                     for (i in 0 until tableTimings2!!.length()) {
-
                         val c = tableTimings2!!.getJSONObject(i)
-
                         val fajar = c.getString("Fajar")
                         val zuhr = c.getString("Zuhr")
                         val asar = c.getString("Asar")
@@ -639,11 +604,7 @@ class NamazFragment : Fragment() {
                         masjidTimes!!.add(asar)
                         masjidTimes!!.add(maghrib)
                         masjidTimes!!.add(isha)
-
                     }
-
-                } else {
-
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -653,7 +614,6 @@ class NamazFragment : Fragment() {
         }
 
         override fun onPostExecute(result: String?) {
-
             pDialog!!.dismiss()
             try {
                 Collections.copy(timings, masjidTimes)
@@ -665,12 +625,8 @@ class NamazFragment : Fragment() {
             setListViewHeightBasedOnChildren(prayerTimings)
             updateNextPrayerUI()
             rescheduleAllReminders()
-            if (!isTodayClicked) { //checktime();
-            }
             isTodayClicked = false
-
         }
-
     }
 
     private inner class getMasjidTimings2 : AsyncTask<String, String, String>() {
@@ -683,32 +639,21 @@ class NamazFragment : Fragment() {
             } else {
                 pDialog!!.show()
             }
-
         }
 
         override fun doInBackground(vararg params: String): String? {
-
             val params3 = ArrayList<Map.Entry<String, String>>()
-
-            //params3.add(new BasicNameValuePair("date", date333));
             params3.add(AbstractMap.SimpleEntry("date", date333))
             val json = jParser.nmakeHttpRequest(url_timings_3, "GET", params3)
 
-
             try {
-
                 val success = json!!.getInt(TAG_SUCCESS)
-
                 if (success == 1) {
-
-                    tableTimings3 = json!!.getJSONArray("May")
-
+                    tableTimings3 = json.getJSONArray("May")
                     masjidTimes = ArrayList()
 
                     for (i in 0 until tableTimings3!!.length()) {
-
                         val c = tableTimings3!!.getJSONObject(i)
-
                         val fajar = c.getString("Fajar")
                         val zuhr = c.getString("Zuhr")
                         val asar = c.getString("Asar")
@@ -720,11 +665,7 @@ class NamazFragment : Fragment() {
                         masjidTimes!!.add(asar)
                         masjidTimes!!.add(maghrib)
                         masjidTimes!!.add(isha)
-
                     }
-
-                } else {
-
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -733,7 +674,6 @@ class NamazFragment : Fragment() {
         }
 
         override fun onPostExecute(result: String?) {
-
             pDialog!!.dismiss()
             try {
                 Collections.copy(timings, masjidTimes)
@@ -745,8 +685,6 @@ class NamazFragment : Fragment() {
             updateNextPrayerUI()
             rescheduleAllReminders()
         }
-
-
     }
 
     private inner class getMarqueeInfo : AsyncTask<String, String, String>() {
@@ -762,27 +700,19 @@ class NamazFragment : Fragment() {
         }
 
         override fun doInBackground(vararg params: String): String? {
-
             val params4 = ArrayList<Map.Entry<String, String>>()
-
             val json = jParser.nmakeHttpRequest(url_timings_4, "GET", params4)
 
             try {
-                var success = 0
-                success = json!!.getInt(TAG_SUCCESS)
+                val success = json!!.getInt(TAG_SUCCESS)
                 if (success == 1) {
-
                     marqueeText = ArrayList()
-                    tableTimings4 = json!!.getJSONArray("Info")
+                    tableTimings4 = json.getJSONArray("Info")
 
                     for (i in 0 until tableTimings4!!.length()) {
-
                         val c = tableTimings4!!.getJSONObject(i)
                         marqueeText!!.add(c.getString("i_text"))
                     }
-
-                } else {
-
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -792,10 +722,6 @@ class NamazFragment : Fragment() {
 
         override fun onPostExecute(result: String?) {
             pDialog!!.dismiss()
-            try {
-                // marquee removed
-            } catch (e: Exception) {
-            }
         }
     }
 
@@ -816,20 +742,16 @@ class NamazFragment : Fragment() {
             val json = jParser.nmakeHttpRequest(url_timings_6, "GET", params5)
 
             try {
-                var success = 0
-                success = json!!.getInt(TAG_SUCCESS)
+                val success = json!!.getInt(TAG_SUCCESS)
                 if (success == 1) {
                     quranClassTimes = ArrayList()
-                    tableTimings5 = json!!.getJSONArray("events")
+                    tableTimings5 = json.getJSONArray("events")
 
                     for (i in 0 until tableTimings5!!.length()) {
-
                         val c = tableTimings5!!.getJSONObject(i)
                         quranClassTimes!!.add(c.getString("e_title"))
                         quranClassTimes!!.add(c.getString("e_time"))
                     }
-                } else {
-
                 }
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -845,7 +767,6 @@ class NamazFragment : Fragment() {
                 rescheduleAllReminders()
             } catch (e: Exception) {
             }
-
         }
     }
 
@@ -869,8 +790,8 @@ class NamazFragment : Fragment() {
         @SuppressLint("SetTextI18n")
         override fun onPostExecute(json: JSONObject?) {
 
-            var sunriseValue = "Sunrise: Not Available"
-            var sunsetValue = "Sunset: Not Available"
+            var sunriseValue = "--:--"
+            var sunsetValue = "--:--"
 
             if (json == null) {
                 Log.e("SunriseSunsetAPI", "JSON is NULL")
@@ -894,17 +815,11 @@ class NamazFragment : Fragment() {
                 val sunriseUTC = results.optString("sunrise", null)
                 val sunsetUTC = results.optString("sunset", null)
 
-                Log.d("SunriseSunsetAPI", "RAW sunrise: $sunriseUTC")
-                Log.d("SunriseSunsetAPI", "RAW sunset: $sunsetUTC")
-
                 val localSunrise = convertUTCToLocalTime(sunriseUTC)
                 val localSunset = convertUTCToLocalTime(sunsetUTC)
 
-                if (localSunrise != "--:--")
-                    sunriseValue = localSunrise
-
-                if (localSunset != "--:--")
-                    sunsetValue = localSunset
+                if (localSunrise != "--:--") sunriseValue = localSunrise
+                if (localSunset != "--:--") sunsetValue = localSunset
 
             } catch (e: Exception) {
                 Log.e("SunriseSunsetAPI", "Unexpected parsing error", e)
@@ -914,9 +829,6 @@ class NamazFragment : Fragment() {
             if (sunsetText != null) sunsetText!!.text = sunsetValue
         }
 
-        /**
-         * Converts UTC ISO-8601 string to user's local timezone automatically.
-         */
         private fun convertUTCToLocalTime(utcTimeString: String?): String {
 
             if (utcTimeString == null || utcTimeString.trim { it <= ' ' }.isEmpty()) {
@@ -924,26 +836,22 @@ class NamazFragment : Fragment() {
             }
 
             try {
-                // 1. Parse time (UTC)
                 val timeFormat = SimpleDateFormat("h:mm:ss a", Locale.US)
                 timeFormat.timeZone = TimeZone.getTimeZone("UTC")
 
                 val parsedTime = timeFormat.parse(utcTimeString)
 
-                // 2. Get TODAY's date in UTC
                 val utcCal = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
                 val timeCal = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
                 timeCal.time = parsedTime
 
-                // 3. Combine today's date + parsed time
                 utcCal.set(Calendar.HOUR_OF_DAY, timeCal.get(Calendar.HOUR_OF_DAY))
                 utcCal.set(Calendar.MINUTE, timeCal.get(Calendar.MINUTE))
                 utcCal.set(Calendar.SECOND, timeCal.get(Calendar.SECOND))
 
                 val fullUtcDate = utcCal.time
 
-                // 4. Convert to local timezone (DST now works correctly)
-                val localFormat = SimpleDateFormat("hh:mm a", Locale.getDefault())
+                val localFormat = SimpleDateFormat("h:mm a", Locale.getDefault())
                 localFormat.timeZone = TimeZone.getTimeZone("America/Vancouver")
 
                 return localFormat.format(fullUtcDate)
@@ -965,9 +873,6 @@ class NamazFragment : Fragment() {
                 val networkInfos = cm.allNetworkInfo
 
                 for (tempNetworkInfo in networkInfos) {
-                    /**
-                     * Can also check if the user is in roaming
-                     */
                     if (tempNetworkInfo.isConnected) {
                         outcome = true
                         break

@@ -3,7 +3,7 @@ package com.local.amjbc.chandacal
 import android.app.AlertDialog
 import android.content.*
 import android.database.sqlite.SQLiteDatabase
-import android.graphics.Typeface
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -43,15 +43,12 @@ class ChandaCal : Fragment() {
     var llIncomeStatus: View? = null
     var aux: TextView? = null
     var netincome: TextView? = null
-    var bal: TextView? = null
-    var marquee: TextView? = null
     var save: Button? = null
     var otherChandas: Button? = null
     var moreInfo: Button? = null
     var donation_button: Button? = null
+    var donationIcon: View? = null
     var sp: SharedPreferences? = null
-    var cb_yearly: CheckBox? = null
-    var cb_monthly: CheckBox? = null
     var roundup: Boolean = false
     var autocalculate: Boolean = false
     var moosi: Boolean = false
@@ -72,6 +69,14 @@ class ChandaCal : Fragment() {
     var helper: MySqlLiteHelper? = null
     var reciever1: BroadcastReceiver? = null
 
+    // New UI Elements
+    var tvMoosiSubtitle: TextView? = null
+    var tvPillAnsaar: TextView? = null
+    var tvPillKhuddam: TextView? = null
+    var tvPillLajna: TextView? = null
+    var tvMainFormula: TextView? = null
+    var tvAuxFormula: TextView? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                              savedInstanceState: Bundle?): View? {
 
@@ -81,21 +86,23 @@ class ChandaCal : Fragment() {
         aam = rootView.findViewById<View>(R.id.main) as TextView
         aux = rootView.findViewById<View>(R.id.aux) as TextView
         donation_button = rootView.findViewById<View>(R.id.dontation_button) as Button
-        netincome = rootView.findViewById<View>(R.id.textView1) as TextView
-        marquee = rootView.findViewById<View>(R.id.MarqueeTextCalFragment) as TextView
+        donationIcon = rootView.findViewById(R.id.donation_icon)
         
         mainamount = rootView.findViewById<View>(R.id.mainamount_text) as TextView
         jsalanaamount = rootView.findViewById<View>(R.id.jsalanaamount_text) as TextView
         auxamount = rootView.findViewById<View>(R.id.auxamount_text) as TextView
 
-        val tf3 = Typeface.createFromAsset(activity!!.assets, "Ubahn.ttf")
-        netincome!!.typeface = tf3
-        //bal.setTypeface(tf3);
+        tvMoosiSubtitle = rootView.findViewById(R.id.tv_moosi_subtitle)
+        tvPillAnsaar = rootView.findViewById(R.id.tv_pill_ansaar)
+        tvPillKhuddam = rootView.findViewById(R.id.tv_pill_khuddam)
+        tvPillLajna = rootView.findViewById(R.id.tv_pill_lajna)
+        tvMainFormula = rootView.findViewById(R.id.tv_main_formula)
+        tvAuxFormula = rootView.findViewById(R.id.tv_aux_formula)
 
-        sp = PreferenceManager.getDefaultSharedPreferences(this.activity)
+        sp = PreferenceManager.getDefaultSharedPreferences(requireContext())
         other = sp!!.getInt("others", 0)
 
-        cds = ChandaDataSource(activity!!.baseContext)
+        cds = ChandaDataSource(requireActivity().baseContext)
 
         roundup = sp!!.getBoolean("roundup", false)
         autocalculate = sp!!.getBoolean("autocalculate", true)
@@ -103,21 +110,24 @@ class ChandaCal : Fragment() {
         monthly = sp!!.getBoolean("monthlyPre", false)
         org = sp!!.getString("org", "Ansaar")
 
-
-        donation_button!!.setOnClickListener {
+        val launchWebUrl = {
             val url = "https://www.amjinc.ca"
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
             startActivity(intent)
         }
+        donation_button?.setOnClickListener { launchWebUrl() }
+        donationIcon?.setOnClickListener { launchWebUrl() }
 
+        tvPillAnsaar?.setOnClickListener { selectOrg("Ansaar") }
+        tvPillKhuddam?.setOnClickListener { selectOrg("Khuddam") }
+        tvPillLajna?.setOnClickListener { selectOrg("Lajna") }
 
         setOrganisation()
 
         tw_otherChandas = object : TextWatcher {
             override fun afterTextChanged(otherAmount: Editable) {
                 if (isIntNumber(otherAmount)) {
-                    save!!.isEnabled = true
-                } else {
+                    save?.isEnabled = true
                 }
             }
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
@@ -127,9 +137,9 @@ class ChandaCal : Fragment() {
         tw_netincome = object : TextWatcher {
             override fun afterTextChanged(income_amount: Editable) {
                 if (isIntNumber(income_amount)) {
-                    save!!.isEnabled = true
+                    save?.isEnabled = true
                     income = income_amount.toString().toDouble()
-                    if (income_amount.toString() == "0") save!!.isEnabled = false
+                    if (income_amount.toString() == "0") save?.isEnabled = false
                 } else income = 0.0
 
                 monthly = sp!!.getBoolean("monthlyPre", false)
@@ -171,7 +181,7 @@ class ChandaCal : Fragment() {
             val editor = sp!!.edit()
             editor.putBoolean("moosiPre", isChecked)
             editor.apply()
-            
+
             updateUIForMoosi(isChecked)
             calculate()
             populate_fields()
@@ -183,7 +193,7 @@ class ChandaCal : Fragment() {
                 val editor = sp!!.edit()
                 editor.putString("org", org)
                 editor.apply()
-                
+
                 updateUIForOrg(org!!)
                 calculate()
                 populate_fields()
@@ -238,34 +248,13 @@ class ChandaCal : Fragment() {
                 .show()
         }
 
-
-        save!!.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View) {
-                val editor = sp!!.edit()
-                editor.putString("main", chanda_main.toString())
-                editor.putString("jsalana", chanda_jsalana.toString())
-                editor.putString("orgz", chanda_aux.toString())
-                editor.apply()
-                CheckSyncronization()
-            }
-
-            private fun CheckSyncronization() {
-                if (sp!!.getBoolean("remoteSync", false)) {
-                    Toast.makeText(activity!!.baseContext, "Synchronizing...", Toast.LENGTH_LONG).show()
-                    activity!!.startService(Intent(activity, SyncService::class.java))
-                } else {
-                    insertToDB()
-                }
-            }
-        })
-
-        otherChandas!!.setOnClickListener {
-            val newFragment = OtherChandas()
-            val transaction = fragmentManager!!.beginTransaction()
-            activity!!.overridePendingTransition(R.animator.slide_in, R.animator.slide_out)
-            transaction.replace(R.id.content_frame, newFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+        save!!.setOnClickListener {
+            val editor = sp!!.edit()
+            editor.putString("main", chanda_main.toString())
+            editor.putString("jsalana", chanda_jsalana.toString())
+            editor.putString("orgz", chanda_aux.toString())
+            editor.apply()
+            CheckSyncronization()
         }
 
         cb_roundup.setOnClickListener {
@@ -290,20 +279,28 @@ class ChandaCal : Fragment() {
             }
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            activity!!.registerReceiver(
-                reciever1,
-                filter,
-                Context.RECEIVER_NOT_EXPORTED
-            )
-        } else {
-            activity!!.registerReceiver(
-                reciever1,
-                filter
-            )
-        }
+        androidx.core.content.ContextCompat.registerReceiver(
+            requireActivity(),
+            reciever1,
+            filter,
+            androidx.core.content.ContextCompat.RECEIVER_NOT_EXPORTED
+        )
         return rootView
+    }
 
+    private fun selectOrg(orgName: String) {
+        val orgArray = resources.getStringArray(R.array.listArray)
+        val index = orgArray.indexOf(orgName).coerceAtLeast(0)
+        spOrg?.setSelection(index)
+    }
+
+    private fun CheckSyncronization() {
+        if (sp!!.getBoolean("remoteSync", false)) {
+            Toast.makeText(requireActivity().baseContext, "Synchronizing...", Toast.LENGTH_LONG).show()
+            requireActivity().startService(Intent(activity, SyncService::class.java))
+        } else {
+            insertToDB()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -313,10 +310,8 @@ class ChandaCal : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // detail preferences removed as they are integrated in main UI
         return super.onOptionsItemSelected(item)
     }
-
 
     private fun insertToDB() {
         val mydate = java.text.DateFormat.getDateTimeInstance().format(Calendar.getInstance().time)
@@ -330,13 +325,12 @@ class ChandaCal : Fragment() {
             )
 
             resetFields()
-            Toast.makeText(activity!!.baseContext, "Saved", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireActivity().baseContext, "Saved", Toast.LENGTH_LONG).show()
             saveCheck = true
 
         } catch (e: Exception) {
-            Toast.makeText(activity!!.baseContext, e.toString(), Toast.LENGTH_LONG).show()
+            Toast.makeText(requireActivity().baseContext, e.toString(), Toast.LENGTH_LONG).show()
         }
-
     }
 
     fun resetFields() {
@@ -350,12 +344,12 @@ class ChandaCal : Fragment() {
         annualtotalamount!!.text = df.format(0)
         netremamount!!.text = df.format(0)
 
-        save!!.isEnabled = false
+        save?.isEnabled = false
     }
 
     fun populate_fields() {
         val df = DecimalFormat("$#,##0.00")
-        
+
         val annualMain: Double
         val annualJalsa: Double
         val annualAux: Double
@@ -376,15 +370,13 @@ class ChandaCal : Fragment() {
             monthlyTotal = round(net_total, 2)
         }
 
-        // Breakdown card now shows annual amounts for clarity
         mainamount!!.text = df.format(annualMain)
         jsalanaamount!!.text = df.format(annualJalsa)
         auxamount!!.text = df.format(annualAux)
-        
-        // Totals
+
         nettotalamount!!.text = df.format(monthlyTotal)
         annualtotalamount!!.text = df.format(annualTotal)
-        
+
         rem_total = (income) - annualTotal
         netremamount!!.text = df.format(if (rem_total > 0) rem_total else 0.0)
     }
@@ -394,33 +386,27 @@ class ChandaCal : Fragment() {
     }
 
     fun calculate() {
-        // The user treats the input 'income' as the basis for the annual calculation.
-        // We calculate all components as annual obligations.
-        
-        // 1. Main Chanda (Annual)
         if (moosi) {
             chanda_main = income * wasiyyateRate
             aam!!.text = "Chanda Wasiyyat"
+            tvMainFormula?.text = "1/10 of income"
         } else {
             chanda_main = income / 16.0
             aam!!.text = "Chanda Aam"
+            tvMainFormula?.text = "1/16 of income"
         }
 
-        // 2. Jalsa Salana (Annual - 1/120th of annual income)
         chanda_jsalana = income / 120.0
 
-        // 3. Auxiliary Organization (Annual)
         var annualAux = 0.0
         val monthlyIncome = income / 12.0
 
         when (org) {
             "Ansaar" -> {
-                // Membership: 1% of annual (min $36/year)
                 annualAux += Math.max(income * 0.01, 36.0)
-                // Ijtima: 2.5% of 1 month (min $24/year)
                 annualAux += Math.max(monthlyIncome * 0.025, 24.0)
-                // Isha'at: $10/year
                 annualAux += 10.0
+                tvAuxFormula?.text = "1% of income · min $36"
             }
             "Khudaam" -> {
                 if (incomeStatus == "Earner") {
@@ -429,6 +415,7 @@ class ChandaCal : Fragment() {
                 } else {
                     annualAux += 36.0 + 30.0
                 }
+                tvAuxFormula?.text = "1% of income · min $36"
             }
             "Lajna" -> {
                 if (incomeStatus == "Independent Income") {
@@ -438,38 +425,49 @@ class ChandaCal : Fragment() {
                     annualAux += Math.max(income * 0.01, 12.0)
                     annualAux += 12.0
                 }
+                tvAuxFormula?.text = "1% of income · min $24"
             }
         }
-        
-        chanda_aux = annualAux
 
-        // 4. Totals
-        // The sum of these components is the Annual Total
+        chanda_aux = annualAux
         annual_total = chanda_main + chanda_jsalana + chanda_aux + (other * 12.0)
-        
-        // Monthly Total is the Annual Total divided by 12
         net_total = annual_total / 12.0
     }
 
     private fun updateUIForMoosi(isMoosi: Boolean) {
         llWasiyyatRate?.visibility = if (isMoosi) View.VISIBLE else View.GONE
+        tvMoosiSubtitle?.text = if (isMoosi) "On – Chanda Wasiyyat at 1/10" else "Off – Chanda Aam at 1/16"
     }
 
     private fun updateUIForOrg(orgName: String) {
         aux!!.text = orgName
+
+        val textDarkGreen = Color.parseColor("#0F4E36")
+        val textMuted = Color.parseColor("#64748B")
+
+        // Update Pill Styles
+        tvPillAnsaar?.setBackgroundResource(if (orgName == "Ansaar") R.drawable.bg_tab_selected else 0)
+        tvPillAnsaar?.setTextColor(if (orgName == "Ansaar") textDarkGreen else textMuted)
+
+        tvPillKhuddam?.setBackgroundResource(if (orgName == "Khuddam") R.drawable.bg_tab_selected else 0)
+        tvPillKhuddam?.setTextColor(if (orgName == "Khuddam") textDarkGreen else textMuted)
+
+        tvPillLajna?.setBackgroundResource(if (orgName == "Lajna") R.drawable.bg_tab_selected else 0)
+        tvPillLajna?.setTextColor(if (orgName == "Lajna") textDarkGreen else textMuted)
+
         when (orgName) {
             "Ansaar" -> {
                 llIncomeStatus?.visibility = View.GONE
             }
-            "Khudaam" -> {
+            "Khuddam" -> {
                 llIncomeStatus?.visibility = View.VISIBLE
-                val adapter = ArrayAdapter.createFromResource(activity!!, R.array.khuddam_status, android.R.layout.simple_spinner_item)
+                val adapter = ArrayAdapter.createFromResource(requireActivity(), R.array.khuddam_status, android.R.layout.simple_spinner_item)
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spIncomeStatus?.adapter = adapter
             }
             "Lajna" -> {
                 llIncomeStatus?.visibility = View.VISIBLE
-                val adapter = ArrayAdapter.createFromResource(activity!!, R.array.lajna_status, android.R.layout.simple_spinner_item)
+                val adapter = ArrayAdapter.createFromResource(requireActivity(), R.array.lajna_status, android.R.layout.simple_spinner_item)
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 spIncomeStatus?.adapter = adapter
             }
@@ -491,14 +489,12 @@ class ChandaCal : Fragment() {
         } else {
             aux!!.text = sp!!.getString("org", "Ansaar")
         }
-
     }
-
 
     override fun onResume() {
         super.onResume()
 
-        if (et_netincome!!.text.toString() == "0") save!!.isEnabled = false
+        if (et_netincome!!.text.toString() == "0") save?.isEnabled = false
 
         moosi = sp!!.getBoolean("moosiPre", false)
         org = sp!!.getString("org", "Ansaar")
@@ -507,7 +503,7 @@ class ChandaCal : Fragment() {
 
         swMoosi?.isChecked = moosi
         updateUIForMoosi(moosi)
-        
+
         val orgArray = resources.getStringArray(R.array.listArray)
         val orgIndex = orgArray.indexOf(org).coerceAtLeast(0)
         spOrg?.setSelection(orgIndex)
@@ -529,7 +525,6 @@ class ChandaCal : Fragment() {
         mainamount!!.text = sp!!.getString("mainC", "0")
         jsalanaamount!!.text = sp!!.getString("jSalaC", "0")
         auxamount!!.text = sp!!.getString("auxC", "0")
-
     }
 
     private fun setMoosi() {
