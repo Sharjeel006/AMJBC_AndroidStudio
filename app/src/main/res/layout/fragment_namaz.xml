@@ -7,9 +7,11 @@
     android:background="#F6FAF7">
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nsv_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:fillViewport="false"
+        android:overScrollMode="never">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -521,7 +523,7 @@
                     android:divider="#10000000"
                     android:dividerHeight="0.5dp"
                     android:nestedScrollingEnabled="false"
-                    android:padding="6dp"
+                    android:padding="4dp"
                     tools:listitem="@layout/listview_item" />
             </com.google.android.material.card.MaterialCardView>
 

@@ -3705,6 +3705,7 @@ id north
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id nsv_root
 id off
 id ok
 id on

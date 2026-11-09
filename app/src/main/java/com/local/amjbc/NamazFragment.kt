@@ -44,6 +44,7 @@ class NamazFragment : Fragment() {
     var tvNextPrayerCountdown: TextView? = null
     var tvPrevPrayerStatus: TextView? = null
     var pbPrayerProgress: ProgressBar? = null
+    var nsvRoot: androidx.core.widget.NestedScrollView? = null
     private var ramzanjump: Button? = null
     var prayerTimings: ListView? = null
     var adapter: NamazAdapter? = null
@@ -142,6 +143,7 @@ class NamazFragment : Fragment() {
             }
         }
 
+        nsvRoot = rootView.findViewById(R.id.nsv_root)
         tvDates = rootView.findViewById<TextView>(R.id.tv_dates)
         tvNextPrayerName = rootView.findViewById<TextView>(R.id.tv_next_prayer_name)
         tvNextPrayerTime = rootView.findViewById<TextView>(R.id.tv_next_prayer_time)
@@ -244,6 +246,7 @@ class NamazFragment : Fragment() {
         isCalendarClicked = false
         firstTime = true
         updateDateUI()
+        nsvRoot?.scrollTo(0, 0)
 
         if (isNetworkAvailable(activity)) {
             getMasjidTimings().execute()

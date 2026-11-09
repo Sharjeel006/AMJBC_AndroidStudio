@@ -128,10 +128,6 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\ic_majlis.png"
     },
     {
-        "merged": "com.local.amjbc.app-debug-42:/drawable_ic_cash.xml.flat",
-        "source": "com.local.amjbc.app-main-44:/drawable/ic_cash.xml"
-    },
-    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_list_item_selector.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\list_item_selector.xml"
     },
@@ -164,10 +160,6 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\ic_aboutus.png"
     },
     {
-        "merged": "com.local.amjbc.app-debug-42:/drawable_ic_globe.xml.flat",
-        "source": "com.local.amjbc.app-main-44:/drawable/ic_globe.xml"
-    },
-    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_bg_card_sunset.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\bg_card_sunset.xml"
     },
@@ -190,6 +182,10 @@
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_ic_sunrise.png.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\ic_sunrise.png"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_ic_globe.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\ic_globe.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_bg_segmented_control.xml.flat",
@@ -352,12 +348,12 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\ic_sunset.png"
     },
     {
-        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-mdpi_rounded_corners.xml.flat",
-        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-mdpi\\rounded_corners.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable_ic_cash.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable\\ic_cash.xml"
     },
     {
-        "merged": "com.local.amjbc.app-debug-42:/layout_fragment_chanda_calc.xml.flat",
-        "source": "com.local.amjbc.app-main-44:/layout/fragment_chanda_calc.xml"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-mdpi_rounded_corners.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-mdpi\\rounded_corners.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\anim_hyperspaceout.xml.flat",
@@ -402,6 +398,10 @@
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\drawable-hdpi_ic_moon.png.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\ic_moon.png"
+    },
+    {
+        "merged": "com.local.amjbc.app-debug-42:/layout_fragment_namaz.xml.flat",
+        "source": "com.local.amjbc.app-main-44:/layout/fragment_namaz.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\layout_activity_main2.xml.flat",
