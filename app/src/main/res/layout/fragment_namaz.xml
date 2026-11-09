@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="false"
-        android:overScrollMode="never">
+        android:overScrollMode="ifContentScrolls">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:orientation="vertical"
             android:paddingHorizontal="14dp"
             android:paddingTop="8dp"
-            android:paddingBottom="12dp">
+            android:paddingBottom="24dp">
 
             <!-- Date and Navigation Header -->
             <androidx.constraintlayout.widget.ConstraintLayout

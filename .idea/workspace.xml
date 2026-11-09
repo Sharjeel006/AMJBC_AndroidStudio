@@ -156,11 +156,7 @@
     <last-search-timestamp>1586064054761</last-search-timestamp>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96649f8a-0eb1-4b99-b8a0-cb7cb277b949" name="Default Changelist" comment="V20 with kotlin">
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/local/amjbc/NamazFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/local/amjbc/NamazFragment.kt" afterDir="false" />
-    </list>
+    <list default="true" id="96649f8a-0eb1-4b99-b8a0-cb7cb277b949" name="Default Changelist" comment="V20 with kotlin" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
