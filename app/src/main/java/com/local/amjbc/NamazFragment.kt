@@ -555,18 +555,27 @@ class NamazFragment : Fragment() {
     private fun setListViewHeightBasedOnChildren(listView: ListView?) {
         if (listView == null) return
         val listAdapter = listView.adapter ?: return
+
+        val width = if (listView.width > 0) {
+            listView.width
+        } else {
+            val metrics = resources.displayMetrics
+            metrics.widthPixels - (36 * metrics.density).toInt()
+        }
+
         var totalHeight = 0
         for (i in 0 until listAdapter.count) {
             val listItem = listAdapter.getView(i, null, listView)
             listItem.measure(
-                View.MeasureSpec.makeMeasureSpec(listView.width, View.MeasureSpec.UNSPECIFIED),
+                View.MeasureSpec.makeMeasureSpec(width, View.MeasureSpec.EXACTLY),
                 View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
             )
             totalHeight += listItem.measuredHeight
         }
         val params = listView.layoutParams
         if (params != null) {
-            params.height = totalHeight + (listView.dividerHeight * (listAdapter.count - 1)) + listView.paddingTop + listView.paddingBottom
+            val dividerSpace = if (listAdapter.count > 1) listView.dividerHeight * (listAdapter.count - 1) else 0
+            params.height = totalHeight + dividerSpace + listView.paddingTop + listView.paddingBottom
             listView.layoutParams = params
             listView.requestLayout()
         }
