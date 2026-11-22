@@ -400,10 +400,6 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\drawable-hdpi\\ic_moon.png"
     },
     {
-        "merged": "com.local.amjbc.app-debug-42:/layout_fragment_namaz.xml.flat",
-        "source": "com.local.amjbc.app-main-44:/layout/fragment_namaz.xml"
-    },
-    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-42:\\layout_activity_main2.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-44:\\layout\\activity_main2.xml"
     },
