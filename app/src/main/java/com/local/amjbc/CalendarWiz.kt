@@ -29,8 +29,10 @@ class CalendarWiz : Fragment() {
             setSupportMultipleWindows(false)
             allowFileAccess = true
             allowContentAccess = true
-            loadWithOverviewMode = true
-            useWideViewPort = true
+            loadWithOverviewMode = false
+            useWideViewPort = false
+            builtInZoomControls = false
+            displayZoomControls = false
             mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
         }
 
