@@ -1,6 +1,7 @@
 package com.local.amjbc
 
 import android.app.ProgressDialog
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.*
 import android.webkit.*
@@ -33,10 +34,18 @@ class CalendarWiz : Fragment() {
             useWideViewPort = false
             builtInZoomControls = false
             displayZoomControls = false
+            textZoom = 100
             mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
         }
 
         webView!!.webChromeClient = object : WebChromeClient() {
+            override fun onProgressChanged(view: WebView?, newProgress: Int) {
+                if (newProgress > 10) {
+                    injectFullWidthCss(view)
+                }
+                super.onProgressChanged(view, newProgress)
+            }
+
             override fun onCreateWindow(
                 view: WebView?,
                 isDialog: Boolean,
@@ -59,6 +68,11 @@ class CalendarWiz : Fragment() {
         }
 
         webView!!.webViewClient = object : WebViewClient() {
+            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
+                super.onPageStarted(view, url, favicon)
+                injectFullWidthCss(view)
+            }
+
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
                 val url = request?.url?.toString() ?: return false
                 view?.loadUrl(url)
@@ -66,6 +80,7 @@ class CalendarWiz : Fragment() {
             }
 
             override fun onPageFinished(view: WebView, url: String) {
+                injectFullWidthCss(view)
                 if (pd != null && pd.isShowing) {
                     pd.dismiss()
                 }
@@ -83,6 +98,25 @@ class CalendarWiz : Fragment() {
         webView!!.loadUrl("https://sites.google.com/ahmadiyya.ca/vancouverimaratcalendar")
 
         return rootView
+    }
+
+    private fun injectFullWidthCss(view: WebView?) {
+        val js = """
+            (function() {
+                try {
+                    var style = document.getElementById('full-width-edge-style');
+                    if (!style) {
+                        style = document.createElement('style');
+                        style.id = 'full-width-edge-style';
+                        style.type = 'text/css';
+                        style.innerHTML = 'html, body, #sites-canvas, .sites-canvas, .sites-page-main, div[role="main"], section, main, .Xp439d, .o5R36e, .R61A4, .Sbh32e, .sites-layout-tile, .U39P4e, .y1eMld { margin: 0 !important; padding: 0 !important; max-width: 100vw !important; width: 100% !important; box-sizing: border-box !important; }';
+                        (document.head || document.documentElement).appendChild(style);
+                    }
+                } catch(e) {}
+            })();
+        """.trimIndent()
+
+        view?.evaluateJavascript(js, null)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
