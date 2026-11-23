@@ -4,6 +4,11 @@
     <color name="white">#FFFFFF</color>
     <color name="ramadan_bg">#091C3C</color>
 
+    <!-- Splash Screen Colors (Light Mode) -->
+    <color name="splash_bg">#D8E8DD</color>
+    <color name="splash_fg">#14523C</color>
+    <color name="splash_accent">#7EA391</color>
+
     <color name="bg_main">#F4F7FA</color>
     <color name="background_light">#F4F7FA</color>
     <color name="card_dark">#0C3E57</color>

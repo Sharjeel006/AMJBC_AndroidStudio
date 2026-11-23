@@ -1,119 +1,68 @@
 package com.local.amjbc
 
-import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
-import android.animation.ValueAnimator
-import android.app.Activity
 import android.content.Intent
-import android.graphics.Typeface
-import android.hardware.Sensor
-import android.hardware.SensorEvent
-import android.hardware.SensorEventListener
-import android.location.Location
-import android.media.MediaPlayer
+import android.content.res.Configuration
+import android.os.Build
 import android.os.Bundle
 import android.os.Handler
+import android.os.Looper
 import android.view.View
-import android.view.animation.Animation
+import android.view.WindowManager
 import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 
-class Splash : Activity(), SensorEventListener {
+class Splash : AppCompatActivity() {
 
-    private val SPLASH_DURATION = 1000
-    private var startMain: Handler? = null
+    private val SPLASH_DURATION = 1200L
     private var isBackButtonPressed = false
-    private var tv: TextView? = null
-    private var hangoutTvOne: TextView? = null
-    private var hangoutTvTwo: TextView? = null
-    private var hangoutTvThree: TextView? = null
-    private var waveOneAnimator: ObjectAnimator? = null
-    private var waveTwoAnimator: ObjectAnimator? = null
-    private var waveThreeAnimator: ObjectAnimator? = null
-    var animFadein: Animation? = null
-    var mp: MediaPlayer? = null
-    var lm: Location? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.splash_2)
 
-        tv = findViewById<View>(R.id.titleID) as TextView
-
-        hangoutTvOne = findViewById<View>(R.id.hangoutTvOne) as TextView
-        hangoutTvTwo = findViewById<View>(R.id.hangoutTvTwo) as TextView
-        hangoutTvThree = findViewById<View>(R.id.hangoutTvThree) as TextView
-
-        hangoutTvOne!!.visibility = View.GONE
-        hangoutTvTwo!!.visibility = View.GONE
-        hangoutTvThree!!.visibility = View.GONE
-
-        hangoutTvOne!!.visibility = View.VISIBLE
-        hangoutTvTwo!!.visibility = View.VISIBLE
-        hangoutTvThree!!.visibility = View.VISIBLE
-
-        waveAnimation()
-
-        val tf2 = Typeface.createFromAsset(assets, "Bender-Solid.otf")
-        tv!!.typeface = tf2
-
-        animFadein = AnimationUtils.loadAnimation(applicationContext, R.anim.fadein)
-        tv!!.startAnimation(animFadein)
-
-        startMain = Handler()
-
-        startMain!!.postDelayed({
-            finish()
-
-            if (!isBackButtonPressed) {
-                val intent = Intent(this@Splash, MainActivity2::class.java)
-                this@Splash.startActivity(intent)
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                isBackButtonPressed = true
                 finish()
             }
-        }, SPLASH_DURATION.toLong())
-    }
+        })
 
-    fun waveAnimation() {
-        val tvOne_Y = PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, -40.0f)
-        val tvOne_X = PropertyValuesHolder.ofFloat(View.TRANSLATION_X, 0f)
-        waveOneAnimator = ObjectAnimator.ofPropertyValuesHolder(hangoutTvOne, tvOne_X, tvOne_Y)
-        waveOneAnimator!!.repeatCount = -1
-        waveOneAnimator!!.repeatMode = ValueAnimator.REVERSE
-        waveOneAnimator!!.duration = 300
-        waveOneAnimator!!.start()
+        val splashBgColor = ContextCompat.getColor(this, R.color.splash_bg)
+        window.apply {
+            clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            statusBarColor = splashBgColor
+            navigationBarColor = splashBgColor
+        }
 
-        val tvTwo_Y = PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, -40.0f)
-        val tvTwo_X = PropertyValuesHolder.ofFloat(View.TRANSLATION_X, 0f)
-        waveTwoAnimator = ObjectAnimator.ofPropertyValuesHolder(hangoutTvTwo, tvTwo_X, tvTwo_Y)
-        waveTwoAnimator!!.repeatCount = -1
-        waveTwoAnimator!!.repeatMode = ValueAnimator.REVERSE
-        waveTwoAnimator!!.duration = 300
-        waveTwoAnimator!!.startDelay = 100
-        waveTwoAnimator!!.start()
+        val isNight = (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            val flags = window.decorView.systemUiVisibility
+            window.decorView.systemUiVisibility = if (isNight) {
+                flags and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
+            } else {
+                flags or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            }
+        }
 
-        val tvThree_Y = PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, -40.0f)
-        val tvThree_X = PropertyValuesHolder.ofFloat(View.TRANSLATION_X, 0f)
-        waveThreeAnimator = ObjectAnimator.ofPropertyValuesHolder(hangoutTvThree, tvThree_X, tvThree_Y)
-        waveThreeAnimator!!.repeatCount = -1
-        waveThreeAnimator!!.repeatMode = ValueAnimator.REVERSE
-        waveThreeAnimator!!.duration = 300
-        waveThreeAnimator!!.startDelay = 200
-        waveThreeAnimator!!.start()
-    }
+        val logo = findViewById<ImageView>(R.id.img1)
+        val title = findViewById<TextView>(R.id.titleID)
 
-    override fun onBackPressed() {
-        isBackButtonPressed = true
-        super.onBackPressed()
-    }
+        val animFadein = AnimationUtils.loadAnimation(applicationContext, R.anim.fadein)
+        logo?.startAnimation(animFadein)
+        title?.startAnimation(animFadein)
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
-    override fun onSensorChanged(event: SensorEvent) {
-    }
-
-    override fun onAccuracyChanged(sensor: Sensor, accuracy: Int) {
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (!isBackButtonPressed) {
+                val intent = Intent(this@Splash, MainActivity2::class.java)
+                startActivity(intent)
+                overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+                finish()
+            }
+        }, SPLASH_DURATION)
     }
 }

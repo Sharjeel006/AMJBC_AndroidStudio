@@ -1,0 +1,36 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Top Finial / Crescent Pin -->
+    <path
+        android:fillColor="@color/splash_fg"
+        android:pathData="M 49,6 C 49,4.5 50,3 50,3 C 50,3 51,4.5 51,6 L 51,12 C 51,12 50,13 50,13 C 50,13 49,12 49,12 Z M 48,13 L 52,13 L 52,16 L 48,16 Z M 49.5,16 L 50.5,16 L 50.5,22 L 49.5,22 Z" />
+
+    <!-- Main Dome -->
+    <path
+        android:fillColor="@color/splash_fg"
+        android:pathData="M 50,22 C 32,32 26,48 26,50 L 74,50 C 74,48 68,32 50,22 Z" />
+
+    <!-- Horizontal Ledge Bar -->
+    <path
+        android:fillColor="@color/splash_accent"
+        android:pathData="M 22,51 L 78,51 A 3,3 0 0,1 78,57 L 22,57 A 3,3 0 0,1 22,51 Z" />
+
+    <!-- Left Arch -->
+    <path
+        android:fillColor="@color/splash_fg"
+        android:pathData="M 26,58 L 38,58 L 38,76 C 38,76 38,68 32,68 C 26,68 26,76 26,76 Z" />
+
+    <!-- Center Arch -->
+    <path
+        android:fillColor="@color/splash_fg"
+        android:pathData="M 44,58 L 56,58 L 56,76 C 56,76 56,68 50,68 C 44,68 44,76 44,76 Z" />
+
+    <!-- Right Arch -->
+    <path
+        android:fillColor="@color/splash_fg"
+        android:pathData="M 62,58 L 74,58 L 74,76 C 74,76 74,68 68,68 C 62,68 62,76 62,76 Z" />
+</vector>

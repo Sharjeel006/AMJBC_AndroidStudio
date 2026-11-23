@@ -2164,6 +2164,9 @@ color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
+color splash_accent
+color splash_bg
+color splash_fg
 color sunrise_icon
 color sunset_icon
 color switch_thumb_disabled_material_dark
@@ -3176,6 +3179,7 @@ drawable ic_refresh_4
 drawable ic_search_black_24
 drawable ic_sehr_sunrise
 drawable ic_settings
+drawable ic_splash_mosque
 drawable ic_sun
 drawable ic_suncloud
 drawable ic_sunrise
@@ -3731,7 +3735,6 @@ id position
 id postLayout
 id prayer_icon
 id pressed
-id progressBar1
 id progress_circular
 id progress_horizontal
 id radio
@@ -3853,9 +3856,7 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView1
-id textView11
 id textView2
-id textView22
 id textView9
 id text_input_end_icon
 id text_input_error_icon
@@ -3952,7 +3953,6 @@ id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
 id wakfejadeed
-id waveAnimation
 id webview
 id west
 id wide

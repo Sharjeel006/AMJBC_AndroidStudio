@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Splash Screen Colors (Dark Mode) -->
+    <color name="splash_bg">#0F2A20</color>
+    <color name="splash_fg">#D8E8DD</color>
+    <color name="splash_accent">#4D7A68</color>
+</resources>
