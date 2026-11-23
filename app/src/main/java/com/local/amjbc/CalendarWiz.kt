@@ -35,13 +35,6 @@ class CalendarWiz : Fragment() {
         }
 
         webView!!.webChromeClient = object : WebChromeClient() {
-            override fun onProgressChanged(view: WebView?, newProgress: Int) {
-                if (newProgress > 50) {
-                    injectHideBannerJs(view)
-                }
-                super.onProgressChanged(view, newProgress)
-            }
-
             override fun onCreateWindow(
                 view: WebView?,
                 isDialog: Boolean,
@@ -71,7 +64,6 @@ class CalendarWiz : Fragment() {
             }
 
             override fun onPageFinished(view: WebView, url: String) {
-                injectHideBannerJs(view)
                 if (pd != null && pd.isShowing) {
                     pd.dismiss()
                 }
@@ -86,46 +78,9 @@ class CalendarWiz : Fragment() {
             false
         })
 
-        webView!!.loadUrl("https://script.google.com/macros/s/AKfycbwlbP-xme8Ae4KSzgFLjoOwSCgpZAE40LfFVY7t10jaCbigAMm4lkF7RRadhufwfP1Tqw/exec?page=Calendar")
+        webView!!.loadUrl("https://sites.google.com/ahmadiyya.ca/vancouverimaratcalendar")
 
         return rootView
-    }
-
-    private fun injectHideBannerJs(view: WebView?) {
-        val js = """
-            (function() {
-                try {
-                    var style = document.getElementById('hide-gas-banner-style');
-                    if (!style) {
-                        style = document.createElement('style');
-                        style.id = 'hide-gas-banner-style';
-                        style.type = 'text/css';
-                        style.innerHTML = '.script-application-sidebar-banner, .apps-script-notice, div.script-application-banner, table.script-application-banner { display: none !important; visibility: hidden !important; height: 0 !important; }';
-                        (document.head || document.documentElement).appendChild(style);
-                    }
-                    var links = document.getElementsByTagName('a');
-                    for (var i = 0; i < links.length; i++) {
-                        var a = links[i];
-                        var text = a.innerText || a.textContent || '';
-                        var href = a.href || '';
-                        if (href.indexOf('ReportAbuse') !== -1 || href.indexOf('report-abuse') !== -1 || text.indexOf('Report abuse') !== -1) {
-                            var parent = a.parentElement;
-                            while (parent && parent.tagName !== 'BODY' && parent.tagName !== 'HTML') {
-                                if (parent.offsetHeight > 0 && parent.offsetHeight < 120) {
-                                    parent.style.display = 'none';
-                                    parent.style.visibility = 'hidden';
-                                    parent.style.height = '0px';
-                                    break;
-                                }
-                                parent = parent.parentElement;
-                            }
-                        }
-                    }
-                } catch(e) {}
-            })();
-        """.trimIndent()
-
-        view?.evaluateJavascript(js, null)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
