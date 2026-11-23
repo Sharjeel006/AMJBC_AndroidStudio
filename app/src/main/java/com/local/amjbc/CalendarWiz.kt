@@ -1,9 +1,6 @@
 package com.local.amjbc
 
 import android.app.ProgressDialog
-import android.content.Intent
-import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.webkit.*
@@ -25,10 +22,11 @@ class CalendarWiz : Fragment() {
         webView = rootView.findViewById<View>(R.id.webview) as WebView
         webView!!.settings.javaScriptEnabled = true
         webView!!.settings.domStorageEnabled = true
+        webView!!.settings.databaseEnabled = true
 
         webView!!.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
-                if (newProgress > 15) {
+                if (newProgress > 60) {
                     injectHideBannerJs(view)
                 }
                 super.onProgressChanged(view, newProgress)
@@ -36,11 +34,6 @@ class CalendarWiz : Fragment() {
         }
 
         webView!!.webViewClient = object : WebViewClient() {
-            override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
-                super.onPageStarted(view, url, favicon)
-                injectHideBannerJs(view)
-            }
-
             override fun onPageFinished(view: WebView, url: String) {
                 injectHideBannerJs(view)
                 if (pd != null && pd.isShowing) {
@@ -56,32 +49,34 @@ class CalendarWiz : Fragment() {
     private fun injectHideBannerJs(view: WebView?) {
         val js = """
             (function() {
-                var hideBanner = function() {
+                try {
                     var style = document.getElementById('hide-gas-banner-style');
                     if (!style) {
                         style = document.createElement('style');
                         style.id = 'hide-gas-banner-style';
                         style.type = 'text/css';
-                        style.innerHTML = '.script-application-sidebar-banner, .apps-script-notice, div.script-application-banner, div[role="alert"] { display: none !important; visibility: hidden !important; height: 0 !important; }';
+                        style.innerHTML = '.script-application-sidebar-banner, .apps-script-notice, div.script-application-banner, table.script-application-banner { display: none !important; visibility: hidden !important; height: 0 !important; }';
                         (document.head || document.documentElement).appendChild(style);
                     }
-                    var elements = document.querySelectorAll('div, td, table, header, section, tr');
-                    for (var i = 0; i < elements.length; i++) {
-                        var el = elements[i];
-                        if (el.innerText && (el.innerText.indexOf('created by a Google Apps Script user') !== -1 || el.innerText.indexOf('Report abuse') !== -1)) {
-                            if (el.children.length < 5) {
-                                el.style.display = 'none';
-                                el.style.height = '0px';
-                                el.style.visibility = 'hidden';
+                    var links = document.getElementsByTagName('a');
+                    for (var i = 0; i < links.length; i++) {
+                        var a = links[i];
+                        var text = a.innerText || a.textContent || '';
+                        var href = a.href || '';
+                        if (href.indexOf('ReportAbuse') !== -1 || href.indexOf('report-abuse') !== -1 || text.indexOf('Report abuse') !== -1) {
+                            var parent = a.parentElement;
+                            while (parent && parent.tagName !== 'BODY' && parent.tagName !== 'HTML') {
+                                if (parent.offsetHeight > 0 && parent.offsetHeight < 120) {
+                                    parent.style.display = 'none';
+                                    parent.style.visibility = 'hidden';
+                                    parent.style.height = '0px';
+                                    break;
+                                }
+                                parent = parent.parentElement;
                             }
                         }
                     }
-                };
-                hideBanner();
-                setTimeout(hideBanner, 200);
-                setTimeout(hideBanner, 500);
-                setTimeout(hideBanner, 1000);
-                setTimeout(hideBanner, 2000);
+                } catch(e) {}
             })();
         """.trimIndent()
 
@@ -101,17 +96,5 @@ class CalendarWiz : Fragment() {
             menu.findItem(R.id.datepicker).isVisible = false
         }
         super.onPrepareOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.suggest_event -> {
-                val url = "https://script.google.com/macros/s/AKfycbwlbP-xme8Ae4KSzgFLjoOwSCgpZAE40LfFVY7t10jaCbigAMm4lkF7RRadhufwfP1Tqw/exec"
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-                startActivity(intent)
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 }
