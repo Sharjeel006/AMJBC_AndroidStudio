@@ -1,7 +1,9 @@
 package com.local.amjbc
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.webkit.*
@@ -27,7 +29,7 @@ class CalendarWiz : Fragment() {
             domStorageEnabled = true
             databaseEnabled = true
             javaScriptCanOpenWindowsAutomatically = true
-            setSupportMultipleWindows(false)
+            setSupportMultipleWindows(true)
             allowFileAccess = true
             allowContentAccess = true
             loadWithOverviewMode = false
@@ -56,7 +58,13 @@ class CalendarWiz : Fragment() {
                 newWebView.webViewClient = object : WebViewClient() {
                     override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
                         val url = request?.url?.toString() ?: return false
-                        webView?.loadUrl(url)
+                        handleUrlLoading(url)
+                        return true
+                    }
+
+                    override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                        if (url == null) return false
+                        handleUrlLoading(url)
                         return true
                     }
                 }
@@ -75,8 +83,12 @@ class CalendarWiz : Fragment() {
 
             override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
                 val url = request?.url?.toString() ?: return false
-                view?.loadUrl(url)
-                return true
+                return handleUrlLoading(url)
+            }
+
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                if (url == null) return false
+                return handleUrlLoading(url)
             }
 
             override fun onPageFinished(view: WebView, url: String) {
@@ -98,6 +110,21 @@ class CalendarWiz : Fragment() {
         webView!!.loadUrl("https://sites.google.com/ahmadiyya.ca/vancouverimaratcalendar")
 
         return rootView
+    }
+
+    private fun handleUrlLoading(url: String): Boolean {
+        if (url.startsWith("https://sites.google.com/")) {
+            webView?.loadUrl(url)
+            return true
+        } else {
+            try {
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+                startActivity(intent)
+            } catch (e: Exception) {
+                webView?.loadUrl(url)
+            }
+            return true
+        }
     }
 
     private fun injectFullWidthCss(view: WebView?) {
