@@ -3374,7 +3374,6 @@ id beginning
 id below
 id bestChoice
 id blocking
-id blue_bar
 id bottom
 id bounce
 id bounceBoth
@@ -3383,7 +3382,6 @@ id bounceStart
 id btn_full_calendar
 id btn_next_day
 id btn_prev_day
-id btn_request_booking
 id buttonPanel
 id cache_measures
 id calendarView1

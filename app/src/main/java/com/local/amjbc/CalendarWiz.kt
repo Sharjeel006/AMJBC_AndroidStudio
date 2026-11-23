@@ -30,14 +30,7 @@ class CalendarWiz : Fragment() {
                 }
             }
         }
-        webView!!.loadUrl("https://www.calendarwiz.com/mobile.html?crd=baitur-rahman")
-
-        val btnRequestBooking = rootView.findViewById<View>(R.id.btn_request_booking)
-        btnRequestBooking?.setOnClickListener {
-            val url = "https://script.google.com/macros/s/AKfycbwlbP-xme8Ae4KSzgFLjoOwSCgpZAE40LfFVY7t10jaCbigAMm4lkF7RRadhufwfP1Tqw/exec"
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
-            startActivity(intent)
-        }
+        webView!!.loadUrl("https://script.google.com/macros/s/AKfycbwlbP-xme8Ae4KSzgFLjoOwSCgpZAE40LfFVY7t10jaCbigAMm4lkF7RRadhufwfP1Tqw/exec?page=Calendar")
 
         return rootView
     }
