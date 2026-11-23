@@ -40,7 +40,7 @@ class CalendarWiz : Fragment() {
 
         webView!!.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
-                if (newProgress > 10) {
+                if (newProgress > 5) {
                     injectFullWidthCss(view)
                 }
                 super.onProgressChanged(view, newProgress)
@@ -104,13 +104,35 @@ class CalendarWiz : Fragment() {
         val js = """
             (function() {
                 try {
-                    var style = document.getElementById('full-width-edge-style');
-                    if (!style) {
-                        style = document.createElement('style');
-                        style.id = 'full-width-edge-style';
-                        style.type = 'text/css';
-                        style.innerHTML = 'html, body, #sites-canvas, .sites-canvas, .sites-page-main, div[role="main"], section, main, .Xp439d, .o5R36e, .R61A4, .Sbh32e, .sites-layout-tile, .U39P4e, .y1eMld { margin: 0 !important; padding: 0 !important; max-width: 100vw !important; width: 100% !important; box-sizing: border-box !important; }';
-                        (document.head || document.documentElement).appendChild(style);
+                    var enforceFullWidth = function() {
+                        var style = document.getElementById('full-width-edge-style');
+                        if (!style) {
+                            style = document.createElement('style');
+                            style.id = 'full-width-edge-style';
+                            style.type = 'text/css';
+                            style.innerHTML = '* { box-sizing: border-box !important; } html, body, #sites-canvas, .sites-canvas, .sites-page-main, div[role="main"], section, main, iframe, div, article { margin-left: 0 !important; margin-right: 0 !important; padding-left: 0 !important; padding-right: 0 !important; max-width: 100vw !important; width: 100% !important; }';
+                            (document.head || document.documentElement).appendChild(style);
+                        }
+                        var elements = document.querySelectorAll('div, section, main, iframe, article, body');
+                        for (var i = 0; i < elements.length; i++) {
+                            var el = elements[i];
+                            el.style.setProperty('margin-left', '0px', 'important');
+                            el.style.setProperty('margin-right', '0px', 'important');
+                            el.style.setProperty('padding-left', '0px', 'important');
+                            el.style.setProperty('padding-right', '0px', 'important');
+                            el.style.setProperty('max-width', '100vw', 'important');
+                            el.style.setProperty('width', '100%', 'important');
+                        }
+                    };
+
+                    enforceFullWidth();
+                    if (!window.__fullWidthObserver) {
+                        window.__fullWidthObserver = true;
+                        setInterval(enforceFullWidth, 400);
+                        if (window.MutationObserver) {
+                            var observer = new MutationObserver(enforceFullWidth);
+                            observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+                        }
                     }
                 } catch(e) {}
             })();
