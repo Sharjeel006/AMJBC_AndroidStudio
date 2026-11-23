@@ -20,20 +20,56 @@ class CalendarWiz : Fragment() {
         val pd = ProgressDialog.show(activity, "", "Loading...", true)
 
         webView = rootView.findViewById<View>(R.id.webview) as WebView
-        webView!!.settings.javaScriptEnabled = true
-        webView!!.settings.domStorageEnabled = true
-        webView!!.settings.databaseEnabled = true
+
+        webView!!.settings.apply {
+            javaScriptEnabled = true
+            domStorageEnabled = true
+            databaseEnabled = true
+            javaScriptCanOpenWindowsAutomatically = true
+            setSupportMultipleWindows(false)
+            allowFileAccess = true
+            allowContentAccess = true
+            loadWithOverviewMode = true
+            useWideViewPort = true
+            mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+        }
 
         webView!!.webChromeClient = object : WebChromeClient() {
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
-                if (newProgress > 60) {
+                if (newProgress > 50) {
                     injectHideBannerJs(view)
                 }
                 super.onProgressChanged(view, newProgress)
             }
+
+            override fun onCreateWindow(
+                view: WebView?,
+                isDialog: Boolean,
+                isUserGesture: Boolean,
+                resultMsg: android.os.Message?
+            ): Boolean {
+                val newWebView = WebView(requireContext())
+                newWebView.webViewClient = object : WebViewClient() {
+                    override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                        val url = request?.url?.toString() ?: return false
+                        webView?.loadUrl(url)
+                        return true
+                    }
+                }
+                val transport = resultMsg?.obj as? WebView.WebViewTransport
+                transport?.webView = newWebView
+                resultMsg?.sendToTarget()
+                return true
+            }
         }
 
         webView!!.webViewClient = object : WebViewClient() {
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                val url = request?.url?.toString() ?: return false
+                view?.loadUrl(url)
+                return true
+            }
+
             override fun onPageFinished(view: WebView, url: String) {
                 injectHideBannerJs(view)
                 if (pd != null && pd.isShowing) {
@@ -41,6 +77,15 @@ class CalendarWiz : Fragment() {
                 }
             }
         }
+
+        webView!!.setOnKeyListener(View.OnKeyListener { _, keyCode, event ->
+            if (keyCode == KeyEvent.KEYCODE_BACK && event.action == KeyEvent.ACTION_UP && webView!!.canGoBack()) {
+                webView!!.goBack()
+                return@OnKeyListener true
+            }
+            false
+        })
+
         webView!!.loadUrl("https://script.google.com/macros/s/AKfycbwlbP-xme8Ae4KSzgFLjoOwSCgpZAE40LfFVY7t10jaCbigAMm4lkF7RRadhufwfP1Tqw/exec?page=Calendar")
 
         return rootView
