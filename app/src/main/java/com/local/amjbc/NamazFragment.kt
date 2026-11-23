@@ -439,6 +439,8 @@ class NamazFragment : Fragment() {
         var nextPrayerIndex = -1
         var minDiff = Long.MAX_VALUE
 
+        val isFriday = c.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY
+
         val prayerNames = arrayOf("Fajr", "Dhuhr", "Asr", "Maghrib", "Isha")
         val statusLabels = arrayOf("Before Fajr", "After Fajr", "After Dhuhr", "After Asr", "After Maghrib")
 
@@ -446,7 +448,14 @@ class NamazFragment : Fragment() {
             try {
                 if (timings!!.size <= i) break
 
-                val timeStr = timings!![i]
+                var timeStr = timings!![i]
+                if (i == 1 && isFriday) {
+                    val jumaStr = juma_time?.text?.toString()
+                    if (!jumaStr.isNullOrBlank() && jumaStr != "...") {
+                        timeStr = jumaStr
+                    }
+                }
+
                 val prayerTime = sdf.parse(timeStr) ?: continue
 
                 val prayerCal = Calendar.getInstance()
@@ -466,12 +475,22 @@ class NamazFragment : Fragment() {
         }
 
         if (nextPrayerIndex != -1) {
-            val name = prayerNames[nextPrayerIndex]
-            tvNextPrayerName?.text = name
-            tvNextPrayerTime?.text = timings!![nextPrayerIndex]
+            val isNextJumuah = (nextPrayerIndex == 1 && isFriday)
+            val displayName = if (isNextJumuah) "Jumu'ah" else prayerNames[nextPrayerIndex]
+
+            var displayTime = timings!![nextPrayerIndex]
+            if (isNextJumuah) {
+                val jumaStr = juma_time?.text?.toString()
+                if (!jumaStr.isNullOrBlank() && jumaStr != "...") {
+                    displayTime = jumaStr
+                }
+            }
+
+            tvNextPrayerName?.text = displayName
+            tvNextPrayerTime?.text = displayTime
             label?.text = "UPCOMING PRAYER"
             tvPrevPrayerStatus?.text = statusLabels[nextPrayerIndex]
-            adapter?.setActivePrayer(name)
+            adapter?.setActivePrayer(prayerNames[nextPrayerIndex])
 
             val totalMinutes = minDiff / (1000 * 60)
             val hours = totalMinutes / 60
@@ -483,7 +502,7 @@ class NamazFragment : Fragment() {
                 tvNextPrayerCountdown?.text = "in ${minutes}m"
             }
 
-            updateProgressBar(nextPrayerIndex, now, sdf)
+            updateProgressBar(nextPrayerIndex, now, sdf, isFriday)
 
         } else {
             tvNextPrayerName?.text = "Fajr"
@@ -520,9 +539,16 @@ class NamazFragment : Fragment() {
         }
     }
 
-    private fun updateProgressBar(nextIndex: Int, now: Calendar, sdf: SimpleDateFormat) {
+    private fun updateProgressBar(nextIndex: Int, now: Calendar, sdf: SimpleDateFormat, isFriday: Boolean = false) {
         try {
-            val nextTimeStr = timings!![nextIndex]
+            var nextTimeStr = timings!![nextIndex]
+            if (nextIndex == 1 && isFriday) {
+                val jumaStr = juma_time?.text?.toString()
+                if (!jumaStr.isNullOrBlank() && jumaStr != "...") {
+                    nextTimeStr = jumaStr
+                }
+            }
+
             val nextTime = sdf.parse(nextTimeStr) ?: return
             val nextCal = Calendar.getInstance().apply {
                 time = nextTime
