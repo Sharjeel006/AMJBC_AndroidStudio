@@ -25,31 +25,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:text="Ramadan"
+                    android:textColor="#0F4E36"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/tv_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ramadan"
-                        android:textColor="#0F4E36"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tv_subtitle"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Vancouver Imarat"
-                        android:textColor="#64748B"
-                        android:textSize="13sp" />
-                </LinearLayout>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_arabic_calligraphy"
@@ -57,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:text="رمضان"
                     android:textColor="#0F4E36"
-                    android:textSize="22sp"
+                    android:textSize="24sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

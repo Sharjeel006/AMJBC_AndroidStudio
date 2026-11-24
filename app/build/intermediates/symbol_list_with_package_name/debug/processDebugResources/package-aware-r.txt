@@ -3933,7 +3933,6 @@ id tv_sehr_label
 id tv_settings_header
 id tv_subtitle
 id tv_title
-id tv_title_main
 id unchecked
 id uniform
 id unlabeled
