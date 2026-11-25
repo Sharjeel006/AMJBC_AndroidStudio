@@ -3544,7 +3544,6 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
-id guideline_vertical
 id hangoutTvOne
 id hangoutTvThree
 id hangoutTvTwo
@@ -3585,7 +3584,6 @@ id juma_title
 id jumatimeid
 id jumpToEnd
 id jumpToStart
-id jumuah_reminder_container
 id jumuah_reminder_toggle
 id jumuah_text_container
 id key_1
