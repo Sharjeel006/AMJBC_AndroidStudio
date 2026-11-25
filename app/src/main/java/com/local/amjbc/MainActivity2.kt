@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -27,9 +28,12 @@ class MainActivity2 : AppCompatActivity() {
     private lateinit var inAppUpdateManager: InAppUpdateManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        title = "AMJBC"
+
+        val screenTitle = getString(R.string.screen_title)
+        title = screenTitle
         val navView = findViewById<BottomNavigationView>(R.id.nav_view)
         navView.background = ColorDrawable(Color.WHITE)
         navView.itemIconTintList = android.content.res.ColorStateList.valueOf(Color.BLACK)
@@ -38,8 +42,7 @@ class MainActivity2 : AppCompatActivity() {
 
         supportActionBar?.apply {
             setBackgroundDrawable(ColorDrawable(Color.WHITE))
-            setTitle("AMJBC")
-            val text = android.text.SpannableString(title)
+            val text = android.text.SpannableString(screenTitle)
             text.setSpan(android.text.style.ForegroundColorSpan(Color.BLACK), 0, text.length, android.text.Spannable.SPAN_INCLUSIVE_INCLUSIVE)
             title = text
         }

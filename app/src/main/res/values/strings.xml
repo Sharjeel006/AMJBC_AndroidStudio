@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">AMJBC</string>
+    <string name="screen_title">Vancouver Imarat</string>
     <string name="action_settings">Settings</string>
     <string name="request_booking_material">Request Booking/Material</string>
     <string name="dot">_</string>

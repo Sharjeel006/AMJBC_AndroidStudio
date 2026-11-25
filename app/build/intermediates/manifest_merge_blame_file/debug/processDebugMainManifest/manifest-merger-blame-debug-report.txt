@@ -48,7 +48,7 @@
 27-->[androidx.core:core:1.13.0] C:\Users\Sharjeel\.gradle\caches\8.10.2\transforms\ee5810f44d60a2972d04faa9a62d3e2b\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 28
 29    <application
-29-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:16:5-66:19
+29-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:16:5-59:19
 30        android:name="com.local.amjbc.Application"
 30-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:17:9-36
 31        android:debuggable="true"
@@ -64,78 +64,66 @@
 37        android:usesCleartextTraffic="true" >
 37-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:22:9-44
 38        <activity
-38-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:25:9-35:20
-39            android:name="com.local.amjbc.Splash"
-39-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:26:13-35
+38-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:25:9-33:20
+39            android:name="com.local.amjbc.MainActivity2"
+39-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:26:13-42
 40            android:exported="true"
 40-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:27:13-36
-41            android:label="@string/title_activity_splash"
-41-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:28:13-58
-42            android:screenOrientation="portrait"
-42-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:29:13-49
-43            android:theme="@style/AppTheme2" >
-43-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:30:13-45
-44            <intent-filter>
-44-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:31:13-34:29
-45                <action android:name="android.intent.action.MAIN" />
-45-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:32:17-69
-45-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:32:25-66
-46
-47                <category android:name="android.intent.category.LAUNCHER" />
-47-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:33:17-77
-47-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:33:27-74
-48            </intent-filter>
-49        </activity>
-50        <activity
-50-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:37:9-40:47
-51            android:name="com.local.amjbc.MainActivity2"
-51-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:38:13-42
-52            android:exported="false"
-52-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:39:13-37
-53            android:theme="@style/AppTheme" />
-53-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:40:13-44
+41            android:theme="@style/Theme.App.Starting" >
+41-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:28:13-54
+42            <intent-filter>
+42-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:29:13-32:29
+43                <action android:name="android.intent.action.MAIN" />
+43-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:30:17-69
+43-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:30:25-66
+44
+45                <category android:name="android.intent.category.LAUNCHER" />
+45-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:31:17-77
+45-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:31:27-74
+46            </intent-filter>
+47        </activity>
+48
+49        <uses-library
+49-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:35:9-37:40
+50            android:name="org.apache.http.legacy"
+50-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:36:13-50
+51            android:required="false" />
+51-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:37:13-37
+52
+53        <activity android:name="com.local.amjbc.chandacal.DetailActivity" />
+53-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:39:9-62
+53-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:39:19-59
 54
-55        <uses-library
-55-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:42:9-44:40
-56            android:name="org.apache.http.legacy"
-56-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:43:13-50
-57            android:required="false" />
-57-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:44:13-37
+55        <receiver
+55-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:41:9-43:40
+56            android:name="com.local.amjbc.NotificationPublisher"
+56-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:42:13-50
+57            android:exported="false" />
+57-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:43:13-37
 58
-59        <activity android:name="com.local.amjbc.chandacal.DetailActivity" />
-59-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:46:9-62
-59-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:46:19-59
-60
-61        <receiver
-61-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:48:9-50:40
-62            android:name="com.local.amjbc.NotificationPublisher"
-62-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:49:13-50
-63            android:exported="false" />
-63-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:50:13-37
-64
-65        <service
-65-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:52:9-58:19
-66            android:name="com.local.amjbc.MyFirebaseMessagingService"
-66-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:53:13-55
-67            android:exported="false" >
-67-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:54:13-37
-68            <intent-filter>
-68-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:55:13-57:29
-69                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-69-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:56:17-78
-69-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:56:25-75
-70            </intent-filter>
-71        </service>
-72        <service android:name="com.local.amjbc.chandacal.SyncService" />
-72-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:60:9-58
-72-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:60:18-55
-73
-74        <receiver
-74-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:62:9-64:40
-75            android:name="com.local.amjbc.PrayerReminderReceiver"
-75-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:63:13-51
-76            android:exported="false" />
-76-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:64:13-37
-77    </application>
-78
-79</manifest>
+59        <service
+59-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:45:9-51:19
+60            android:name="com.local.amjbc.MyFirebaseMessagingService"
+60-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:46:13-55
+61            android:exported="false" >
+61-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:47:13-37
+62            <intent-filter>
+62-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:48:13-50:29
+63                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+63-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:49:17-78
+63-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:49:25-75
+64            </intent-filter>
+65        </service>
+66        <service android:name="com.local.amjbc.chandacal.SyncService" />
+66-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:53:9-58
+66-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:53:18-55
+67
+68        <receiver
+68-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:55:9-57:40
+69            android:name="com.local.amjbc.PrayerReminderReceiver"
+69-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:56:13-51
+70            android:exported="false" />
+70-->C:\Users\Sharjeel\Documents\AMJBC_AndroidStudio-20241010T070555Z-001\AMJBC_AndroidStudio\app\src\main\AndroidManifest.xml:57:13-37
+71    </application>
+72
+73</manifest>

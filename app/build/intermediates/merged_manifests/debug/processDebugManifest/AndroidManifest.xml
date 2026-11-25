@@ -36,21 +36,15 @@
         android:theme="@style/AppTheme2"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="com.local.amjbc.Splash"
+            android:name="com.local.amjbc.MainActivity2"
             android:exported="true"
-            android:label="@string/title_activity_splash"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme2" >
+            android:theme="@style/Theme.App.Starting" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.local.amjbc.MainActivity2"
-            android:exported="false"
-            android:theme="@style/AppTheme" />
 
         <uses-library
             android:name="org.apache.http.legacy"

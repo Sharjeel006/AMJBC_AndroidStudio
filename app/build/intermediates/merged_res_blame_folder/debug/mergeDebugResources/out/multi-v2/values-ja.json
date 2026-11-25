@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.local.amjbc.app-mergeDebugResources-41:/values-ja/values-ja.xml",
+            "outputFile": "com.local.amjbc.app-mergeDebugResources-42:/values-ja/values-ja.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Sharjeel\\.gradle\\caches\\8.10.2\\transforms\\ef826d83d195ac822e267e5d4dbe9942\\transformed\\jetified-firebase-messaging-20.3.0\\res\\values-ja\\values.xml",
