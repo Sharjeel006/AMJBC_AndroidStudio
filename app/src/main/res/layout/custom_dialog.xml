@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Select Date"
-                android:textColor="#0C3E57"
+                android:textColor="#14523C"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -60,7 +60,7 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:backgroundTint="#287AA9"
+            app:backgroundTint="#14523C"
             app:cornerRadius="12dp"
             app:elevation="2dp" />
 

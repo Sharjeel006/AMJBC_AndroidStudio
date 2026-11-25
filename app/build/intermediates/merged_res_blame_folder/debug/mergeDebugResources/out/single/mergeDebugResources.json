@@ -12,12 +12,12 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\drawable-hdpi\\ic_clock_4.png"
     },
     {
-        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\layout_other_chandas.xml.flat",
-        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\layout\\other_chandas.xml"
-    },
-    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\drawable_ic_sehr_sunrise.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\drawable\\ic_sehr_sunrise.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\layout_other_chandas.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\layout\\other_chandas.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\layout_item_ramzan_day.xml.flat",
@@ -76,20 +76,20 @@
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\drawable\\bg_day_circle.xml"
     },
     {
-        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\anim_hyperspaceout.xml.flat",
-        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\anim\\hyperspaceout.xml"
-    },
-    {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\animator_fade_in.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\animator\\fade_in.xml"
     },
     {
-        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\drawable-hdpi_ic_settings.png.flat",
-        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\drawable-hdpi\\ic_settings.png"
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\anim_hyperspaceout.xml.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\anim\\hyperspaceout.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\anim_pushleftin.xml.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\anim\\pushleftin.xml"
+    },
+    {
+        "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\drawable-hdpi_ic_settings.png.flat",
+        "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\drawable-hdpi\\ic_settings.png"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\drawable_ic_mosque.png.flat",
@@ -174,6 +174,10 @@
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\drawable-hdpi_ic_suncloud.png.flat",
         "source": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-main-46:\\drawable-hdpi\\ic_suncloud.png"
+    },
+    {
+        "merged": "com.local.amjbc.app-debug-44:/layout_custom_dialog.xml.flat",
+        "source": "com.local.amjbc.app-main-46:/layout/custom_dialog.xml"
     },
     {
         "merged": "C:\\Users\\Sharjeel\\.gradle\\daemon\\8.10.2\\com.local.amjbc.app-debug-44:\\layout_activity_main2.xml.flat",
