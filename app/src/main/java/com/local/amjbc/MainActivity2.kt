@@ -8,11 +8,11 @@ import android.view.Menu
 import android.view.View
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.local.amjbc.chandacal.ChandaCal
+import com.local.amjbc.update.InAppUpdateManager
 
 class MainActivity2 : AppCompatActivity() {
 
@@ -24,11 +24,12 @@ class MainActivity2 : AppCompatActivity() {
     private var active = fragment1
 
     private var bottomNavigationView: BottomNavigationView? = null
+    private lateinit var inAppUpdateManager: InAppUpdateManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        title = "Vancouver Imarat"
+        title = "AMJBC"
         val navView = findViewById<BottomNavigationView>(R.id.nav_view)
         navView.background = ColorDrawable(Color.WHITE)
         navView.itemIconTintList = android.content.res.ColorStateList.valueOf(Color.BLACK)
@@ -37,13 +38,11 @@ class MainActivity2 : AppCompatActivity() {
 
         supportActionBar?.apply {
             setBackgroundDrawable(ColorDrawable(Color.WHITE))
-            setTitle("Vancouver Imarat")
-            // Set title text color to black
+            setTitle("AMJBC")
             val text = android.text.SpannableString(title)
             text.setSpan(android.text.style.ForegroundColorSpan(Color.BLACK), 0, text.length, android.text.Spannable.SPAN_INCLUSIVE_INCLUSIVE)
             title = text
         }
-
 
         val window = window
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
@@ -53,12 +52,14 @@ class MainActivity2 : AppCompatActivity() {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
 
-
         fm.beginTransaction().add(R.id.content_frame2, fragment3, "3").hide(fragment3).commit()
         fm.beginTransaction().add(R.id.content_frame2, fragment2, "2").hide(fragment2).commit()
         fm.beginTransaction().add(R.id.content_frame2, fragment4, "4").hide(fragment4).commit()
         fm.beginTransaction().add(R.id.content_frame2, fragment1, "1").commit()
 
+        // Initialize and check Google Play In-App Updates
+        inAppUpdateManager = InAppUpdateManager(this)
+        inAppUpdateManager.checkForAppUpdate()
     }
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -108,9 +109,7 @@ class MainActivity2 : AppCompatActivity() {
         false
     }
 
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
     }

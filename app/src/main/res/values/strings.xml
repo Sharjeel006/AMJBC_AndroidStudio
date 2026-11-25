@@ -82,6 +82,10 @@
     <string name="title_events">Events</string>
     <string name="title_ramzan">Ramadan</string>
 
+    <!-- In-App Updates -->
+    <string name="update_downloaded_message">An update has been downloaded.</string>
+    <string name="update_restart_action">Restart</string>
+
     <string name="facebook_app_id">723696761720538</string>
     <string name="fb_login_protocol_scheme">fb723696761720538</string>
     <string name="baitur_rahman_baitul_hamd"><![CDATA[Baitur Rahman & Baitul Hamd]]></string>

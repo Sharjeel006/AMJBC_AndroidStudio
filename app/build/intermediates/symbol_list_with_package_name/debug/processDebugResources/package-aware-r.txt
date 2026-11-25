@@ -4392,6 +4392,8 @@ string title_activity_splash
 string title_events
 string title_home
 string title_ramzan
+string update_downloaded_message
+string update_restart_action
 string version
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
@@ -5030,6 +5032,7 @@ style Theme_MaterialComponents_Light_NoActionBar
 style Theme_MaterialComponents_Light_NoActionBar_Bridge
 style Theme_MaterialComponents_NoActionBar
 style Theme_MaterialComponents_NoActionBar_Bridge
+style Theme_PlayCore_Transparent
 style ThemeOverlay_AppCompat
 style ThemeOverlay_AppCompat_ActionBar
 style ThemeOverlay_AppCompat_Dark
